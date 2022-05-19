@@ -5,6 +5,8 @@
 npm
 npm-debug.log
 node_modules/
+dist/bundle.js
+config.js
 
 pids
 *.pid
@@ -25,6 +27,4 @@ build/
 
 
 .env
-bundle.js
-config.js
 *.map
