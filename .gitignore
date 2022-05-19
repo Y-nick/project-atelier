@@ -25,6 +25,6 @@ build/
 
 
 .env
-*.bundle.js
+bundle.js
 config.js
 *.map
