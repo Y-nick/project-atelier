@@ -4,8 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@testing-library/react": "^13.2.0",
+    "@types/jest": "^27.5.1",
+    "axios": "^0.27.2",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "jest": "^28.1.0",
+    "jest-dom": "^4.0.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-modal": "^3.15.1",
+    "react-test-renderer": "^18.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.12",
@@ -13,6 +22,10 @@
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
@@ -21,6 +34,7 @@
   "scripts": {
     "start": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "dev": "webpack serve --open"
+    "dev": "webpack serve --open",
+    "test": "jest --watchAll --verbose --coverage"
   }
 }
