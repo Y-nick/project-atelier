@@ -11,5 +11,5 @@ const App = () => {
   return <h1>Hello World</h1>
 }
 
-// render the root element with the provided component
+// render the root element with the provided component//
 root.render(<App />);
