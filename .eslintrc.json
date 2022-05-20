@@ -11,7 +11,16 @@
     "plugins": [
         "react"
     ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
     "rules": {
+        "import/extensions": [
+            2,
+            {
+                "jsx": "always"
+            }
+        ],
         "react/function-component-definition": [
             2,
             {
