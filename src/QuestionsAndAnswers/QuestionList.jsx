@@ -9,9 +9,7 @@ class QuestionList extends React.Component {
     this.state = {
       sampleItem: undefined,
       questions: [],
-      answers: [],
       questionIndex : 1,
-      answerIndex: 1
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
@@ -59,7 +57,7 @@ class QuestionList extends React.Component {
               return (
                 <div key={item.question_id}>
                   {index <= this.state.questionIndex ? 'Q: ' + item.question_body : <></>}
-                  <Question details={item}/>
+                  {index <= this.state.questionIndex ? <Question details={item}/> : <></>}
                 </div>
               )
             })
