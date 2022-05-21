@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 import Question from './Question.jsx';
+import AddQuestion from './AddQuestion.jsx';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ class QuestionList extends React.Component {
       sampleItem: undefined,
       questions: [],
       questionIndex : 1,
+      modalOpen: false,
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +49,10 @@ class QuestionList extends React.Component {
     })
   }
 
+  openModal() {
+    this.setState({modalOpen: true});
+  }
+
 
   render() {
     return (
@@ -61,8 +68,10 @@ class QuestionList extends React.Component {
                 </div>
               )
             })
-
           }</div>
+          <button>MORE ANSWERED QUESTIONS</button>
+          <button onClick={this.openModal}>ADD A QUESTION  +</button>
+          {this.state.modalOpen ? <AddQuestion /> : <></>}
       </div>
     );
   }
