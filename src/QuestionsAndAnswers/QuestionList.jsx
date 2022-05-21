@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
+import Question from './Question.jsx';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class QuestionList extends React.Component {
     this.state = {
       sampleItem: undefined,
       questions: [],
-      index : 1
+      answers: [],
+      questionIndex : 1,
+      answerIndex: 1
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
@@ -47,19 +50,21 @@ class QuestionList extends React.Component {
 
 
   render() {
-    console.log(this.state.questions[1])
     return (
       <div>
         <div>QUESTIONS AND ANSWERS</div>
         <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."></input>
-        <p>{
+        <div>{
             this.state.questions.map((item, index) => {
               return (
-                <div key={item.question_id}>{index <= this.state.index ? 'Q: ' + item.question_body : <></>}</div>
+                <div key={item.question_id}>
+                  {index <= this.state.questionIndex ? 'Q: ' + item.question_body : <></>}
+                  <Question details={item}/>
+                </div>
               )
             })
 
-          }</p>
+          }</div>
       </div>
     );
   }
