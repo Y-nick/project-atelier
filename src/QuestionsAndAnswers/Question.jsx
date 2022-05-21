@@ -5,7 +5,7 @@ class Question extends React.Component {
     super(props);
     this.state = {
       answers: [],
-      display : 1
+      display : 0
     };
 
   }
