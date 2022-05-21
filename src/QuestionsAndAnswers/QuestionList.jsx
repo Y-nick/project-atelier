@@ -6,7 +6,9 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sampleItem: undefined
+      sampleItem: undefined,
+      questions: [],
+      index : 1
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
@@ -45,8 +47,20 @@ class QuestionList extends React.Component {
 
 
   render() {
+    console.log(this.state.questions[1])
     return (
-      <div>QUESTIONS LIST MIC CHECK</div>
+      <div>
+        <div>QUESTIONS AND ANSWERS</div>
+        <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."></input>
+        <p>{
+            this.state.questions.map((item, index) => {
+              return (
+                <div key={item.question_id}>{index <= this.state.index ? 'Q: ' + item.question_body : <></>}</div>
+              )
+            })
+
+          }</p>
+      </div>
     );
   }
 }
