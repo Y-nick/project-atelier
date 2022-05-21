@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Breakdown extends React.Component {
+class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,10 +10,10 @@ class Breakdown extends React.Component {
   render() {
     return (
       <div>
-        <div>Breakdown</div>
+        <div>Review List</div>
       </div>
     );
   }
 }
 
-export default Breakdown;
+export default ReviewList;
