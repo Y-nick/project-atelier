@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './Modal.css';
 
 class WriteReviewModal extends React.Component {
   constructor(props) {
@@ -8,20 +9,30 @@ class WriteReviewModal extends React.Component {
     };
   }
 
-  clickHandlerClose = (e) => {
+  clickHandlerClose = () => {
     this.props.func(false);
   };
 
   render() {
     return (
-      <div className="modalBackground">
-        <div className="modal">
+      <div styles={Modal} className="modalBackground">
+        <div className="modalContainer">
           <button type="button" onClick={this.clickHandlerClose}> X </button>
           <div className="title">
             <h1>Please Write a Review</h1>
           </div>
-          <div className="body">This is the body</div>
-          <div className="footer">This is the footer</div>
+          <div className="body">Inputs</div>
+          <form>
+            <input type="text" />
+            <br />
+            <input type="text" />
+            <br />
+            <input type="text" />
+            <br />
+            <input type="text" />
+            <br />
+            <input type="text" />
+          </form>
         </div>
       </div>
     );

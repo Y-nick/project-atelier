@@ -1,0 +1,5 @@
+.grid-container2{
+  display: grid;
+  grid-template-rows: 30% 50% 20%;
+}
+
