@@ -12,7 +12,7 @@ class RatingsBreakdown extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="ratings breakdown">
         <div>Ratings Breakdown</div>
         <Breakdown />
         <Recommendations />

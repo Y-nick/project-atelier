@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewItem from './ReviewItem.jsx';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -9,8 +10,9 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="review list">
         <div>Review List</div>
+        <ReviewItem />
       </div>
     );
   }
