@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductInfo from './ProductInfo/ProductInfo.jsx';
 
 const apiRequest = require('./apiRequests');
 
@@ -7,15 +8,14 @@ class ProductDetails extends React.Component {
     super(props);
     this.state = {
       curProduct: {},
-      curStyles: {},
+      curStyle: {},
       review: {},
     };
-    // this.fetchProduct = this.fetchProduct.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(66642);
-    this.getStyles(66642);
+    this.getStyle(66642, 411534);
     this.getReview(66642);
   }
 
@@ -27,11 +27,17 @@ class ProductDetails extends React.Component {
       .catch((error) => console.log(error));
   };
 
-  getStyles = (productId) => {
+  getStyle = (productId, styleID) => {
     apiRequest.fetchStyles(productId)
-      .then((response) => this.setState({
-        curStyles: response.data,
-      }))
+      .then((response) => {
+        response.data.results.forEach((style) => {
+          if (style.style_id === styleID) {
+            this.setState({
+              curStyle: style,
+            });
+          }
+        });
+      })
       .catch((error) => console.log(error));
   };
 
@@ -44,11 +50,15 @@ class ProductDetails extends React.Component {
   };
 
   render() {
-    const { curProduct, curStyles, review } = this.state;
+    const { curProduct, curStyle, review } = this.state;
     return (
       <div>
         <div>Hello WORLD</div>
-        <div>{curProduct.campus}</div>
+        <ProductInfo
+          product={curProduct}
+          styleSale={curStyle.sale_price}
+          stylePrice={curStyle.original_price}
+        />
       </div>
     );
   }

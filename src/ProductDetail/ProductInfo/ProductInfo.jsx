@@ -1,17 +1,15 @@
 import React from 'react';
 
-const ProductInfo = (props) => {
+const ProductInfo = ({ product, styleSale, stylePrice }) => {
   console.log('turn the linting off');
   return (
     <div>
-      <StarRating />
-      <div>{props.category}</div>
-      <div>{props.name}</div>
-      <div>{props.price}</div>
+      {/* <StarRating /> */}
+      <div>{product.category}</div>
+      <div>{product.name}</div>
+      <div>{styleSale || stylePrice }</div>
     </div>
   );
-}
-
-
+};
 
 export default ProductInfo;
