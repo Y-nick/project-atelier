@@ -65,7 +65,11 @@ class ProductDetails extends React.Component {
           stylePrice={curStyle.original_price}
         />
         <AddToCart />
-        <ProductDesc desc={curProduct.description} features={features} />
+        <ProductDesc
+          slogan={curProduct.slogan}
+          desc={curProduct.description}
+          features={features}
+        />
       </div>
     );
   }

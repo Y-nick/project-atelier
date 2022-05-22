@@ -1,7 +1,8 @@
 import React from 'react';
 
-const ProductDesc = ({ desc, features }) => (
+const ProductDesc = ({ slogan, desc, features }) => (
   <div>
+    <div>{slogan}</div>
     <div>{desc}</div>
     <div>
       <div>
