@@ -10,7 +10,9 @@ class Summary extends React.Component {
   render() {
     return (
       <div>
-        <div>Summary</div>
+        <div>
+          <h1>Summary</h1>
+        </div>
       </div>
     );
   }

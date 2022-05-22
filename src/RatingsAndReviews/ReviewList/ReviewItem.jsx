@@ -10,7 +10,7 @@ class ReviewListItem extends React.Component {
   render() {
     return (
       <div>
-        <div>Review List Item</div>
+        <div>Review List</div>
       </div>
     );
   }

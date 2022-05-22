@@ -21,7 +21,9 @@ class ReviewList extends React.Component {
   render() {
     return (
       <div className="review list">
-        <div>Review List</div>
+        <div>
+          <h1>Review List</h1>
+        </div>
         <ReviewItem />
         <button type="button" className="open modal" onClick={this.clickHandlerOpen}>Add Review </button>
         {this.state.openModal && <WriteReviewModal func={this.handleClose} />}
