@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
+import ProductDesc from './ProductDesc/ProductDesc.jsx';
 
 const apiRequest = require('./apiRequests');
 
@@ -8,8 +9,9 @@ class ProductDetails extends React.Component {
     super(props);
     this.state = {
       curProduct: {},
+      features: [],
       curStyle: {},
-      review: {},
+      // review: {},
     };
   }
 
@@ -23,6 +25,7 @@ class ProductDetails extends React.Component {
     apiRequest.fetchCurrentProduct(productId)
       .then((response) => this.setState({
         curProduct: response.data,
+        features: response.data.features,
       }))
       .catch((error) => console.log(error));
   };
@@ -41,16 +44,17 @@ class ProductDetails extends React.Component {
       .catch((error) => console.log(error));
   };
 
-  getReview = (productId) => {
-    apiRequest.fetchReview(productId)
-      .then((response) => this.setState({
-        review: response.data,
-      }))
-      .catch((error) => console.log(error));
-  };
+  // getReview = (productId) => {
+  //   apiRequest.fetchReview(productId)
+  //     .then((response) => this.setState({
+  //       review: response.data,
+  //     }))
+  //     .catch((error) => console.log(error));
+  // };
 
   render() {
-    const { curProduct, curStyle, review } = this.state;
+    const { curProduct, curStyle, features } = this.state;
+    console.log(curProduct);
     return (
       <div>
         <div>Hello WORLD</div>
@@ -59,6 +63,7 @@ class ProductDetails extends React.Component {
           styleSale={curStyle.sale_price}
           stylePrice={curStyle.original_price}
         />
+        <ProductDesc desc={curProduct.description} features={features} />
       </div>
     );
   }
