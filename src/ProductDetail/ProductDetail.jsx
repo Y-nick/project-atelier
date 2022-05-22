@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import ProductDesc from './ProductDesc/ProductDesc.jsx';
+import AddToCart from './AddToCart/AddToCart.jsx';
 
 const apiRequest = require('./apiRequests');
 
@@ -18,7 +19,7 @@ class ProductDetails extends React.Component {
   componentDidMount() {
     this.getProduct(66642);
     this.getStyle(66642, 411534);
-    this.getReview(66642);
+    // this.getReview(66642);
   }
 
   getProduct = (productId) => {
@@ -63,6 +64,7 @@ class ProductDetails extends React.Component {
           styleSale={curStyle.sale_price}
           stylePrice={curStyle.original_price}
         />
+        <AddToCart />
         <ProductDesc desc={curProduct.description} features={features} />
       </div>
     );
