@@ -20,6 +20,8 @@ class RatingsAndReviews extends React.Component {
   // const p_id = 6642;
   // const sort = '';
 
+  // gets reviews sorted by (newest) data and sets it to this components state
+
   fetchData() {
     axios({
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
@@ -36,6 +38,8 @@ class RatingsAndReviews extends React.Component {
       this.setState({
         product: res.data,
       }, () => console.log('here is our state:', this.state.product));
+    }).catch((err) => {
+      console.log(err);
     });
   }
 
@@ -46,7 +50,7 @@ class RatingsAndReviews extends React.Component {
           <RatingBreakdown />
         </div>
         <div className="grid-item reviewList">
-          <ReviewList />
+          <ReviewList reviews={this.state.product.results} />
         </div>
       </div>
     );
