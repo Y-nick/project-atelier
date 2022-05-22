@@ -2,21 +2,23 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList/ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
-// import requests from '../ProductDetail/apiRequestsTemplate.js';
 import RandRStyles from './RandRStyles.css';
 
 class RatingsAndReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: '',
+      product: [],
     };
+    this.fetchData = this.fetchData.bind(this);
   }
 
-  // requests();
   componentDidMount() {
     this.fetchData();
   }
+
+  // const p_id = 6642;
+  // const sort = '';
 
   fetchData() {
     axios({
@@ -29,14 +31,12 @@ class RatingsAndReviews extends React.Component {
         page: 3,
         count: 5,
       },
-    })
-      .then((res) => {
-        this.setState({
-          products: res.data,
-        });
-        console.log(res.data);
-        console.log(this.state.products);
-      });
+    }).then((res) => {
+      console.log(res.data);
+      this.setState({
+        product: res.data,
+      }, () => console.log('here is our state:', this.state.product));
+    });
   }
 
   render() {
