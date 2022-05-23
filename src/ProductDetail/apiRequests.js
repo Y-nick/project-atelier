@@ -35,8 +35,20 @@ const fetchReview = (productId) => {
   return axios(options);
 };
 
+const postCart = (sku_id, count) => {
+  const options = {
+    url: '/cart',
+    baseURL: apiURL,
+    method: 'post',
+    data: {sku_id: sku_id, count: count},
+    headers: { authorization: process.env.API_KEY },
+  };
+  return axios(options);
+};
+
 module.exports = {
   fetchCurrentProduct,
   fetchStyles,
   fetchReview,
+  postCart,
 };

@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 
-const SizeItem = ({ option, count, setSize, setOpen, setCount }) => {
+const SizeItem = ({
+  curSKU,
+  option,
+  count,
+  setSize,
+  setOpen,
+  setCount,
+  setSKU,
+}) => {
   const sizeSelection = (event) => {
     setSize(event.target.textContent);
     setCount(count);
+    setSKU(curSKU);
     setOpen();
   };
 
