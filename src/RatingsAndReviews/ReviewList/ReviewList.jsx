@@ -46,7 +46,7 @@ class ReviewList extends React.Component {
           </select>
         </div>
         {this.props.reviews.map((review) => (
-          <ReviewItem className="listItem" body={review.body} key={review.review_id} summary={review.summary} date={review.date} help={review.helpfulness} rating={review.rating} reco={review.recommend} />
+          <ReviewItem className="listItem" body={review.body} key={review.review_id} summary={review.summary} date={review.date} help={review.helpfulness} rating={review.rating} reco={review.recommend} name={review.reviewer_name} />
         ))}
         <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
         <button type="button" className="button">More Reivews</button>
