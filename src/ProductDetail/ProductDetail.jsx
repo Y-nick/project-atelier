@@ -21,7 +21,7 @@ class ProductDetails extends React.Component {
 
   componentDidMount() {
     this.getProduct(66642);
-    this.getStyle(66642, 411534);
+    this.getStyle(66642);
     // this.getReview(66642);
   }
 
@@ -34,14 +34,14 @@ class ProductDetails extends React.Component {
       .catch((error) => console.log(error));
   };
 
-  getStyle = (productId, styleID) => {
+  getStyle = (productId) => {
     apiRequest.fetchStyles(productId)
       .then((response) => {
         this.setState({
-          styles: response.data.results
+          styles: response.data.results,
         });
         response.data.results.forEach((style) => {
-          if (style.style_id === styleID) {
+          if (style.default === true) {
             this.setState({
               curStyle: style,
               skus: Object.entries(style.skus),
@@ -55,6 +55,7 @@ class ProductDetails extends React.Component {
   handleStyle = (style) => {
     this.setState({
       curStyle: style,
+      skus: Object.entries(style.skus),
     });
   };
   // getReview = (productId) => {
