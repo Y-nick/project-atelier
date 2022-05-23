@@ -11,6 +11,9 @@
     "plugins": [
         "react"
     ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
     "rules": {
         "import/extensions": [
             2,
@@ -24,8 +27,11 @@
             {
               "namedComponents": "arrow-function"
             }
-          ]
-    },
-    "parser": "@babel/eslint-parser"
+          ],
+          "react/prop-types": [
+            0,
+            {}
+        ]
+    }
     // "react/destructuring-assignment": "never"
 }

@@ -1,5 +1,5 @@
 .grid-container3{
   display: grid;
-  grid-template-rows: 10% 45% 45%;
-  height: 400px;
+  grid-template-rows: auto;
+  height: auto;
 }

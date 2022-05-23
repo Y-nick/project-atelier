@@ -9,6 +9,7 @@ class RatingsAndReviews extends React.Component {
     super(props);
     this.state = {
       product: [],
+      reviews: [],
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -37,7 +38,8 @@ class RatingsAndReviews extends React.Component {
       console.log(res.data);
       this.setState({
         product: res.data,
-      }, () => console.log('here is our state:', this.state.product.results));
+        reviews: res.data.results,
+      }, () => console.log('here is our state:', this.state.product));
     }).catch((err) => {
       console.log(err);
     });
@@ -53,7 +55,7 @@ class RatingsAndReviews extends React.Component {
           </div>
           <div className="grid-item reviewList">
             <h5>Reviews List</h5>
-            <ReviewList reviews={this.state.product.results} />
+            <ReviewList reviews={this.state.reviews} />
           </div>
         </div>
       </div>
