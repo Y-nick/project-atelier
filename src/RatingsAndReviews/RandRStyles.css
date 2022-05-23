@@ -4,5 +4,7 @@
   grid-template-columns: 30% 70%;
   padding-left: 150px;
   padding-right: 150px;
-  height: 1000px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: auto;
 }

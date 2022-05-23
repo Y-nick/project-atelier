@@ -15,9 +15,10 @@ class ReviewList extends React.Component {
   // sort list
 
   handleChange(event) {
+    const { sort } = this.props;
     console.log(event.target.value);
     this.setState({ value: event.target.value });
-    this.props.sort(event.target.value);
+    sort(event.target.value);
   }
 
   // modal open
@@ -34,23 +35,37 @@ class ReviewList extends React.Component {
   };
 
   render() {
+    const { value, openModal } = this.state;
+    const { reviews } = this.props;
     return (
       <div style={List} className="grid-container3 reviewList">
         <div>
-          ({this.props.reviews.length}
+          (
+          {reviews.length}
           ) reviews, sorted by
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select value={value} onChange={this.handleChange}>
             <option value="relevent">Relevent</option>
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
           </select>
         </div>
-        {this.props.reviews.map((review) => (
-          <ReviewItem className="listItem" body={review.body} key={review.review_id} summary={review.summary} date={review.date} help={review.helpfulness} rating={review.rating} reco={review.recommend} name={review.reviewer_name} />
+        {reviews.map((review) => (
+          <ReviewItem
+            className="listItem"
+            body={review.body}
+            key={review.review_id}
+            summary={review.summary}
+            date={review.date}
+            help={review.helpfulness}
+            rating={review.rating}
+            reco={review.recommend}
+            name={review.reviewer_name}
+            resp={review.response}
+          />
         ))}
         <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
         <button type="button" className="button">More Reivews</button>
-        {this.state.openModal && <WriteReviewModal func={this.handleClose} />}
+        {openModal && <WriteReviewModal func={this.handleClose} />}
       </div>
     );
   }

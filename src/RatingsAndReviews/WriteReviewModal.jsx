@@ -10,7 +10,8 @@ class WriteReviewModal extends React.Component {
   }
 
   clickHandlerClose = () => {
-    this.props.func(false);
+    const { func } = this.props;
+    func(false);
   };
 
   render() {
