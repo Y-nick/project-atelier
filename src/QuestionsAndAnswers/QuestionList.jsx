@@ -11,11 +11,12 @@ class QuestionList extends React.Component {
       questions: [],
       questionIndex: 1,
       modalOpen: false,
+      search: '',
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.search = this.search.bind(this);
+    this.searchFun = this.searchFun.bind(this);
   }
 
   componentDidMount() {
@@ -53,19 +54,48 @@ class QuestionList extends React.Component {
     this.setState({ modalOpen: true });
   }
 
-  search(cb) {
-    this.setState()
+  searchFun(cb) {
+    this.setState();
   }
 
   render() {
-    const { questions, questionIndex, modalOpen } = this.state;
+    const {
+      questions, questionIndex, modalOpen, search,
+    } = this.state;
+
     return (
       <div>
         <div>QUESTIONS AND ANSWERS</div>
-        <SearchBar questions={questions} search={this.search} />
+        {/* <SearchBar questions={questions} search={this.searchFun} /> */}
+        <div className="flex-container searchDiv">
+          <input
+            className="inputs"
+            type="text"
+            placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+            onChange={(e) => { this.setState({ search: e.target.value }); }}
+          />
+          {
+
+          }
+          <div className="icon">
+            Icon
+            {/* Icon will go here */}
+          </div>
+        </div>
+        <div className="questionData">
+          {}
+        </div>
         <div>
           {
-            questions.map((item, index) => (
+            questions.filter((question) => {
+              if (search.length < 3) {
+                return question;
+              }
+              if (search.length >= 3
+              && question.question_body.toLowerCase().includes(search.toLowerCase())) {
+                return question;
+              }
+            }).map((item, index) => (
               <div key={item.question_id}>
                 {index <= questionIndex ? `Q:  ${item.question_body}` : null}
                 {index <= questionIndex ? <Question details={item} /> : null}
