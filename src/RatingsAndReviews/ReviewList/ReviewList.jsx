@@ -28,9 +28,17 @@ class ReviewList extends React.Component {
   render() {
     return (
       <div style={List} className="grid-container3 reviewList">
-        <div>(Number of Total Reviews), sorted by (sorted by button)</div>
+        <div>
+          ({this.props.reviews.length}
+          ) reviews, sorted by
+          <select>
+            <option>Relevent</option>
+            <option>Helpful</option>
+            <option>Newest</option>
+          </select>
+        </div>
         {this.props.reviews.map((review) => (
-          <ReviewItem className="listItem" body={review.body} key={review.review_id} summary={review.summary} date={review.date} help={review.helpfulness} rating={review.rating} />
+          <ReviewItem className="listItem" body={review.body} key={review.review_id} summary={review.summary} date={review.date} help={review.helpfulness} rating={review.rating} reco={review.recommend} />
         ))}
         <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
         <button type="button" className="button">More Reivews</button>
