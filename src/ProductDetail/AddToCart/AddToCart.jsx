@@ -5,12 +5,13 @@ import QuantitySelector from './QuantitySelector.jsx';
 
 const AddToCart = ({ SKUs }) => {
   const [size, setSize] = useState('');
+  const [stockCount, setCount] = useState(0);
   const [quantity, setQuantity] = useState(0);
   return (
     <div>
       <div>
-        <SizeSelector SKUs={SKUs} size={size} setSize={setSize} />
-        <QuantitySelector size={size} />
+        <SizeSelector SKUs={SKUs} size={size} setSize={setSize} setCount={setCount} />
+        <QuantitySelector quantity={quantity} stockCount={stockCount} setQuantity={setQuantity} />
       </div>
       <div>
         <button className="cart-button" type="button">Add to Cart</button>

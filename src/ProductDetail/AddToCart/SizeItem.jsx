@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-const DropdownItem = ({ option, setSize, setOpen }) => {
+const SizeItem = ({ option, count, setSize, setOpen, setCount }) => {
   const sizeSelection = (event) => {
     setSize(event.target.textContent);
+    setCount(count);
     setOpen();
   };
 
@@ -13,4 +14,4 @@ const DropdownItem = ({ option, setSize, setOpen }) => {
   );
 };
 
-export default DropdownItem;
+export default SizeItem;

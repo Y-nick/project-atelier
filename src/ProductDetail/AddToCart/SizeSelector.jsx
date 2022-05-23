@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import DropdownItem from './DropdownItem.jsx';
+import SizeItem from './SizeItem.jsx';
 
-
-const SizeSelector = ({ SKUs, size, setSize }) => {
+const SizeSelector = ({ SKUs, size, setSize, setCount }) => {
   const [open, setOpen] = useState(false);
-  console.log('skus', SKUs);
   return (
     <div className="dropdown">
       <div
@@ -15,7 +13,14 @@ const SizeSelector = ({ SKUs, size, setSize }) => {
       {open && (
       <div className="dropdown-content">
         {SKUs.map((SKU) => (
-          <DropdownItem key={SKU[0]} option={SKU[1].size} setSize={setSize} setOpen={setOpen} />
+          <SizeItem
+            key={SKU[0]}
+            option={SKU[1].size}
+            count={SKU[1].quantity}
+            setSize={setSize}
+            setOpen={setOpen}
+            setCount={setCount}
+          />
         ))}
       </div>
       )}
