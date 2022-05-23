@@ -17,22 +17,31 @@ class WriteReviewModal extends React.Component {
     return (
       <div styles={Modal} className="modalBackground">
         <div className="modalContainer">
-          <button type="button" onClick={this.clickHandlerClose}> X </button>
+          <button className="xbutton" type="button" onClick={this.clickHandlerClose}> X </button>
           <div className="title">
             <h1>Please Write a Review</h1>
           </div>
-          <div className="body">Inputs</div>
-          <form>
-            <input type="text" />
-            <br />
-            <input type="text" />
-            <br />
-            <input type="text" />
-            <br />
-            <input type="text" />
-            <br />
-            <input type="text" />
-          </form>
+          <div className="body">
+            Inputs
+            <form>
+              <input type="text" />
+              <br />
+              <input type="text" />
+              <br />
+              <input type="text" />
+              <br />
+              <input type="text" />
+              <br />
+              <input type="text" />
+              <br />
+              <input type="text" />
+              <br />
+              <input type="text" />
+              <br />
+              <input type="text" />
+            </form>
+          </div>
+          <button type="button">Submit Review</button>
         </div>
       </div>
     );

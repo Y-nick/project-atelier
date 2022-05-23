@@ -37,7 +37,7 @@ class RatingsAndReviews extends React.Component {
       console.log(res.data);
       this.setState({
         product: res.data,
-      }, () => console.log('here is our state:', this.state.product));
+      }, () => console.log('here is our state:', this.state.product.results));
     }).catch((err) => {
       console.log(err);
     });
@@ -45,12 +45,16 @@ class RatingsAndReviews extends React.Component {
 
   render() {
     return (
-      <div style={RandRStyles} className="grid-container ratingsAndReviews">
-        <div className="grid-item ratingBreakdown">
-          <RatingBreakdown />
-        </div>
-        <div className="grid-item reviewList">
-          <ReviewList reviews={this.state.product.results} />
+      <div>
+        <div style={RandRStyles} className="grid-container ratingsAndReviews">
+          <div className="grid-item ratingBreakdown">
+            <h5>Ratings and Reviews</h5>
+            <RatingBreakdown />
+          </div>
+          <div className="grid-item reviewList">
+            <h5>Reviews List</h5>
+            <ReviewList reviews={this.state.product.results} />
+          </div>
         </div>
       </div>
     );

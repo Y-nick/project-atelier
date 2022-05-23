@@ -1,5 +1,6 @@
 .grid-container2{
   display: grid;
-  grid-template-rows: 30% 20% 50%;
+  grid-template-rows: 25% 15% 60%;
+  height: 400px;
 }
 

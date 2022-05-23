@@ -10,7 +10,7 @@ class ReviewListItem extends React.Component {
   render() {
     return (
       <div>
-        <div>Review List</div>
+        <div><h3>(Review Item Tile)</h3></div>
       </div>
     );
   }

@@ -10,7 +10,7 @@ class Recommendations extends React.Component {
   render() {
     return (
       <div>
-        <div>Recommendations</div>
+        <div>(Perecentage of Recommendations) </div>
       </div>
     );
   }

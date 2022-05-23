@@ -10,7 +10,7 @@ class Breakdown extends React.Component {
   render() {
     return (
       <div>
-        <div>Breakdown</div>
+        <div>(Average Star Rating)</div>
       </div>
     );
   }

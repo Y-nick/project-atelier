@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import WriteReviewModal from '../WriteReviewModal.jsx';
+import List from './List.css';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -21,12 +22,12 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-      <div className="review list">
-        <div>
-          <h1>Review List</h1>
-        </div>
+      <div style={List} className="grid-container3 reviewList">
+        <div>(Number of Total Reviews), sorted by (sorted by button)</div>
+        <ReviewItem className="grid-item listItem" reviews={this.props.results} />
         <ReviewItem />
-        <button type="button" className="open modal" onClick={this.clickHandlerOpen}>Add Review </button>
+        <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
+        <button type="button">More Reivews</button>
         {this.state.openModal && <WriteReviewModal func={this.handleClose} />}
       </div>
     );

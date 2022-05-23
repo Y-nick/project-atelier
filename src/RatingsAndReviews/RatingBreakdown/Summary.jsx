@@ -10,9 +10,12 @@ class Summary extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>Summary</h1>
-        </div>
+        <div>(Summary of Star Ratings)</div>
+        <div>(5 stars --------------------------------)</div>
+        <div>(4 stars --------------------------------)</div>
+        <div>(3 stars --------------------------------)</div>
+        <div>(2 stars --------------------------------)</div>
+        <div>(1 stars --------------------------------)</div>
       </div>
     );
   }
