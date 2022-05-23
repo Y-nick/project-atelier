@@ -23,14 +23,14 @@ class RatingsAndReviews extends React.Component {
 
   // gets reviews sorted by (newest) data and sets it to this components state
 
-  fetchData() {
+  fetchData(sortType) {
     axios({
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
       method: 'get',
       headers: { authorization: process.env.API_KEY },
       params: {
         product_id: 66642,
-        sort: 'newest',
+        sort: sortType,
         page: 3,
         count: 5,
       },
@@ -55,7 +55,7 @@ class RatingsAndReviews extends React.Component {
           </div>
           <div className="grid-item reviewList">
             <h5>Reviews List</h5>
-            <ReviewList reviews={this.state.reviews} />
+            <ReviewList reviews={this.state.reviews} sort={this.fetchData} />
           </div>
         </div>
       </div>

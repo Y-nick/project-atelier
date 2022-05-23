@@ -7,21 +7,29 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: 'relevant',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  // const array = [];
+  // sort list
+
+  handleChange(event) {
+    console.log(event.target.value);
+    this.setState({ value: event.target.value });
+    this.props.sort(event.target.value);
+  }
+
+  // modal open
 
   clickHandlerOpen = (e) => {
     e.preventDefault();
-    // const array = [];
-    // array.push(e);
-    // console.log(array);
     this.setState({ openModal: true });
   };
 
+  // modal close
+
   handleClose = (val) => {
-    // console.log(Array.isArray(this.props.reviews), this.props.reviews);
     this.setState({ openModal: val });
   };
 
@@ -31,10 +39,10 @@ class ReviewList extends React.Component {
         <div>
           ({this.props.reviews.length}
           ) reviews, sorted by
-          <select>
-            <option>Relevent</option>
-            <option>Helpful</option>
-            <option>Newest</option>
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="relevent">Relevent</option>
+            <option value="helpful">Helpful</option>
+            <option value="newest">Newest</option>
           </select>
         </div>
         {this.props.reviews.map((review) => (
