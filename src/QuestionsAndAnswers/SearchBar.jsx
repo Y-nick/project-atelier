@@ -5,7 +5,8 @@ export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      questions: [],
+      searchInput: '',
     };
     this.passSearchInput = this.passSearchInput.bind(this);
   }
@@ -35,6 +36,16 @@ export default class SearchBar extends React.Component {
             onChange={(e) => { this.setState({ searchInput: e.target.value }); }}
           />
           {
+            questions.filter((question) => {
+              if (searchInput === '') {
+                return '';
+              }
+              if (question.question_body.toLowerCase().includes(searchInput.toLowerCase())) {
+                console.log(question);
+                //return question;
+              }
+              return null;
+            })
           }
           <div className="icon">
             Icon
