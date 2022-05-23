@@ -5,23 +5,24 @@ class AddQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: true
+      modalOpen: true,
     };
 
     this.closeModal = this.closeModal.bind(this);
   }
 
   closeModal() {
-    this.setState({modalOpen: false});
+    this.setState({ modalOpen: false });
   }
 
-  render () {
+  render() {
+    const { modalOpen } = this.state;
     return (
-      <Modal isOpen={this.state.modalOpen} appElement={document.getElementById('root')}>
+      <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
         ADD A QUESTION
-        <button onClick={this.closeModal}>CLOSE</button>
+        <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
       </Modal>
-    )
+    );
   }
 }
 

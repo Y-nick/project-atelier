@@ -4,26 +4,23 @@ class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: [],
-      display : 0
+      display: 0,
     };
-
   }
 
-  render () {
-    const answerObj = Object.values(this.props.details.answers);
-    //console.log(answerObj)
+  render() {
+    const { details } = this.props;
+    const { display } = this.state;
+    const answerObj = Object.values(details.answers);
     return (
       <div>
-        {answerObj.map((answer, index) => {
-        return (
+        {answerObj.map((answer, index) => (
           <div key={answer.id}>
-            {index <= this.state.display ? 'A:  ' + answer.body : <></>}
+            {index <= display ? `A:  ${answer.body}` : null}
           </div>
-        )
-        })}
+        ))}
       </div>
-    )
+    );
   }
 }
 

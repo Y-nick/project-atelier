@@ -1,0 +1,26 @@
+
+.inputs {
+  margin-top: 5px;
+  width: 400px;
+  display: flex;
+}
+
+.flex-container_searchDiv {
+  background-color: aquamarine;
+  border: 0;
+  border-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 16px;
+  padding: 20px;
+  height: 0px;
+
+}
+
+.icon {
+  height: 50px;
+  width: 60px;
+  background-color: bisque;
+  display: flexbox;
+  place-items: center;
+}
