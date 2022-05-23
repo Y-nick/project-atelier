@@ -12,6 +12,7 @@ class ProductDetails extends React.Component {
       curProduct: {},
       features: [],
       curStyle: {},
+      skus: [],
       // review: {},
     };
   }
@@ -38,6 +39,7 @@ class ProductDetails extends React.Component {
           if (style.style_id === styleID) {
             this.setState({
               curStyle: style,
+              skus: Object.entries(style.skus),
             });
           }
         });
@@ -54,8 +56,13 @@ class ProductDetails extends React.Component {
   // };
 
   render() {
-    const { curProduct, curStyle, features } = this.state;
-    console.log(curProduct);
+    const {
+      curProduct,
+      curStyle,
+      features,
+      skus,
+    } = this.state;
+    console.log('curstyle.skus:', skus);
     return (
       <div>
         <div>Hello WORLD</div>
@@ -64,7 +71,7 @@ class ProductDetails extends React.Component {
           styleSale={curStyle.sale_price}
           stylePrice={curStyle.original_price}
         />
-        <AddToCart />
+        <AddToCart SKUs={skus} />
         <ProductDesc
           slogan={curProduct.slogan}
           desc={curProduct.description}
