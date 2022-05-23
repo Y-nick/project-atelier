@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+
 const apiRequests = require('../apiRequests');
 
 // import './cart.css';

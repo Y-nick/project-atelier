@@ -2,6 +2,7 @@ import React from 'react';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import ProductDesc from './ProductDesc/ProductDesc.jsx';
 import AddToCart from './AddToCart/AddToCart.jsx';
+import StyleSelector from './StyleSelector/StyleSelector.jsx';
 
 const apiRequest = require('./apiRequests');
 
@@ -11,6 +12,7 @@ class ProductDetails extends React.Component {
     this.state = {
       curProduct: {},
       features: [],
+      styles: [],
       curStyle: {},
       skus: [],
       // review: {},
@@ -35,6 +37,9 @@ class ProductDetails extends React.Component {
   getStyle = (productId, styleID) => {
     apiRequest.fetchStyles(productId)
       .then((response) => {
+        this.setState({
+          styles: response.data.results
+        });
         response.data.results.forEach((style) => {
           if (style.style_id === styleID) {
             this.setState({
@@ -47,6 +52,11 @@ class ProductDetails extends React.Component {
       .catch((error) => console.log(error));
   };
 
+  handleStyle = (style) => {
+    this.setState({
+      curStyle: style,
+    });
+  };
   // getReview = (productId) => {
   //   apiRequest.fetchReview(productId)
   //     .then((response) => this.setState({
@@ -58,8 +68,9 @@ class ProductDetails extends React.Component {
   render() {
     const {
       curProduct,
-      curStyle,
       features,
+      styles,
+      curStyle,
       skus,
     } = this.state;
     console.log('curstyle.skus:', skus);
@@ -71,6 +82,7 @@ class ProductDetails extends React.Component {
           styleSale={curStyle.sale_price}
           stylePrice={curStyle.original_price}
         />
+        <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
         <AddToCart SKUs={skus} />
         <ProductDesc
           slogan={curProduct.slogan}
