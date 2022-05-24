@@ -7,7 +7,8 @@ const SizeSelector = ({
   size,
   setSize,
   setCount,
-  setSKU }) => {
+  setSKU
+}) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="size-selector">

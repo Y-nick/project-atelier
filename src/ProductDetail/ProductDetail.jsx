@@ -54,7 +54,6 @@ class ProductDetails extends React.Component {
           styles: response.data.results,
         });
         response.data.results.forEach((style) => {
-          console.log(style);
           if (style['default?'] === true) {
             this.handleStyle(style);
           }
@@ -90,6 +89,7 @@ class ProductDetails extends React.Component {
     return (
       <div className="product-detail-container">
         <div>Hello WORLD</div>
+        <AddToCart SKUs={skus} />
         <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
         <ProductInfo
           product={curProduct}
@@ -97,7 +97,6 @@ class ProductDetails extends React.Component {
           stylePrice={curStyle.original_price}
         />
         <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
-        <AddToCart SKUs={skus} />
         <ProductDesc
           slogan={curProduct.slogan}
           desc={curProduct.description}

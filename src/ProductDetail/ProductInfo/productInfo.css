@@ -1,0 +1,9 @@
+.ratings-and-share-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.product-name {
+  font-size: 3rem;
+}
