@@ -14,13 +14,13 @@ const ProductInfo = ({ product, styleSale, stylePrice }) => (
     {styleSale
       ? (
         <div>
-          <span>{styleSale}</span>
-          <span>
-            {`!${stylePrice}`}
+          <span className="sale-price">{`$${styleSale}  `}</span>
+          <span className="sale-strikethrough">
+            {`$${stylePrice}`}
           </span>
         </div>
       )
-      : <div>{stylePrice}</div>}
+      : <div className="reg-price">{stylePrice}</div>}
   </div>
 );
 

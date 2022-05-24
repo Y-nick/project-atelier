@@ -10,7 +10,7 @@ const Thumbnails = ({
   scrollUp,
   scrollDown,
 }) => (
-  <div>
+  <div className="thumb-collection">
     <div onClick={scrollUp}>
       <img src={upChevy} />
     </div>

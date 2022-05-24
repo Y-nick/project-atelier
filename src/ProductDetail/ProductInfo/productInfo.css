@@ -1,9 +1,21 @@
 .ratings-and-share-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.product-category {
+  font-weight: 400;
+  color: #363636;
 }
 
 .product-name {
   font-size: 3rem;
+}
+
+.sale-price {
+  color: red;
+}
+
+.sale-strikethrough {
+  text-decoration: line-through;
 }

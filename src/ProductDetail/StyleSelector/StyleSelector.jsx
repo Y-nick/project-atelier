@@ -1,18 +1,21 @@
 import React from 'react';
 import './styleSelect.css';
+import okCheck from '../images/ok-check.svg';
 
 const StyleSelector = ({ curStyle, styles, handleStyle }) => (
   <div className="style-selector-container">
-    <div>
+    <div className="style-description">
       STYLE
-      {'> '}
-      {curStyle.name}
+      {' > '}
+      <span className="current-style">{curStyle.name}</span>
     </div>
-    <div>
+    <div className="style-grid-container">
       {styles.map((style) => (
         <div className="style-child" key={style.name} onClick={()=>handleStyle(style)}>
-          <img className="style-thumb" src={style.photos[0].thumbnail_url} />
-          {style.name === curStyle.name ? '!' : null}
+          <div className="thumb-check">
+            <img className="style-thumb" src={style.photos[0].thumbnail_url} alt="style thumbnail" />
+          </div>
+          {style.name === curStyle.name ? <div className="check"><img src={okCheck} alt="selection check" /></div> : null}
         </div>
       ))}
     </div>

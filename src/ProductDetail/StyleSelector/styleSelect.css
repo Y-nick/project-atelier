@@ -1,9 +1,29 @@
+.style-grid-container {
+  margin: 10px 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.current-style {
+  font-weight: 400;
+}
+
 .style-child {
+  justify-self: center;
+  display:flex;
+
+  position: relative;
+}
+
+.thumb-check {
+  justify-self: center;
   width: 75px;
   height: 75px;
   border-radius: 50%;
   text-align:center;
   overflow: hidden;
+  position: relative;
 }
 
 .style-thumb {
@@ -11,4 +31,10 @@
   max-width: none;
   height:100px;
   margin: -10% -100%;
+}
+
+.check {
+  position: absolute;
+  z-index: 200;
+  right: -.7rem;
 }

@@ -1,3 +1,11 @@
+.image-gallery-container {
+  position: relative;
+}
+
+.thumb-collection {
+  position: absolute;
+}
+
 .thumb-img{
   height: 60px;
 }

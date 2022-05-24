@@ -1,0 +1,21 @@
+.slogan {
+  font-weight: 700;
+}
+
+.description {
+  font-weight: 400;
+  flex-basis: 50%
+}
+
+.features {
+
+}
+.description-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.feature-points {
+  font-weight: 400;
+}
