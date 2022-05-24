@@ -1,6 +1,7 @@
 import React from 'react';
 import StarRating from './StarRating.jsx';
 import Share from './Share.jsx';
+import './productInfo.css';
 
 const ProductInfo = ({ product, styleSale, stylePrice }) => {
   console.log('turn the linting off');

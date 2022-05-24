@@ -1,40 +1,29 @@
 import React, { useState } from 'react';
 import './gallery.css';
+import upChevy from '../images/chevron-up.svg';
+import downChevy from '../images/chevron-down.svg';
 
-const Thumbnails = ({ pics, selectPic, curPhoto, scrollUp, scrollDown, sliceStart }) => {
-  // let sliceStart = 0;
-  // if (curPhoto === 0) {
-  //   sliceStart = 0;
-  // }
-
-  // const scrollUp = () => {
-  //   if (sliceStart > 0) {
-  //     sliceStart -= 1;
-  //   }
-  // };
-
-  // const scrollDown = () => {
-  //   if (sliceStart < pics.length - 2) {
-  //     sliceStart += 1;
-  //   }
-  // };
-  console.log(sliceStart);
-  return (
-    <div>
-      <div onClick={scrollUp}>
-        {'^'}
-      </div>
-      {pics.map((pic) => (
-        <div key={pic.thumbnail_url} onClick={()=>selectPic(pic.url)}>
-          <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />
-          {pics[curPhoto].thumbnail_url === pic.thumbnail_url ? '!' : null}
-        </div>
-      ))}
-      <div onClick={scrollDown}>
-        {'+'}
-      </div>
+const Thumbnails = ({
+  pics,
+  selectPic,
+  curPhoto,
+  scrollUp,
+  scrollDown,
+}) => (
+  <div>
+    <div onClick={scrollUp}>
+      <img src={upChevy} />
     </div>
-  );
-};
+    {pics.map((pic) => (
+      <div key={pic.thumbnail_url} onClick={()=>selectPic(pic.url)}>
+        <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />
+        {pics[curPhoto].thumbnail_url === pic.thumbnail_url ? '!' : null}
+      </div>
+    ))}
+    <div onClick={scrollDown}>
+      <img src={downChevy} />
+    </div>
+  </div>
+);
 
 export default Thumbnails;

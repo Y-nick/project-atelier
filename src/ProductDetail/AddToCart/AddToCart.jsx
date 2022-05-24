@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+import plus from '../images/plus.svg';
+import star from '../images/star.svg';
 import './cart.css';
 
 const apiRequests = require('../apiRequests');
-
 
 const AddToCart = ({ SKUs }) => {
   const [curSKU, setSKU] = useState(0);
@@ -35,9 +36,9 @@ const AddToCart = ({ SKUs }) => {
         type="button"
         onClick={handleClick}
       >
-        Add to Cart
+        <span>Add to Cart</span><span><img src={plus} /></span>
       </button>
-      <button className="star-button" type="button">#</button>
+      <button className="star-button" type="button"><img src={star} /></button>
     </div>
   );
 };

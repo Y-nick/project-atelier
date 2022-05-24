@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QuantityItem from './QuantityItem.jsx';
+import downChevy from '../images/chevron-down.svg';
 
 const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,8 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
         className="dropdown-btn"
         onClick={(() => setOpen(!open))}
       >
-        {quantity || "Select Quantity"}
+        <span>{quantity || "Select Quantity"}</span>
+        <span><img src={downChevy} /></span>
       </div>
       {open && (
       <div className="dropdown-content">

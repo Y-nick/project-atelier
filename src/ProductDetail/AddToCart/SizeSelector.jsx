@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import SizeItem from './SizeItem.jsx';
+import downChevy from '../images/chevron-down.svg';
 
-const SizeSelector = ({ SKUs, size, setSize, setCount, setSKU }) => {
+const SizeSelector = ({
+  SKUs,
+  size,
+  setSize,
+  setCount,
+  setSKU }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="size-selector">
       <div
         className="dropdown-btn"
         onClick={(()=> setOpen(!open))}
-        role="button">{size || "Select Size"}
+        role="button">
+        <span>{size || "Select Size"}</span>
+        <span><img src={downChevy} /></span>
       </div>
       {open && (
       <div className="dropdown-content">
