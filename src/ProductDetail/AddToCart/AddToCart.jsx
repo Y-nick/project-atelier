@@ -36,7 +36,10 @@ const AddToCart = ({ SKUs }) => {
         type="button"
         onClick={handleClick}
       >
-        <span>Add to Cart</span><span><img src={plus} /></span>
+        <span className="cart-text">Add to Cart</span>
+        <span>
+          <img className="plus" src={plus} alt="Plus" />
+        </span>
       </button>
       <button className="star-button" type="button"><img src={star} /></button>
     </div>

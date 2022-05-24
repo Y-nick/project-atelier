@@ -1,8 +1,25 @@
 import React from 'react';
+import star from '../images/star.svg';
 
 const StarRating = () => (
   <div>
-    <span>0 0 0 0 0</span><span>Read all X reviews</span>
+    <span>
+      <img src={star} alt="Star" />
+      <img src={star} alt="Star" />
+      <img src={star} alt="Star" />
+      <img src={star} alt="Star" />
+      <img src={star} alt="Star" />
+    </span>
+    <span>
+      {' '}
+      Read all
+      {' '}
+      <a href="#">
+        #
+      </a>
+      {' '}
+      reviews
+    </span>
   </div>
 );
 
