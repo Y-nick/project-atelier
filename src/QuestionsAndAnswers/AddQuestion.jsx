@@ -7,6 +7,9 @@ const startState = {
   nickname: '',
   email: '',
   review: '',
+  questionError: '',
+  nicknameError: '',
+  emailError: '',
   modalOpen: true,
 };
 
@@ -20,11 +23,16 @@ class AddQuestion extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     const isValid = this.validate();
     if (isValid) {
+      document.getElementById('formContainer').reset();
       this.setState(startState);
+      alert('Submission Successful!');
+    } else {
+      alert('Please fill out required fields');
+      document.getElementById('formContainer').reset();
     }
   }
 
@@ -58,11 +66,11 @@ class AddQuestion extends React.Component {
   }
 
   render() {
-    const { modalOpen } = this.state;
+    const { modalOpen, questionError, nicknameError, emailError } = this.state;
     const { item } = this.props;
     return (
       <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
-        <div className="formContainer">
+        <form id="formContainer">
           <div className="x" onClick={this.closeModal}>x</div>
           <h1>ASK YOUR QUESTION</h1>
           <h3>{`About the ${item.name}`}</h3>
@@ -70,6 +78,7 @@ class AddQuestion extends React.Component {
             <textarea rows="6" cols="60" placeholder="*Your Question..."
               onChange={(e) => { this.setState({ question: e.target.value }); }}
             />
+            {!questionError ? null : <p className="error">{questionError}</p>}
           </div>
           <div className="nicknameDiv">
             *What is your nickname?
@@ -78,6 +87,7 @@ class AddQuestion extends React.Component {
               placeholder="Example: jackson11!"
               onChange={(e) => { this.setState({ nickname: e.target.value }); }}
             />
+            {!nicknameError ? null : <p className="error">{nicknameError}</p>}
             <p className="privacy">For privacy reasons, do not use your full name or email address</p>
           </div>
           <div className="emailDiv">
@@ -87,10 +97,12 @@ class AddQuestion extends React.Component {
               placeholder="example@outlook.com"
               onChange={(e) => { this.setState({ email: e.target.value }); }}
             />
+            {!emailError ? null : <p className="error">{emailError}</p>}
           </div>
-          <div className="review">
+          <div className="reviewDiv">
             What did you like or dislike about the product?
             <textarea
+              className="review"
               rows="6"
               cols="60"
               placeholder="Your thoughts..."
@@ -99,9 +111,9 @@ class AddQuestion extends React.Component {
           </div>
           <div>
             <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
-            <button className="button" type="button" onClick={this.handleSubmit}>SUBMIT</button>
+            <button className="button" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
           </div>
-        </div>
+        </form>
       </Modal>
     );
   }

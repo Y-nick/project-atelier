@@ -1,4 +1,4 @@
-.formContainer {
+#formContainer {
   display: flex;
   flex-direction: column;
 }
@@ -37,15 +37,24 @@
   display: block;
 }
 
-.review {
+.reviewDiv {
   display: block;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.review {
+  display: block;
+}
+
+.error {
+  color: red;
+  font-size: small;
+  margin: 0%;
 }
 
 .button {
   display: inline;
   cursor: pointer;
   margin-right: 7px;
-
 }
