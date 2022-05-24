@@ -1,0 +1,28 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.nicknameDiv {
+  display: block;
+  margin-top: 20px;
+}
+
+#nickname {
+  display: block;
+}
+
+.privacy {
+  font-size: small;
+  color: grey;
+  margin: 0%;
+}
+
+.emailDiv {
+  display: block;
+  margin-top: 20px;
+}
+
+#email {
+  display: block;
+}

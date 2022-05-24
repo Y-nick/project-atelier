@@ -57,7 +57,7 @@ class QuestionList extends React.Component {
     const {
       questions, questionIndex, modalOpen, search,
     } = this.state;
-
+    const { item } = this.props;
     return (
       <div>
         <div>QUESTIONS AND ANSWERS</div>
@@ -87,11 +87,11 @@ class QuestionList extends React.Component {
                 return question;
               }
               return null;
-            }).map((item, index) => (
-              <div key={item.question_id} className="QAPair">
-                {index <= questionIndex ? `Q:  ${item.question_body}` : null}
+            }).map((elem, index) => (
+              <div key={elem.question_id} className="QAPair">
+                {index <= questionIndex ? `Q:  ${elem.question_body}` : null}
                 {index <= questionIndex
-                  ? <Question details={item} onClick={this.passClick} />
+                  ? <Question details={elem} onClick={this.passClick} />
                   : null}
               </div>
             ))
@@ -99,7 +99,7 @@ class QuestionList extends React.Component {
         </div>
         <button type="button">MORE ANSWERED QUESTIONS</button>
         <button type="button" onClick={this.openModal}>ADD A QUESTION  +</button>
-        {modalOpen ? <AddQuestion modal={this.openModal} /> : null}
+        {modalOpen ? <AddQuestion item={item} modal={this.openModal} /> : null}
       </div>
     );
   }
