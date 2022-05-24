@@ -3,9 +3,19 @@
   flex-direction: column;
 }
 
+.questionDiv {
+  display: block;
+}
+
+.x {
+  display: flex;
+  justify-content: right;
+  cursor: pointer;
+}
+
 .nicknameDiv {
   display: block;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 #nickname {
@@ -20,9 +30,22 @@
 
 .emailDiv {
   display: block;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 #email {
   display: block;
+}
+
+.review {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.button {
+  display: inline;
+  cursor: pointer;
+  margin-right: 7px;
+
 }
