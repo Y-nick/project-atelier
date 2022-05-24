@@ -4,6 +4,7 @@ import ProductDesc from './ProductDesc/ProductDesc.jsx';
 import AddToCart from './AddToCart/AddToCart.jsx';
 import StyleSelector from './StyleSelector/StyleSelector.jsx';
 import ImageGallery from './ImageGallery/ImageGallery.jsx';
+import './productDetail.css';
 
 const apiRequest = require('./apiRequests');
 
@@ -87,7 +88,7 @@ class ProductDetails extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="product-detail-container">
         <div>Hello WORLD</div>
         <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
         <ProductInfo

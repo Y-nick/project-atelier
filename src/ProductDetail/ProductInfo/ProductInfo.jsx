@@ -5,7 +5,7 @@ import Share from './Share.jsx';
 const ProductInfo = ({ product, styleSale, stylePrice }) => {
   console.log('turn the linting off');
   return (
-    <div>
+    <div className="product-info-container">
       <span><StarRating /></span>
       <span><Share /></span>
       <div>{product.category}</div>

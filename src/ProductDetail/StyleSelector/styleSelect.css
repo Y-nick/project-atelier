@@ -1,0 +1,14 @@
+.style-child {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  text-align:center;
+  overflow: hidden;
+}
+
+.style-thumb {
+  min-width: 75px;
+  max-width: none;
+  height:100px;
+  margin: -10% -100%;
+}

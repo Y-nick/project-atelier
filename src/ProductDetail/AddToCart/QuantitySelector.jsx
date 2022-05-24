@@ -13,7 +13,7 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
   }
 
   return (
-    <div className="dropdown">
+    <div className="quantity-selector">
       <div
         className="dropdown-btn"
         onClick={(() => setOpen(!open))}

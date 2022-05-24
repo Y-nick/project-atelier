@@ -1,7 +1,8 @@
 import React from 'react';
+import './styleSelect.css';
 
 const StyleSelector = ({ curStyle, styles, handleStyle }) => (
-  <div>
+  <div className="style-selector-container">
     <div>
       STYLE
       {'> '}
@@ -9,9 +10,9 @@ const StyleSelector = ({ curStyle, styles, handleStyle }) => (
     </div>
     <div>
       {styles.map((style) => (
-        <div className="styleThumb" key={style.name} onClick={()=>handleStyle(style)}>
-          PICT
-          {style.name === curStyle.name ? `${style.name}!` : style.name}
+        <div className="style-child" key={style.name} onClick={()=>handleStyle(style)}>
+          <img className="style-thumb" src={style.photos[0].thumbnail_url} />
+          {style.name === curStyle.name ? '!' : null}
         </div>
       ))}
     </div>

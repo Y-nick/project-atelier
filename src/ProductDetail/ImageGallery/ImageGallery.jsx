@@ -41,7 +41,7 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   };
 
   return (
-    <div>
+    <div className="image-gallery-container">
       <Thumbnails
         pics={pics}
         selectPic={selectPic}

@@ -4,7 +4,7 @@ import SizeItem from './SizeItem.jsx';
 const SizeSelector = ({ SKUs, size, setSize, setCount, setSKU }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="dropdown">
+    <div className="size-selector">
       <div
         className="dropdown-btn"
         onClick={(()=> setOpen(!open))}

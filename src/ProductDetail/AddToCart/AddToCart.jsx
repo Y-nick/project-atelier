@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+import './cart.css';
 
 const apiRequests = require('../apiRequests');
 
-// import './cart.css';
 
 const AddToCart = ({ SKUs }) => {
   const [curSKU, setSKU] = useState(0);
@@ -17,30 +17,27 @@ const AddToCart = ({ SKUs }) => {
       .catch((error) => console.log(error));
   };
   return (
-    <div>
-      <div>
-        <SizeSelector
-          SKUs={SKUs}
-          size={size}
-          setSize={setSize}
-          setCount={setCount}
-          setSKU={setSKU}
-        />
-        <QuantitySelector
-          quantity={quantity}
-          stockCount={stockCount}
-          setQuantity={setQuantity}
-        />
-      </div>
-      <div>
-        <button
-          className="cart-button"
-          type="button"
-          onClick={handleClick}
-        >
-          Add to Cart
-        </button>
-      </div>
+    <div className="add-to-cart-container">
+      <SizeSelector
+        SKUs={SKUs}
+        size={size}
+        setSize={setSize}
+        setCount={setCount}
+        setSKU={setSKU}
+      />
+      <QuantitySelector
+        quantity={quantity}
+        stockCount={stockCount}
+        setQuantity={setQuantity}
+      />
+      <button
+        className="cart-button"
+        type="button"
+        onClick={handleClick}
+      >
+        Add to Cart
+      </button>
+      <button className="star-button" type="button">#</button>
     </div>
   );
 };

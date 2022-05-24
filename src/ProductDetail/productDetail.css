@@ -1,0 +1,29 @@
+
+
+.product-detail-container {
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  border: 2px solid #e38212;
+}
+
+.product-info-container {
+  border: 2px solid #e66cb1;
+}
+
+.style-selector-container {
+  border: 2px solid #28d13b;
+}
+
+.add-to-cart-container {
+  border: 2px solid #1f1fd1;
+}
+
+.image-gallery-container {
+  border: 2px solid #17b7e8;
+}
+
+.product-desc-container {
+  border: 2px solid #d11f43;
+}
+

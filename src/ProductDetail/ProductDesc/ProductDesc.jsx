@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductDesc = ({ slogan, desc, features }) => (
-  <div>
+  <div className="product-desc-container">
     <div>{slogan}</div>
     <div>{desc}</div>
     <div>
