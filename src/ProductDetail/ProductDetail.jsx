@@ -3,6 +3,7 @@ import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import ProductDesc from './ProductDesc/ProductDesc.jsx';
 import AddToCart from './AddToCart/AddToCart.jsx';
 import StyleSelector from './StyleSelector/StyleSelector.jsx';
+import ImageGallery from './ImageGallery/ImageGallery.jsx';
 
 const apiRequest = require('./apiRequests');
 
@@ -15,6 +16,8 @@ class ProductDetails extends React.Component {
       styles: [],
       curStyle: {},
       skus: [],
+      photos: [],
+      curPhoto: 0,
       // review: {},
     };
   }
@@ -24,6 +27,15 @@ class ProductDetails extends React.Component {
     this.getStyle(66642);
     // this.getReview(66642);
   }
+
+  handleStyle = (style) => {
+    this.setState({
+      curStyle: style,
+      skus: Object.entries(style.skus),
+      photos: style.photos,
+      curPhoto: 0,
+    });
+  };
 
   getProduct = (productId) => {
     apiRequest.fetchCurrentProduct(productId)
@@ -41,21 +53,18 @@ class ProductDetails extends React.Component {
           styles: response.data.results,
         });
         response.data.results.forEach((style) => {
-          if (style.default === true) {
-            this.setState({
-              curStyle: style,
-              skus: Object.entries(style.skus),
-            });
+          console.log(style);
+          if (style['default?'] === true) {
+            this.handleStyle(style);
           }
         });
       })
       .catch((error) => console.log(error));
   };
 
-  handleStyle = (style) => {
+  handleCurPhoto = (value) => {
     this.setState({
-      curStyle: style,
-      skus: Object.entries(style.skus),
+      curPhoto: value,
     });
   };
   // getReview = (productId) => {
@@ -73,11 +82,14 @@ class ProductDetails extends React.Component {
       styles,
       curStyle,
       skus,
+      photos,
+      curPhoto,
     } = this.state;
-    console.log('curstyle.skus:', skus);
+
     return (
       <div>
         <div>Hello WORLD</div>
+        <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
         <ProductInfo
           product={curProduct}
           styleSale={curStyle.sale_price}
