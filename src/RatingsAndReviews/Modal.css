@@ -1,8 +1,7 @@
 .modalBackground {
   position: fixed;
   display: flex;
-  padding-left: 125px;
-  padding-right: 200px;
+  padding: 100px;
   margin: auto;
 }
 

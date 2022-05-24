@@ -8,6 +8,7 @@ class ReviewListItem extends React.Component {
     };
     this.trueChecker = this.trueChecker.bind(this);
     this.respChecker = this.respChecker.bind(this);
+    this.formatDate = this.formatDate.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,23 @@ class ReviewListItem extends React.Component {
     return resp;
   }
 
+  formatDate(date) {
+    const monthNames = [
+      'January', 'February', 'March',
+      'April', 'May', 'June', 'July',
+      'August', 'September', 'October',
+      'November', 'December',
+    ];
+    const day = date.substring(8, 10);
+    let monthIndex = date.substring(5, 7);
+    if (monthIndex[0] === '0') {
+      monthIndex = monthIndex.substring(1);
+    }
+    const year = date.substring(0, 4);
+    console.log(monthIndex.substring(1));
+    return `${monthNames[monthIndex]} ${day}, ${year}`;
+  }
+
   render() {
     const {
       rating, name, date, summary, body, help,
@@ -48,7 +66,7 @@ class ReviewListItem extends React.Component {
             {name}
             ,
             (
-            {date}
+            {this.formatDate(date)}
             )
           </h5>
         </div>

@@ -19,7 +19,6 @@ class RatingsAndReviews extends React.Component {
   }
 
   // const p_id = 6642;
-  // const sort = '';
 
   // gets reviews sorted by (selected input) data and sets it to this components state
 
