@@ -8,8 +8,10 @@ class ReviewList extends React.Component {
     super(props);
     this.state = {
       value: 'relevant',
+      more: 'false',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleMoreReviews = this.handleMoreReviews.bind(this);
   }
 
   // sort list
@@ -34,9 +36,31 @@ class ReviewList extends React.Component {
     this.setState({ openModal: val });
   };
 
+  // more reviews
+
+  handleMoreReviews = (e) => {
+    const { more } = this.state;
+    e.preventDefault();
+    if (more) {
+      this.setState({ more: false });
+    } else {
+      this.setState({ more: true });
+    }
+  };
+
   render() {
+    const { more } = this.state;
     const { value, openModal } = this.state;
     const { reviews } = this.props;
+    let reviewItem;
+    let bChange;
+    if (more) {
+      reviewItem = reviews.slice(0, 2);
+      bChange = 'More Items';
+    } else {
+      reviewItem = reviews;
+      bChange = 'Less Items';
+    }
     return (
       <div style={List} className="grid-container3 reviewList">
         <div>
@@ -49,7 +73,7 @@ class ReviewList extends React.Component {
             <option value="newest">Newest</option>
           </select>
         </div>
-        {reviews.map((review) => (
+        {reviewItem.map((review, index) => (
           <ReviewItem
             className="listItem"
             body={review.body}
@@ -64,7 +88,7 @@ class ReviewList extends React.Component {
           />
         ))}
         <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
-        <button type="button" className="button">More Reivews</button>
+        <button type="button" className="button" onClick={this.handleMoreReviews}>{bChange}</button>
         {openModal && <WriteReviewModal func={this.handleClose} />}
       </div>
     );
