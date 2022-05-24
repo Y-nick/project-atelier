@@ -73,7 +73,7 @@ class ReviewList extends React.Component {
             <option value="newest">Newest</option>
           </select>
         </div>
-        {reviewItem.map((review, index) => (
+        {reviewItem.map((review) => (
           <ReviewItem
             className="listItem"
             body={review.body}
