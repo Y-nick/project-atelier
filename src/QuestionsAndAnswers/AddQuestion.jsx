@@ -12,7 +12,9 @@ class AddQuestion extends React.Component {
   }
 
   closeModal() {
+    const { modal } = this.props;
     this.setState({ modalOpen: false });
+    modal(false);
   }
 
   render() {

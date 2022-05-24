@@ -35,9 +35,15 @@ class Question extends React.Component {
     return (
       <div>
         {answerObj.map((answer, index) => (
-          <div className="answer" key={answer.id} onClick={this.toggleAnswers}>
-            {index <= display ? `A:  ${answer.body}` : null}
-          </div>
+            <div className="answer" key={answer.id} onClick={this.toggleAnswers}>
+              {index <= display ? `A:  ${answer.body}` : null}
+              <div className="username">
+                {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
+              </div>
+              <div className="pictures">
+                {index <= display ? `${answer.photos}` : null}
+              </div>
+            </div>
         ))}
       </div>
     );

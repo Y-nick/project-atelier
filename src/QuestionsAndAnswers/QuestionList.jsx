@@ -49,8 +49,8 @@ class QuestionList extends React.Component {
     });
   }
 
-  openModal() {
-    this.setState({ modalOpen: true });
+  openModal(cb) {
+    this.setState({ modalOpen: cb });
   }
 
   render() {
@@ -61,7 +61,6 @@ class QuestionList extends React.Component {
     return (
       <div>
         <div>QUESTIONS AND ANSWERS</div>
-        {/* <SearchBar questions={questions} search={this.searchFun} /> */}
         <div className="flex-container searchDiv">
           <input
             className="inputs"
@@ -100,7 +99,7 @@ class QuestionList extends React.Component {
         </div>
         <button type="button">MORE ANSWERED QUESTIONS</button>
         <button type="button" onClick={this.openModal}>ADD A QUESTION  +</button>
-        {modalOpen ? <AddQuestion /> : null}
+        {modalOpen ? <AddQuestion modal={this.openModal} /> : null}
       </div>
     );
   }
