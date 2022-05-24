@@ -11,7 +11,7 @@ const StyleSelector = ({ curStyle, styles, handleStyle }) => (
       {styles.map((style) => (
         <div className="styleThumb" key={style.name} onClick={()=>handleStyle(style)}>
           PICT
-          {style.name}
+          {style.name === curStyle.name ? `${style.name}!` : style.name}
         </div>
       ))}
     </div>

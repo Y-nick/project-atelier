@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageView from './ImageView.jsx';
 import Thumbnails from './Thumbnails.jsx';
 
 const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
+  const [sliceStart, setSliceStart] = useState(curPhoto);
+
+
   const selectPic = (value) => {
     // pics.forEach(pic, index)(if pic.url === value)
     //handleCurPhoto = index
-    console.log('value', value);
+    pics.forEach((pic, index) => {
+      if (pic.url === value) {
+        handleCurPhoto(index);
+      }
+    });
   };
 
   const handleNextImg = () => {
@@ -21,9 +28,28 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
     }
   };
 
+  const scrollUp = () => {
+    if (sliceStart > 0) {
+      setSliceStart(sliceStart - 1);
+    }
+  };
+
+  const scrollDown = () => {
+    if (sliceStart < pics.length - 2) {
+      setSliceStart(sliceStart + 1);
+    }
+  };
+
   return (
     <div>
-      <Thumbnails pics={pics} selectPic={selectPic} />
+      <Thumbnails
+        pics={pics}
+        selectPic={selectPic}
+        curPhoto={curPhoto}
+        scrollUp={scrollUp}
+        scrollDown={scrollDown}
+        sliceStart={sliceStart}
+      />
       <ImageView
         pic={pics[curPhoto] && pics[curPhoto].url}
         handleNextImg={handleNextImg}

@@ -5,8 +5,10 @@ const ImageView = ({ pic, handleNextImg, handlePrevImg }) => {
 
   return (
     <div className="image-view">
-      <span onClick={()=>handlePrevImg()}>{'<'}</span>
-      <span>{pic}</span>
+      <span onClick={() => handlePrevImg()}>{'<'}</span>
+      <span>
+        <img src={pic} />
+      </span>
       <span onClick={()=>handleNextImg()}>{'>'}</span>
     </div>
   );

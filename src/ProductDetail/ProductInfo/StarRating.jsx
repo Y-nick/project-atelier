@@ -2,7 +2,7 @@ import React from 'react';
 
 const StarRating = () => (
   <div>
-    0 0 0 0 0
+    <span>0 0 0 0 0</span><span>Read all X reviews</span>
   </div>
 );
 
