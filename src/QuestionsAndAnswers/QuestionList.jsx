@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Question from './Question.jsx';
 import AddQuestion from './AddQuestion.jsx';
-import SearchBar from './SearchBar.jsx';
+import './QuestionList.css';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class QuestionList extends React.Component {
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.searchFun = this.searchFun.bind(this);
   }
 
   componentDidMount() {
@@ -54,10 +53,6 @@ class QuestionList extends React.Component {
     this.setState({ modalOpen: true });
   }
 
-  searchFun(cb) {
-    this.setState();
-  }
-
   render() {
     const {
       questions, questionIndex, modalOpen, search,
@@ -74,9 +69,6 @@ class QuestionList extends React.Component {
             placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
             onChange={(e) => { this.setState({ search: e.target.value }); }}
           />
-          {
-
-          }
           <div className="icon">
             Icon
             {/* Icon will go here */}
@@ -95,10 +87,13 @@ class QuestionList extends React.Component {
               && question.question_body.toLowerCase().includes(search.toLowerCase())) {
                 return question;
               }
+              return null;
             }).map((item, index) => (
-              <div key={item.question_id}>
+              <div key={item.question_id} className="QAPair">
                 {index <= questionIndex ? `Q:  ${item.question_body}` : null}
-                {index <= questionIndex ? <Question details={item} /> : null}
+                {index <= questionIndex
+                  ? <Question details={item} onClick={this.passClick} />
+                  : null}
               </div>
             ))
           }

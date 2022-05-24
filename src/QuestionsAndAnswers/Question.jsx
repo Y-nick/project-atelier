@@ -1,11 +1,31 @@
 import React from 'react';
+import './Question.css';
 
 class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       display: 0,
+      showAll: false,
     };
+    this.toggleAnswers = this.toggleAnswers.bind(this);
+    this.addOrSubtract = this.addOrSubtract.bind(this);
+  }
+  // () => {this.setState({ display: 20 }); }
+
+  toggleAnswers() {
+    const { showAll } = this.state;
+    this.setState({ showAll: !showAll });
+    this.addOrSubtract();
+  }
+
+  addOrSubtract() {
+    const { display } = this.state;
+    if (display === 0) {
+      this.setState({ display: 20 });
+    } if (display === 20) {
+      this.setState({ display: 0 });
+    }
   }
 
   render() {
@@ -15,7 +35,7 @@ class Question extends React.Component {
     return (
       <div>
         {answerObj.map((answer, index) => (
-          <div key={answer.id}>
+          <div className="answer" key={answer.id} onClick={this.toggleAnswers}>
             {index <= display ? `A:  ${answer.body}` : null}
           </div>
         ))}
