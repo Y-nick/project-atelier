@@ -31,17 +31,19 @@ const AddToCart = ({ SKUs }) => {
         stockCount={stockCount}
         setQuantity={setQuantity}
       />
-      <button
+      <div
         className="cart-button"
-        type="button"
+        role="button"
         onClick={handleClick}
+        onKeyPress={handleClick}
+        tabIndex="0"
       >
         <span className="cart-text">ADD TO CART</span>
         <span>
           <img className="plus" src={plus} alt="Plus" />
         </span>
-      </button>
-      <button className="star-button" type="button"><img src={star} /></button>
+      </div>
+      <div className="star-button" role="button" aria-label="Add to outfit"><img src={star} alt="star" /></div>
     </div>
   );
 };

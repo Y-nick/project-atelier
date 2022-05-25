@@ -6,8 +6,8 @@ import './productInfo.css';
 const ProductInfo = ({ product, styleSale, stylePrice }) => (
   <div className="product-info-container">
     <div className="ratings-and-share-container">
-      <span><StarRating /></span>
-      <span><Share /></span>
+      <StarRating />
+      <Share />
     </div>
     <div className="product-category">{product.category}</div>
     <div className="product-name">{product.name}</div>

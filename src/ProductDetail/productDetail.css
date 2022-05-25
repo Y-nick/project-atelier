@@ -1,30 +1,92 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
 
 .product-detail-container {
   font-family: 'Inconsolata', monospace;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 1.3rem;
-  border: 2px solid #e38212;
+  /* border: 2px solid #e38212; */
+}
+
+.product-detail-grid {
+  border: 2px solid red;
+  z-index: 800;
 }
 
 .product-info-container {
-  border: 2px solid #e66cb1;
+  border: 2px dashed #e66cb1;
 }
 
 .style-selector-container {
-  border: 2px solid #28d13b;
+  border: 2px dashed #28d13b;
 }
 
 .add-to-cart-container {
-  border: 2px solid #1f1fd1;
+  border: 2px dashed #1f1fd1;
 }
 
 .image-gallery-container {
-  border: 2px solid #17b7e8;
+  border: 2px dashed #17b7e8;
 }
 
 .product-desc-container {
-  border: 2px solid #d11f43;
+  border: 2px dashed #d11f43;
 }
 

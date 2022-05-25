@@ -1,0 +1,108 @@
+:root {
+  --border: 1.5px solid #000000;
+  --text-color: #000000;
+  --bg-highlight: #e2e2e2;
+  --box-height: 60px;
+  --box-width: 250px;
+  --speed: 500ms;
+  --box-font-size: 1.4rem;
+}
+
+.size-selector {
+  border: var(--border);
+  height: var(--box-height);
+  width: 160px;
+  background-color: #fff;
+  line-height: var(--box-height);
+  position: relative;
+}
+
+.dropdown-btn {
+  /* box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 8px;
+}
+
+.quantity-selector {
+  border: var(--border);
+  height: var(--box-height);
+  width: var(--box-width);
+  background-color: #fff;
+  text-align: center;
+  line-height: var(--box-height);
+  position: relative;
+}
+
+.cart-button {
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  box-sizing: content-box;
+  padding: 0;
+  height: var(--box-height);
+  border: var(--border);
+  width: 250px;
+  background-color: #fff;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: var(--box-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.star-button {
+  box-sizing: content-box;
+  padding: 0;
+  border: var(--border);
+  height: var(--box-height);
+  width: 60px;
+  background-color: #fff;
+  font-size: var(--box-font-size);
+  text-align: center;
+  line-height: var(--box-height);
+}
+
+.cart-button:active {
+  background-color: #dbdbdb;
+}
+
+.star-button:active {
+  background-color: #dbdbdb;
+}
+
+.cart-text {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.plus {
+  margin-top: 16px;
+}
+
+.dropdown-content {
+  top: 110%;
+  width: 100%;
+  position: absolute;
+  z-index: 200;
+  background: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  list-style: none;
+  text-align: start;
+  padding-left: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #dbdbdb;
+}

@@ -18,7 +18,8 @@
 
 .main-img {
   /* TODO: Might change */
-  height: 75vh
+  height: 75vh;
+  object-fit: cover;
 }
 
 /* Thumbnail styling */
@@ -50,7 +51,7 @@
 .horizontal-line {
   position: absolute;
   left: 0;
-  bottom: -12px;
+  bottom: -5px;
 }
 
 .thumb-img {

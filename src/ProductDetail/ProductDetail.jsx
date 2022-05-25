@@ -98,12 +98,12 @@ class ProductDetails extends React.Component {
             stylePrice={curStyle.original_price}
           />
           <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
-          <ProductDesc
-            slogan={curProduct.slogan}
-            desc={curProduct.description}
-            features={features}
-          />
         </div>
+        <ProductDesc
+          slogan={curProduct.slogan}
+          desc={curProduct.description}
+          features={features}
+        />
       </div>
     );
   }

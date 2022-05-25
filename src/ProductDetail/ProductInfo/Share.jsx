@@ -4,7 +4,7 @@ import twitter from '../images/twitter.svg';
 import pinterest from '../images/pinterest.svg';
 
 const Share = () => (
-  <div>
+  <div className="share">
     <a href="http://www.facebook.com">
       <img src={facebook} alt="Facebook" />
     </a>

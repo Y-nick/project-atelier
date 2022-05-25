@@ -12,25 +12,24 @@
 .style-child {
   justify-self: center;
   display:flex;
-
   position: relative;
 }
 
 .thumb-check {
-  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  text-align:center;
   overflow: hidden;
-  position: relative;
 }
 
 .style-thumb {
-  min-width: 75px;
-  max-width: none;
-  height:100px;
-  margin: -10% -100%;
+  position: relative;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
 }
 
 .check {

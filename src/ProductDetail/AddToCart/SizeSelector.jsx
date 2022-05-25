@@ -7,21 +7,27 @@ const SizeSelector = ({
   size,
   setSize,
   setCount,
-  setSKU
+  setSKU,
 }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="size-selector">
+
       <div
         className="dropdown-btn"
-        onClick={(()=> setOpen(!open))}
-        role="button">
-        <span>{size || "SELECT SIZE"}</span>
-        <span><img src={downChevy} /></span>
+        onClick={(() => setOpen(!open))}
+        onKeyPress={(() => setOpen(!open))}
+        role="button"
+        tabIndex="0"
+      >
+        <span>{size || 'SELECT SIZE'}</span>
+        <span><img src={downChevy} alt="Down Nav" /></span>
       </div>
+
       {open && (
       <div className="dropdown-content">
         {SKUs.map((SKU) => (
+
           <SizeItem
             key={SKU[0]}
             curSKU={SKU[0]}
@@ -32,6 +38,7 @@ const SizeSelector = ({
             setCount={setCount}
             setSKU={setSKU}
           />
+
         ))}
       </div>
       )}

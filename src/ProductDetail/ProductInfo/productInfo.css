@@ -19,3 +19,23 @@
 .sale-strikethrough {
   text-decoration: line-through;
 }
+
+.star-rating-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: .5rem;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  height: 28px;
+}
+
+.share {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
