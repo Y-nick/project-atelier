@@ -19,31 +19,37 @@ const AddToCart = ({ SKUs }) => {
   };
   return (
     <div className="add-to-cart-container">
-      <SizeSelector
-        SKUs={SKUs}
-        size={size}
-        setSize={setSize}
-        setCount={setCount}
-        setSKU={setSKU}
-      />
-      <QuantitySelector
-        quantity={quantity}
-        stockCount={stockCount}
-        setQuantity={setQuantity}
-      />
-      <div
-        className="cart-button"
-        role="button"
-        onClick={handleClick}
-        onKeyPress={handleClick}
-        tabIndex="0"
-      >
-        <span className="cart-text">ADD TO CART</span>
-        <span>
-          <img className="plus" src={plus} alt="Plus" />
-        </span>
+      <div className="cart-top-row">
+        <SizeSelector
+          SKUs={SKUs}
+          size={size}
+          setSize={setSize}
+          setCount={setCount}
+          setSKU={setSKU}
+        />
+        <QuantitySelector
+          quantity={quantity}
+          stockCount={stockCount}
+          setQuantity={setQuantity}
+        />
       </div>
-      <div className="star-button" role="button" aria-label="Add to outfit"><img src={star} alt="star" /></div>
+
+      <div className="cart-bottom-row">
+        <div
+          className="cart-button"
+          role="button"
+          onClick={handleClick}
+          onKeyPress={handleClick}
+          tabIndex="0"
+        >
+          <div className="cart-text">ADD TO CART</div>
+          <div className="plus">
+            <img className="plus-img" src={plus} alt="Plus" />
+          </div>
+        </div>
+        <div className="star-button" role="button" aria-label="Add to outfit"><img src={star} alt="star" /></div>
+
+      </div>
     </div>
   );
 };

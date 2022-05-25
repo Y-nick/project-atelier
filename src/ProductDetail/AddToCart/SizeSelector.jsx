@@ -14,14 +14,14 @@ const SizeSelector = ({
     <div className="size-selector">
 
       <div
-        className="dropdown-btn"
+        className="dropdown-btn-size"
         onClick={(() => setOpen(!open))}
         onKeyPress={(() => setOpen(!open))}
         role="button"
         tabIndex="0"
       >
-        <span>{size || 'SELECT SIZE'}</span>
-        <span><img src={downChevy} alt="Down Nav" /></span>
+        <div>{size || 'SELECT SIZE'}</div>
+        <div><img src={downChevy} alt="Down Nav" /></div>
       </div>
 
       {open && (

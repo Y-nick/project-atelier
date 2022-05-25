@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const SizeItem = ({
   curSKU,
@@ -17,7 +17,13 @@ const SizeItem = ({
   };
 
   return (
-    <li className="dropdown-item" onClick={sizeSelection}>
+    <li
+      className="dropdown-item"
+      onClick={sizeSelection}
+      onKeyPress={sizeSelection}
+      role="menuitem"
+      tabIndex="0"
+    >
       {option}
     </li>
   );

@@ -7,7 +7,14 @@ const QuantityItem = ({ option, setQuantity, setOpen }) => {
   };
 
   return (
-    <li className="dropdown-item" id="quantity-item" onClick={QuantitySelection}>
+    <li
+      className="dropdown-item"
+      id="quantity-item"
+      onClick={QuantitySelection}
+      onKeyPress={QuantitySelection}
+      role="menuitem"
+      tabIndex="0"
+    >
       {option}
     </li>
   );

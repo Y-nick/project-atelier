@@ -16,11 +16,14 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
   return (
     <div className="quantity-selector">
       <div
-        className="dropdown-btn"
+        className="dropdown-btn-quantity"
         onClick={(() => setOpen(!open))}
+        onKeyPress={(() => setOpen(!open))}
+        tabIndex="0"
+        role="button"
       >
-        <span>{quantity || "SELECT QUANTITY"}</span>
-        <span><img src={downChevy} /></span>
+        <div>{quantity || 'QUANTITY'}</div>
+        <div><img src={downChevy} alt="Down nav" /></div>
       </div>
       {open && (
       <div className="dropdown-content">
