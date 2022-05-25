@@ -11,17 +11,17 @@ const Thumbnails = ({
   scrollDown,
 }) => (
   <div className="thumb-collection">
-    <div onClick={scrollUp}>
-      <img src={upChevy} />
+    <div className="up-chevron" onClick={scrollUp}>
+      <img src={upChevy} alt="Up Nav" />
     </div>
     {pics.map((pic) => (
-      <div key={pic.thumbnail_url} onClick={()=>selectPic(pic.url)}>
+      <div className="thumb-container" key={pic.thumbnail_url} onClick={()=>selectPic(pic.url)}>
         <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />
         {pics[curPhoto].thumbnail_url === pic.thumbnail_url ? '!' : null}
       </div>
     ))}
-    <div onClick={scrollDown}>
-      <img src={downChevy} />
+    <div className="down-chevron" onClick={scrollDown}>
+      <img src={downChevy} alt="Down Nav" />
     </div>
   </div>
 );
