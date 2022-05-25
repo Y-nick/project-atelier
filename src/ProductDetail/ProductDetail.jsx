@@ -88,9 +88,8 @@ class ProductDetails extends React.Component {
 
     return (
       <div className="product-detail-container">
-        <div>Hello WORLD</div>
+        <div className="announce-message">SITE-WIDE ANNOUNCEMENT MESSAGE! SALE ON CERTAIN ITEMS!</div>
         <div className="product-detail-grid">
-          <AddToCart SKUs={skus} />
           <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
           <ProductInfo
             product={curProduct}
@@ -98,6 +97,7 @@ class ProductDetails extends React.Component {
             stylePrice={curStyle.original_price}
           />
           <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
+          <AddToCart SKUs={skus} />
         </div>
         <ProductDesc
           slogan={curProduct.slogan}

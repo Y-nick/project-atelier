@@ -34,7 +34,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+
 }
 
 /* A elements that don't have a class get default styles */
@@ -57,36 +57,60 @@ select {
   font: inherit;
 }
 
+/* @media screen and (min-width:1500px) {
+  .product-detail-container {
+    margin: 0 15vw;
+  }
+} */
+
 .product-detail-container {
   font-family: 'Inconsolata', monospace;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
+  margin: 0 18vw;
   /* border: 2px solid #e38212; */
 }
 
 .product-detail-grid {
-  border: 2px solid red;
+  width: 100%;
+  /* border: 2px solid red; */
   z-index: 800;
+  display: grid;
+  gap: 1rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(32%, 1fr));
+  grid-template-rows: repeat(3, 250px);
 }
 
+
 .product-info-container {
-  border: 2px dashed #e66cb1;
+  /* border: 2px dashed #e66cb1; */
 }
 
 .style-selector-container {
-  border: 2px dashed #28d13b;
+  /* border: 2px dashed #28d13b; */
 }
 
 .add-to-cart-container {
-  border: 2px dashed #1f1fd1;
+  /* border: 2px dashed #1f1fd1; */
 }
 
 .image-gallery-container {
-  border: 2px dashed #17b7e8;
+  /* border: 2px dashed #17b7e8; */
+  grid-row: span 3/auto;
+  grid-column: span 2/auto;
 }
+
 
 .product-desc-container {
-  border: 2px dashed #d11f43;
+  /* border: 2px dashed #d11f43; */
 }
 
+.announce-message {
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1em;
+  margin: 10px;
+}

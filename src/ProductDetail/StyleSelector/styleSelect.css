@@ -1,8 +1,16 @@
+.style-selector-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  gap: 1rem;
+}
+
 .style-grid-container {
-  margin: 10px 0;
+  /* margin: 10px 0; */
+  width: 100%;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 75px);
 }
 
 .current-style {
@@ -10,7 +18,7 @@
 }
 
 .style-child {
-  justify-self: center;
+  justify-self:flex-start;
   display:flex;
   position: relative;
 }

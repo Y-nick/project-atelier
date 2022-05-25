@@ -4,13 +4,13 @@ import star from '../images/star.svg';
 const StarRating = () => (
   <div className="star-rating-container">
     <div className="stars">
-      <img src={star} alt="Star" />
-      <img src={star} alt="Star" />
-      <img src={star} alt="Star" />
-      <img src={star} alt="Star" />
-      <img src={star} alt="Star" />
+      <img className="star" src={star} alt="Star" />
+      <img className="star" src={star} alt="Star" />
+      <img className="star" src={star} alt="Star" />
+      <img className="star" src={star} alt="Star" />
+      <img className="star" src={star} alt="Star" />
     </div>
-    <div>
+    <div className="read-all">
       Read all
       {' '}
       <a href="#">

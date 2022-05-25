@@ -22,7 +22,7 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
         tabIndex="0"
         role="button"
       >
-        <div>{quantity || 'QUANTITY'}</div>
+        <div>{quantity || 'QTY'}</div>
         <div><img src={downChevy} alt="Down nav" /></div>
       </div>
       {open && (
