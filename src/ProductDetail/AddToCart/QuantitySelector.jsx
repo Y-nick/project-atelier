@@ -19,7 +19,7 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
         className="dropdown-btn"
         onClick={(() => setOpen(!open))}
       >
-        <span>{quantity || "Select Quantity"}</span>
+        <span>{quantity || "SELECT QUANTITY"}</span>
         <span><img src={downChevy} /></span>
       </div>
       {open && (

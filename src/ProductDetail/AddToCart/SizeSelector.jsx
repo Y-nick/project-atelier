@@ -16,7 +16,7 @@ const SizeSelector = ({
         className="dropdown-btn"
         onClick={(()=> setOpen(!open))}
         role="button">
-        <span>{size || "Select Size"}</span>
+        <span>{size || "SELECT SIZE"}</span>
         <span><img src={downChevy} /></span>
       </div>
       {open && (

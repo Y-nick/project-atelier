@@ -36,7 +36,7 @@ const AddToCart = ({ SKUs }) => {
         type="button"
         onClick={handleClick}
       >
-        <span className="cart-text">Add to Cart</span>
+        <span className="cart-text">ADD TO CART</span>
         <span>
           <img className="plus" src={plus} alt="Plus" />
         </span>
