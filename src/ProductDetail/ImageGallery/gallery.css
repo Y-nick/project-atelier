@@ -2,50 +2,60 @@
   position: relative;
 }
 
-.thumb-collection {
-  margin-top: 50px;
-  position: absolute;
-  z-index: 200;
-}
-
-.thumb-img{
-  height: 60px;
-}
-
+/* Image view styling */
 .image-view {
-  position: relative;
-}
-
-.right-chevron {
-  position: absolute;
-  right: 0;
-  top: 50%;
-}
-
-.left-chevron {
-  position: absolute;
-  left: 50px;
-  top: 50%;
-}
-
-.up-chevron {
-  position: absolute;
-  top: -25px;
-  left: 25%;
-}
-
-.down-chevron {
-  position: absolute;
-  bottom: -25px;
-  left: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-img-container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .main-img {
-  width: 500px;
+  /* TODO: Might change */
+  height: 75vh
+}
+
+/* Thumbnail styling */
+
+.thumb-collection {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+}
+
+.thumb-container {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+.thumb-selection-wrapper{
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-line {
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+}
+
+.thumb-img {
+  position: absolute;
+  width:100px;
+  height: 100px;
+  object-fit: cover;
 }

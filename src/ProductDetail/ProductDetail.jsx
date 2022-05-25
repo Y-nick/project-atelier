@@ -89,19 +89,21 @@ class ProductDetails extends React.Component {
     return (
       <div className="product-detail-container">
         <div>Hello WORLD</div>
-        <AddToCart SKUs={skus} />
-        <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
-        <ProductInfo
-          product={curProduct}
-          styleSale={curStyle.sale_price}
-          stylePrice={curStyle.original_price}
-        />
-        <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
-        <ProductDesc
-          slogan={curProduct.slogan}
-          desc={curProduct.description}
-          features={features}
-        />
+        <div className="product-detail-grid">
+          <AddToCart SKUs={skus} />
+          <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
+          <ProductInfo
+            product={curProduct}
+            styleSale={curStyle.sale_price}
+            stylePrice={curStyle.original_price}
+          />
+          <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
+          <ProductDesc
+            slogan={curProduct.slogan}
+            desc={curProduct.description}
+            features={features}
+          />
+        </div>
       </div>
     );
   }
