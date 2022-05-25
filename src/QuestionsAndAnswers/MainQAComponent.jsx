@@ -23,7 +23,7 @@ export default class MainQAComponent extends React.Component {
     const options = {
       url: apiURL,
       method: 'get',
-      headers: { authorization: process.env.API_KEY },
+      headers: { authorization: "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" },
       params: {
         page: 1,
         count: 5,
