@@ -164,8 +164,6 @@ class AddAnswer extends React.Component {
                 {images.map((image) => (
                   <div>{image.name}</div>
                 ))}
-                {/* {images.length > 0 ?
-                  {images.map()} : null} */}
               </div>
             </div>
             <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
