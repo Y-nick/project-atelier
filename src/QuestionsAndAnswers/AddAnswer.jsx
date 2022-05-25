@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import './AddAnswer.css';
 
 const startState = {
   modalOpen: true,
@@ -25,7 +26,7 @@ class AddAnswer extends React.Component {
       <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
         <form id="formContainer">
           <div className="x" onClick={this.closeModal}>x</div>
-          <h1>ADD ANSWER</h1>
+          <h1>SUBMIT YOUR ANSWER</h1>
           <h3>{`About the item_____`}</h3>
           <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
           <button className="button" type="submit" onClick={this.handleSubmit}>SUBMIT</button>

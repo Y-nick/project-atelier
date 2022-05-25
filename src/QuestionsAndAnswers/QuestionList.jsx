@@ -94,9 +94,6 @@ class QuestionList extends React.Component {
               <div key={elem.question_id} className="QAPair">
                 {index <= questionIndex ? <p className="question">{`Q:  ${elem.question_body}`}</p> : null}
                 {index <= questionIndex
-                  ? <div className="addAnswer"onClick={this.answerModal}>Add Answer</div>
-                  : null}
-                {index <= questionIndex
                   ? <Question className="answer" details={elem} onClick={this.passClick} />
                   : null}
               </div>
@@ -106,7 +103,6 @@ class QuestionList extends React.Component {
         <button type="button">MORE ANSWERED QUESTIONS</button>
         <button type="button" onClick={this.openModal}>ADD A QUESTION  +</button>
         {modalOpen ? <AddQuestion item={item} modal={this.openModal} /> : null}
-        {answerModalOpen ? <AddAnswer modalFun={this.answerModal} /> : null}
       </div>
     );
   }

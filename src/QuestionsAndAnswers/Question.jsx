@@ -1,4 +1,6 @@
 import React from 'react';
+import Modal from 'react-modal';
+import AddAnswer from './AddAnswer.jsx';
 import './Question.css';
 
 class Question extends React.Component {
@@ -7,9 +9,11 @@ class Question extends React.Component {
     this.state = {
       display: 0,
       showAll: false,
+      answerModalOpen: false,
     };
     this.toggleAnswers = this.toggleAnswers.bind(this);
     this.addOrSubtract = this.addOrSubtract.bind(this);
+    this.answerModal = this.answerModal.bind(this);
   }
   // () => {this.setState({ display: 20 }); }
 
@@ -17,6 +21,10 @@ class Question extends React.Component {
     const { showAll } = this.state;
     this.setState({ showAll: !showAll });
     this.addOrSubtract();
+  }
+
+  answerModal(cb) {
+    this.setState({ answerModalOpen: cb });
   }
 
   addOrSubtract() {
@@ -30,10 +38,11 @@ class Question extends React.Component {
 
   render() {
     const { details } = this.props;
-    const { display } = this.state;
+    const { display, answerModalOpen} = this.state;
     const answerObj = Object.values(details.answers);
     return (
       <div>
+        <div className="addAnswer" onClick={this.answerModal}>Add Answer</div>
         {answerObj.map((answer, index) => (
             <div className="answer" key={answer.id} onClick={this.toggleAnswers}>
               {index <= display ? `A:  ${answer.body}` : null}
@@ -42,6 +51,9 @@ class Question extends React.Component {
               </div>
               <div className="pictures">
                 {index <= display ? `${answer.photos}` : null}
+              </div>
+              <div>
+                {answerModalOpen ? <AddAnswer item={details} modalFun={this.answerModal} /> : null}
               </div>
             </div>
         ))}

@@ -36,10 +36,6 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader','css-loader']
       }
-      // {
-      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      //   type: 'asset/resource',
-      // },
     ]
   },
   // [devtool] this is an additional source map that will let the browser know what files are running our code.
@@ -53,7 +49,6 @@ module.exports = {
     },
     compress: true,
     // [port] what port on our local machine to run the dev server
-    //port: process.env.PORT,
-    port: 3000
+    port: process.env.PORT,
   }
 }
