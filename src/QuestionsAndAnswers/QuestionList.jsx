@@ -12,13 +12,11 @@ class QuestionList extends React.Component {
       questions: [],
       questionIndex: 1,
       modalOpen: false,
-      answerModalOpen: false,
       search: '',
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.answerModal = this.answerModal.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +36,7 @@ class QuestionList extends React.Component {
     const options = {
       url: apiURL,
       method: 'get',
-      headers: { authorization: "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"},
+      headers: { authorization: "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" },
       params: {
         product_id: item.id,
         page: 1,
@@ -56,13 +54,9 @@ class QuestionList extends React.Component {
     this.setState({ modalOpen: cb });
   }
 
-  answerModal(cb) {
-    this.setState({ answerModalOpen: cb });
-  }
-
   render() {
     const {
-      questions, questionIndex, modalOpen, search, answerModalOpen,
+      questions, questionIndex, modalOpen, search,
     } = this.state;
     const { item } = this.props;
     return (
@@ -94,7 +88,7 @@ class QuestionList extends React.Component {
               <div key={elem.question_id} className="QAPair">
                 {index <= questionIndex ? <p className="question">{`Q:  ${elem.question_body}`}</p> : null}
                 {index <= questionIndex
-                  ? <Question className="answer" details={elem} onClick={this.passClick} />
+                  ? <Question className="answer" item={item} details={elem} onClick={this.passClick} />
                   : null}
               </div>
             ))

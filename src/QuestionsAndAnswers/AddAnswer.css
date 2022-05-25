@@ -1,0 +1,17 @@
+/* .formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.answerDiv {
+  display: block;
+} */
+
+.uploadDiv {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.uploadHeader {
+  margin-bottom: 5px;
+}
