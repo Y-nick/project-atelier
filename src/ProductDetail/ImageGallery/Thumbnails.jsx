@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import './gallery.css';
 import upChevy from '../images/chevron-up.svg';
 import downChevy from '../images/chevron-down.svg';
@@ -13,13 +13,26 @@ const Thumbnails = ({
 }) => (
   <div className="thumb-collection">
 
-    <div className="up-chevron" onClick={scrollUp}>
+    <div
+      className="up-chevron"
+      onClick={scrollUp}
+      onKeyPress={scrollUp}
+      role="button"
+      tabIndex="0"
+    >
       <img src={upChevy} alt="Up Nav" />
     </div>
 
     {pics.map((pic) => (
 
-      <div className="thumb-container" key={pic.thumbnail_url} onClick={()=>selectPic(pic.url)}>
+      <div
+        className="thumb-container"
+        key={pic.thumbnail_url}
+        onClick={() => selectPic(pic.url)}
+        onKeyPress={() => selectPic(pic.url)}
+        role="button"
+        tabIndex="0"
+      >
 
         <div className="thumb-selection-wrapper">
           <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />
@@ -30,7 +43,13 @@ const Thumbnails = ({
       </div>
     ))}
 
-    <div className="down-chevron" onClick={scrollDown}>
+    <div
+      className="down-chevron"
+      onClick={scrollDown}
+      onKeyPress={scrollDown}
+      role="button"
+      tabIndex="0"
+    >
       <img src={downChevy} alt="Down Nav" />
     </div>
 

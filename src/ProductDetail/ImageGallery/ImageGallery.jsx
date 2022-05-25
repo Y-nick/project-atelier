@@ -5,10 +5,7 @@ import Thumbnails from './Thumbnails.jsx';
 const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   const [sliceStart, setSliceStart] = useState(curPhoto);
 
-
   const selectPic = (value) => {
-    // pics.forEach(pic, index)(if pic.url === value)
-    //handleCurPhoto = index
     pics.forEach((pic, index) => {
       if (pic.url === value) {
         handleCurPhoto(index);

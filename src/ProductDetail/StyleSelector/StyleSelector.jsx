@@ -11,7 +11,14 @@ const StyleSelector = ({ curStyle, styles, handleStyle }) => (
     </div>
     <div className="style-grid-container">
       {styles.map((style) => (
-        <div className="style-child" key={style.name} onClick={()=>handleStyle(style)}>
+        <div
+          className="style-child"
+          key={style.name}
+          onClick={() => handleStyle(style)}
+          onKeyPress={() => handleStyle(style)}
+          role="button"
+          tabIndex="0"
+        >
           <div className="thumb-check">
             <img className="style-thumb" src={style.photos[0].thumbnail_url} alt="style thumbnail" />
           </div>
