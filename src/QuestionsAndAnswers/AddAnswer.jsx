@@ -8,6 +8,8 @@ const startState = {
   nickname: '',
   email: '',
   uploadOpen: false,
+  imageCount: 0,
+  images: [],
 };
 
 class AddAnswer extends React.Component {
@@ -16,6 +18,14 @@ class AddAnswer extends React.Component {
     this.state = startState;
 
     this.closeModal = this.closeModal.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+  }
+
+  handleUpload(e) {
+    const { images } = this.state;
+    images.push(e.target.files[0]);
+    this.setState({ uploadOpen: false });
+    this.setState({ imageCount: images.length - 1 });
   }
 
   closeModal() {
@@ -25,7 +35,9 @@ class AddAnswer extends React.Component {
   }
 
   render() {
-    const { modalOpen, uploadOpen } = this.state;
+    const {
+      modalOpen, uploadOpen, imageCount, images,
+    } = this.state;
     const { item, details } = this.props;
     return (
       <>
@@ -63,14 +75,24 @@ class AddAnswer extends React.Component {
               {/* {!emailError ? null : <p className="error">{emailError}</p>} */}
             </div>
             <div className="uploadDiv">
-              <button type="button" onClick={() => { this.setState({ uploadOpen: !uploadOpen }); }}>UPLOAD IMAGES</button>
+              {imageCount <= 5 ? <button type="button" onClick={() => { this.setState({ uploadOpen: !uploadOpen }); }}>UPLOAD IMAGES</button> : null}
+              <div className="imageDiv">
+                {images.map((image) => (
+                  <div>{image.name}</div>
+                ))}
+                {/* {images.length > 0 ?
+                  {images.map()} : null} */}
+              </div>
             </div>
             <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
             <button className="button" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
           </form>
         </Modal>
         <Modal isOpen={uploadOpen} appElement={document.getElementById('root')}>
-          <input type="file" />
+          <form className="formContainer">
+            <div className="x" onClick={() => { this.setState({ uploadOpen: false }); }}>x</div>
+            <input type="file" onChange={this.handleUpload} />
+          </form>
         </Modal>
       </>
     );

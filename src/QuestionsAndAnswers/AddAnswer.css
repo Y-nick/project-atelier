@@ -15,3 +15,13 @@
 .uploadHeader {
   margin-bottom: 5px;
 }
+
+.uploadButton {
+  margin-top: 40px;
+  display: block;
+}
+
+.imageDiv {
+  font-size: small;
+  color: green;
+}
