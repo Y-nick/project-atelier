@@ -1,19 +1,22 @@
-.offStars{
+.offBars{
   position: absolute;
   z-index: 3;
 }
 
-.offStar{
-  opacity: 60%;
+.offBar{
+  opacity: 30%;
+  height: 15px;
 }
 
-.onStars{
+.onBars{
   position: relative;
   z-index: 1;
 }
 
-.onStar{
-  opacity: 100%;
+.onBar{
+  height: 15px;
+  opacity: 90%;
   z-index: 1;
   position: relative;
+  color: green;
 }

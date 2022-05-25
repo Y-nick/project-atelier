@@ -22,7 +22,7 @@ class RatingsBreakdown extends React.Component {
           <Recommendations reviews={reviews} />
         </div>
         <div className="grid-item3 summary">
-          <Summary />
+          <Summary reviews={reviews} />
         </div>
       </div>
     );

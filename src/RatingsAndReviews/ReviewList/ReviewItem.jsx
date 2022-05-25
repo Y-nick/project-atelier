@@ -12,13 +12,6 @@ class ReviewListItem extends React.Component {
     this.formatDate = this.formatDate.bind(this);
   }
 
-  componentDidMount() {
-    const { reco } = this.props;
-    if (reco) {
-      console.log(reco);
-    }
-  }
-
   trueChecker() {
     const { reco } = this.props;
     if (reco) {
@@ -48,7 +41,6 @@ class ReviewListItem extends React.Component {
       monthIndex = monthIndex.substring(1);
     }
     const year = date.substring(0, 4);
-    console.log(monthIndex.substring(1));
     return `${monthNames[monthIndex]} ${day}, ${year}`;
   }
 

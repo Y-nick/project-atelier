@@ -1,7 +1,6 @@
 import React from 'react';
 import star from './img/star.svg';
 import starFill from './img/star-fill.svg';
-// import Item from '../Item.css';
 import Star from './Star.css';
 
 class StarRating extends React.Component {
@@ -14,7 +13,7 @@ class StarRating extends React.Component {
 
   render() {
     const { rating } = this.props;
-
+    console.log(rating);
     return (
       <div>
         <div className="offStars" style={Star}>
@@ -25,7 +24,7 @@ class StarRating extends React.Component {
           <img className="offStar" src={star} alt="" />
         </div>
         <div className="onStars" style={Star}>
-          {[...Array(rating)].map((star) => (
+          {[...Array(rating)].map(() => (
             <img className="onStar" src={starFill} alt="" />
           ))}
         </div>

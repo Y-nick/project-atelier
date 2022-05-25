@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRating from '../ReviewList/StarRatingComponent/StarRating.jsx';
 
 class Breakdown extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Breakdown extends React.Component {
     for (let x = 0; x < reviews.length; x += 1) {
       sum += reviews[x].rating;
     }
-    unR = (sum / reviews.length).toString();
+    unR = (sum / reviews.length);
     return (Math.round(unR * 4) / 4).toFixed(2);
   }
 
@@ -24,6 +25,7 @@ class Breakdown extends React.Component {
         <div>
           <h1>
             {this.average()}
+            <StarRating rating={this.average()} />
           </h1>
         </div>
       </div>
