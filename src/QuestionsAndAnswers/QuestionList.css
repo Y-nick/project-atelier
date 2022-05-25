@@ -1,6 +1,31 @@
+.QADiv {
+  display: flex;
+  flex-direction: column;
+  margin: 7%;
+}
+
 
 .QAPair {
-  border-style: double;
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.question {
+  display: inline;
+}
+
+.addAnswer {
+  display: inline;
+  position: absolute;
+  right: 2in;
+  font-size: small;
+  color: gray;
+  cursor: pointer;
+}
+
+.answer {
+  margin-top: 5px;
 }
 
 .inputs {
@@ -11,23 +36,14 @@
   align-items: center;
 }
 
-.flex-container_searchDiv {
-  background-color: aquamarine;
-  border: 0;
-  border-radius: 2px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  font-size: 16px;
-  padding: 20px;
-  height: 0px;
+.searchDiv {
   display: flex;
-
+  font-size: 16px;
+  height: 50px;
 }
 
 .icon {
-  height: 50px;
+  display: flex;
   width: 60px;
-  background-color: bisque;
-  display: flexbox;
   place-items: center;
 }

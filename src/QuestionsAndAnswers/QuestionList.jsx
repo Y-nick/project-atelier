@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Question from './Question.jsx';
 import AddQuestion from './AddQuestion.jsx';
+import AddAnswer from './AddAnswer.jsx';
 import './QuestionList.css';
 
 class QuestionList extends React.Component {
@@ -11,6 +12,7 @@ class QuestionList extends React.Component {
       questions: [],
       questionIndex: 1,
       modalOpen: false,
+      answerModalOpen: false,
       search: '',
     };
 
@@ -55,13 +57,13 @@ class QuestionList extends React.Component {
 
   render() {
     const {
-      questions, questionIndex, modalOpen, search,
+      questions, questionIndex, modalOpen, search, answerModalOpen,
     } = this.state;
     const { item } = this.props;
     return (
-      <div>
+      <div className="QADiv">
         <div>QUESTIONS AND ANSWERS</div>
-        <div className="flex-container searchDiv">
+        <div className="searchDiv">
           <input
             className="inputs"
             type="text"
@@ -70,11 +72,7 @@ class QuestionList extends React.Component {
           />
           <div className="icon">
             Icon
-            {/* Icon will go here */}
           </div>
-        </div>
-        <div className="questionData">
-          {}
         </div>
         <div>
           {
@@ -89,9 +87,12 @@ class QuestionList extends React.Component {
               return null;
             }).map((elem, index) => (
               <div key={elem.question_id} className="QAPair">
-                {index <= questionIndex ? `Q:  ${elem.question_body}` : null}
+                {index <= questionIndex ? <p className="question">{`Q:  ${elem.question_body}`}</p> : null}
                 {index <= questionIndex
-                  ? <Question details={elem} onClick={this.passClick} />
+                  ? <div className="addAnswer"onClick={() => {this.setState({ answerModalOpen: !answerModalOpen }); }}>Add Answer</div>
+                  : null}
+                {index <= questionIndex
+                  ? <Question className="answer" details={elem} onClick={this.passClick} />
                   : null}
               </div>
             ))
@@ -100,6 +101,7 @@ class QuestionList extends React.Component {
         <button type="button">MORE ANSWERED QUESTIONS</button>
         <button type="button" onClick={this.openModal}>ADD A QUESTION  +</button>
         {modalOpen ? <AddQuestion item={item} modal={this.openModal} /> : null}
+        {modalOpen ? <AddAnswer modal={this.openModal} /> : null}
       </div>
     );
   }
