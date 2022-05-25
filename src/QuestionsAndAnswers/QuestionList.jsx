@@ -13,10 +13,12 @@ class QuestionList extends React.Component {
       questionIndex: 1,
       modalOpen: false,
       search: '',
+      moreLess: 'MORE',
     };
 
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.toggleQ = this.toggleQ.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,15 @@ class QuestionList extends React.Component {
     return {
       sampleItem: props,
     };
+  }
+
+  toggleQ() {
+    const { questionIndex } = this.state;
+    if (questionIndex === 1) {
+      this.setState({ questionIndex: 20, moreLess: 'FEWER' });
+    } else {
+      this.setState({ questionIndex: 1, moreLess: 'MORE' });
+    }
   }
 
   fetcherQuestions() {
@@ -56,7 +67,7 @@ class QuestionList extends React.Component {
 
   render() {
     const {
-      questions, questionIndex, modalOpen, search,
+      questions, questionIndex, modalOpen, search, moreLess,
     } = this.state;
     const { item } = this.props;
     return (
@@ -94,7 +105,7 @@ class QuestionList extends React.Component {
             ))
           }
         </div>
-        <button type="button">MORE ANSWERED QUESTIONS</button>
+        <button onClick={this.toggleQ} type="button">{`${moreLess} ANSWERED QUESTIONS`}</button>
         <button type="button" onClick={this.openModal}>ADD A QUESTION  +</button>
         {modalOpen ? <AddQuestion item={item} modal={this.openModal} /> : null}
       </div>
