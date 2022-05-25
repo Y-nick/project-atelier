@@ -7,10 +7,24 @@ class Recommendations extends React.Component {
     };
   }
 
+  average() {
+    const { reviews } = this.props;
+    let sum = 0;
+    for (let x = 0; x < reviews.length; x += 1) {
+      if (reviews[x].recommend) {
+        sum += 1;
+      }
+    }
+    return (sum / reviews.length) * 100;
+  }
+
   render() {
     return (
       <div>
-        <div>(Perecentage of Recommendations) </div>
+        <div>
+          {this.average()}
+          % of reviews recommend this product
+        </div>
       </div>
     );
   }

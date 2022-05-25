@@ -12,15 +12,16 @@ class RatingsBreakdown extends React.Component {
   }
 
   render() {
+    const { reviews } = this.props;
     return (
       <div style={rBreakdown} className="grid-container2 ratingsBreakdown">
-        <div className="grid-item breakDown">
-          <Breakdown />
+        <div className="grid-item1 breakDown">
+          <Breakdown reviews={reviews} />
         </div>
-        <div className="grid-item recommendations">
-          <Recommendations />
+        <div className="grid-item2 recommendations">
+          <Recommendations reviews={reviews} />
         </div>
-        <div className="grid-item summary">
+        <div className="grid-item3 summary">
           <Summary />
         </div>
       </div>

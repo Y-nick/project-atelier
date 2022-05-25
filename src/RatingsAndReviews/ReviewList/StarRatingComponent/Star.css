@@ -1,0 +1,19 @@
+.offStars{
+  position: absolute;
+  z-index: 3;
+}
+
+.offStar{
+  opacity: 30%;
+}
+
+.onStars{
+  position: relative;
+  z-index: 1;
+}
+
+.onStar{
+  opacity: 100%;
+  z-index: 1;
+  position: relative;
+}

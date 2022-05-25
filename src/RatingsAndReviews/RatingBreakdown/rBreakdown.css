@@ -1,6 +1,20 @@
 .grid-container2{
   display: grid;
   grid-template-rows: 25% 15% 60%;
-  height: 400px;
+  border: 2px solid #000;
+  background-color: rgb(229, 229, 229);
+  height: auto;
+}
+
+.grid-item1{
+  padding: 20px;
+}
+
+.grid-item2{
+  padding: 20px;
+}
+
+.grid-item3{
+  padding: 20px;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from './Item.css';
-import StarRating from './StarRating.jsx';
+import StarRating from './StarRatingComponent/StarRating.jsx';
 
 class ReviewListItem extends React.Component {
   constructor(props) {
@@ -58,9 +58,9 @@ class ReviewListItem extends React.Component {
     } = this.props;
     return (
       <div className="grid-container4" style={Item}>
-        <h3 className="grid-item-1">
+        <h2 className="grid-item-1">
           <StarRating rating={rating} />
-        </h3>
+        </h2>
         <div className="grid-item-2">
           <h5>
             {name}
