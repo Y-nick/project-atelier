@@ -87,9 +87,9 @@ class ReviewList extends React.Component {
             resp={review.response}
           />
         ))}
-        <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
         <button type="button" className="button" onClick={this.handleMoreReviews}>{bChange}</button>
         {openModal && <WriteReviewModal func={this.handleClose} />}
+        <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
       </div>
     );
   }

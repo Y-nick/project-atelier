@@ -4,3 +4,15 @@
   height: auto;
   grid-gap: 5px;
 }
+
+.button{
+  width: 155px;
+  height: 55px;
+  font-size: large;
+}
+
+.openModal{
+  width: 155px;
+  height: 55px;
+  font-size: large;
+}

@@ -24,6 +24,7 @@ class Recommendations extends React.Component {
         <div>
           {this.average()}
           % of reviews recommend this product
+
         </div>
       </div>
     );

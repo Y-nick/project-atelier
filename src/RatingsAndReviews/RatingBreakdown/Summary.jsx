@@ -37,7 +37,7 @@ class Summary extends React.Component {
           <BarRating text="2 Stars" bars={5} />
         </div>
         <div>
-          <BarRating text="1 Stars" bars={1} />
+          <BarRating text="1 Stars" bars={0} />
         </div>
         <div>size(------------------------------------)</div>
         <div>comofort(-----------------------------)</div>
