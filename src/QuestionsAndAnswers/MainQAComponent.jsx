@@ -26,7 +26,7 @@ export default class MainQAComponent extends React.Component {
       headers: { authorization: process.env.API_KEY },
       params: {
         page: 1,
-        count: 5,
+        count: 8,
       },
     };
     axios(options).then((data) => {

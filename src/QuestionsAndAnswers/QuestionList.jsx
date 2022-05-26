@@ -19,6 +19,7 @@ class QuestionList extends React.Component {
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
     this.openModal = this.openModal.bind(this);
     this.toggleQ = this.toggleQ.bind(this);
+    this.passToList = this.passToList.bind(this);
   }
 
   componentDidMount() {
@@ -51,7 +52,7 @@ class QuestionList extends React.Component {
       params: {
         product_id: item.id,
         page: 1,
-        count: 5,
+        count: 11,
       },
     };
     axios(options).then((data) => {
@@ -63,6 +64,10 @@ class QuestionList extends React.Component {
 
   openModal(cb) {
     this.setState({ modalOpen: cb });
+  }
+
+  passToList(cb) {
+    this.setState({ questions: cb });
   }
 
   render() {
@@ -109,7 +114,8 @@ class QuestionList extends React.Component {
           <button className="butt1" onClick={this.toggleQ} type="button">{`${moreLess} ANSWERED QUESTIONS`}</button>
           <button className="butt2" type="button" onClick={this.openModal}>ADD A QUESTION</button>
         </div>
-        {modalOpen ? <AddQuestion item={item} modal={this.openModal} /> : null}
+        {modalOpen
+          ? <AddQuestion fetcher={this.fetcherQuestions} post={this.passToList} item={item} modal={this.openModal} /> : null}
       </div>
     );
   }

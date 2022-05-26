@@ -52,7 +52,7 @@ class AddQuestion extends React.Component {
     if (nickname.length < 2) {
       nicknameError = 'Please enter a valid nickname';
     }
-    if (!email.includes('@')) {
+    if (!email.includes('@') || !email.includes('.com')) {
       emailError = 'Please enter valid email';
     }
 
@@ -71,18 +71,18 @@ class AddQuestion extends React.Component {
 
   postQuestion() {
     const { question, nickname, email } = this.state;
-    const { item } = this.props;
+    const { item, post, fetcher, } = this.props;
     const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions';
     const options = {
       url: apiURL,
       method: 'post',
-      headers: { authorization: process.env.API_KEY },
-      params: {
+      data: {
         body: question,
         name: nickname,
-        email,
+        email: email,
         product_id: item.id,
       },
+      headers: { authorization: process.env.API_KEY },
     };
     const options2 = {
       url: apiURL,
@@ -90,8 +90,8 @@ class AddQuestion extends React.Component {
       headers: { authorization: process.env.API_KEY },
       params: {
         product_id: item.id,
-        page: 1,
-        count: 5,
+        page: 2,
+        count: 10,
       },
     };
     axios(options).then(() => {
@@ -99,11 +99,13 @@ class AddQuestion extends React.Component {
     }).catch((err) => {
       console.log('error posting data', err);
     }).then(() => {
-      axios(options2).then((data) => {
-        this.setState({ newlyPosted: data.data.results });
-      }).catch((err) => {
-        console.log('error fetching data new posts', err);
-      });
+      // axios(options2).then((data) => {
+      //   this.setState({ newlyPosted: data.data.results });
+      //   post(data.data.results);
+      // }).catch((err) => {
+      //   console.log('error fetching data new posts', err);
+      // });
+      fetcher();
     });
   }
 
