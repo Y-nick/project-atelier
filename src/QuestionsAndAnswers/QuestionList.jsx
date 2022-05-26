@@ -47,7 +47,7 @@ class QuestionList extends React.Component {
     const options = {
       url: apiURL,
       method: 'get',
-      headers: { authorization: "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" },
+      headers: { authorization: process.env.API_KEY },
       params: {
         product_id: item.id,
         page: 1,
