@@ -37,13 +37,13 @@ class Question extends React.Component {
   }
 
   render() {
-    const { details, item } = this.props;
-    const { display, answerModalOpen} = this.state;
+    const { details, item, fetcher } = this.props;
+    const { display, answerModalOpen } = this.state;
     const answerObj = Object.values(details.answers);
     return (
       <div>
         <div className="addAnswer" onClick={this.answerModal}>Add Answer</div>
-        {answerModalOpen ? <AddAnswer item={item} details={details} modalFun={this.answerModal} /> : null}
+        {answerModalOpen ? <AddAnswer fetcher={fetcher} item={item} details={details} modalFun={this.answerModal} /> : null}
         {answerObj.map((answer, index) => (
             <div className="answer" key={answer.id} onClick={this.toggleAnswers}>
               {index <= display ? `A:  ${answer.body}` : null}

@@ -71,7 +71,7 @@ class AddQuestion extends React.Component {
 
   postQuestion() {
     const { question, nickname, email } = this.state;
-    const { item, post, fetcher, } = this.props;
+    const { item, fetcher } = this.props;
     const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions';
     const options = {
       url: apiURL,
@@ -84,27 +84,11 @@ class AddQuestion extends React.Component {
       },
       headers: { authorization: process.env.API_KEY },
     };
-    const options2 = {
-      url: apiURL,
-      method: 'get',
-      headers: { authorization: process.env.API_KEY },
-      params: {
-        product_id: item.id,
-        page: 2,
-        count: 10,
-      },
-    };
     axios(options).then(() => {
       console.log('question post successful');
     }).catch((err) => {
       console.log('error posting data', err);
     }).then(() => {
-      // axios(options2).then((data) => {
-      //   this.setState({ newlyPosted: data.data.results });
-      //   post(data.data.results);
-      // }).catch((err) => {
-      //   console.log('error fetching data new posts', err);
-      // });
       fetcher();
     });
   }

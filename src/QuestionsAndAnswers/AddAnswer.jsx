@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
 import './AddAnswer.css';
 
 const startState = {
@@ -79,39 +80,39 @@ class AddAnswer extends React.Component {
   }
 
   postAnswer() {
-    const { question, nickname, email } = this.state;
-    const { item } = this.props;
-    const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions:question_id/answers';
+    const { answer, nickname, email } = this.state;
+    const { fetcher, details } = this.props;
+    const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/answers`;
     const options = {
       url: apiURL,
       method: 'post',
-      headers: { authorization: process.env.API_KEY },
-      params: {
-        body: question,
+      data: {
+        body: answer,
         name: nickname,
-        email,
-        product_id: item.id,
+        email: email,
       },
+      headers: { authorization: process.env.API_KEY },
     };
+    const apiURL2 = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/answers`;
     const options2 = {
-      url: apiURL,
+      url: apiURL2,
       method: 'get',
       headers: { authorization: process.env.API_KEY },
       params: {
-        product_id: item.id,
         page: 1,
-        count: 5,
+        count: 11,
       },
     };
     axios(options).then(() => {
-      console.log('question post successful');
+      console.log('ANSWER post successful');
     }).catch((err) => {
       console.log('error posting data', err);
     }).then(() => {
+      fetcher();
       axios(options2).then((data) => {
-        this.setState({ newlyPosted: data.data.results });
+        console.log(data.data.results);
       }).catch((err) => {
-        console.log('error fetching data new posts', err);
+        console.log('error fetching data', err, options2.params.question_id);
       });
     });
   }

@@ -19,7 +19,7 @@ class QuestionList extends React.Component {
     this.fetcherQuestions = this.fetcherQuestions.bind(this);
     this.openModal = this.openModal.bind(this);
     this.toggleQ = this.toggleQ.bind(this);
-    this.passToList = this.passToList.bind(this);
+    //this.passToList = this.passToList.bind(this);
   }
 
   componentDidMount() {
@@ -66,9 +66,9 @@ class QuestionList extends React.Component {
     this.setState({ modalOpen: cb });
   }
 
-  passToList(cb) {
-    this.setState({ questions: cb });
-  }
+  // passToList(cb) {
+  //   this.setState({ questions: cb });
+  // }
 
   render() {
     const {
@@ -104,7 +104,7 @@ class QuestionList extends React.Component {
               <div key={elem.question_id} className="QAPair">
                 {index <= questionIndex ? <p className="question">{`Q:  ${elem.question_body}`}</p> : null}
                 {index <= questionIndex
-                  ? <Question className="answer" item={item} details={elem} onClick={this.passClick} />
+                  ? <Question fetcher={this.fetcherQuestions} className="answer" item={item} details={elem} onClick={this.passClick} />
                   : null}
               </div>
             ))
@@ -115,7 +115,7 @@ class QuestionList extends React.Component {
           <button className="butt2" type="button" onClick={this.openModal}>ADD A QUESTION</button>
         </div>
         {modalOpen
-          ? <AddQuestion fetcher={this.fetcherQuestions} post={this.passToList} item={item} modal={this.openModal} /> : null}
+          ? <AddQuestion fetcher={this.fetcherQuestions} item={item} modal={this.openModal} /> : null}
       </div>
     );
   }
