@@ -3,7 +3,7 @@ import leftChevy from '../images/chevron-left.svg';
 import rightChevy from '../images/chevron-right.svg';
 import fullscreen from '../images/fullscreen.svg';
 
-const ImageView = ({ pic, handleNextImg, handlePrevImg }) => (
+const ImageView = ({ pic, handleNextImg, handlePrevImg, handleExpand }) => (
   <div className="image-view">
 
     <div
@@ -21,7 +21,13 @@ const ImageView = ({ pic, handleNextImg, handlePrevImg }) => (
 
     </div>
 
-    <div className="full-size">
+    <div
+      className="full-size"
+      role="button"
+      tabIndex="0"
+      onClick={() => handleExpand()}
+      onKeyPress={() => handleExpand()}
+    >
       <img src={fullscreen} alt="Fullscreen" />
     </div>
 

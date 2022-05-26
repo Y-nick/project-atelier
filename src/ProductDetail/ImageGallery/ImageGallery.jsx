@@ -4,6 +4,7 @@ import Thumbnails from './Thumbnails.jsx';
 
 const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   const [sliceStart, setSliceStart] = useState(curPhoto);
+  const [style, setStyle] = useState('image-gallery-container');
 
   const selectPic = (value) => {
     pics.forEach((pic, index) => {
@@ -37,8 +38,17 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
     }
   };
 
+  const handleExpand = () => {
+    console.log('clicked so got here');
+    if (style === 'image-gallery-container') {
+      setStyle('image-gallery-container-expand');
+    } else {
+      setStyle('image-gallery-container');
+    }
+  };
+
   return (
-    <div className="image-gallery-container">
+    <div className={style}>
       <Thumbnails
         pics={pics}
         selectPic={selectPic}
@@ -51,6 +61,7 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
         pic={pics[curPhoto] && pics[curPhoto].url}
         handleNextImg={handleNextImg}
         handlePrevImg={handlePrevImg}
+        handleExpand={handleExpand}
       />
     </div>
   );
