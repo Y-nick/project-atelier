@@ -72,18 +72,18 @@ class QuestionList extends React.Component {
     const { item } = this.props;
     return (
       <div className="QADiv">
-        <div>QUESTIONS AND ANSWERS</div>
-        <div className="searchDiv">
+        <h2>QUESTIONS AND ANSWERS</h2>
+        <form className="searchDiv">
           <input
-            className="inputs"
-            type="text"
+            id="search"
+            type="search"
             placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
             onChange={(e) => { this.setState({ search: e.target.value }); }}
           />
-          <div className="icon">
-            Icon
-          </div>
-        </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </form>
         <div>
           {
             questions.filter((question) => {

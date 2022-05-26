@@ -1,14 +1,19 @@
 .QADiv {
   display: flex;
+  position: absolute;
   flex-direction: column;
-  margin: 7%;
+  margin-left: 18%;
+  margin-right: 30%;
+  margin-top: 10%;
+  margin-bottom: 8%;
 }
 
 
 .QAPair {
   display: block;
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 60px;
+  margin-left: 3%;
 }
 
 .question {
@@ -17,33 +22,42 @@
 
 .addAnswer {
   display: inline;
-  position: absolute;
-  right: 2in;
+  position: relative;
+  margin-left: 85%;
   font-size: small;
   color: gray;
   cursor: pointer;
 }
 
 .answer {
-  margin-top: 5px;
+  margin-top: 25px;
 }
 
-.inputs {
+#search {
+  outline: none;
   margin-top: 5px;
-  width: 400px;
-  display: flex;
+  margin-left: 8px;
+  width: 700px;
+  border: none;
   justify-content: space-between;
   align-items: center;
 }
 
 .searchDiv {
   display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
   height: 50px;
+  outline: auto;
 }
 
-.icon {
-  display: flex;
-  width: 60px;
-  place-items: center;
+.bi-search {
+  position: relative;
+  margin-top: 2.7%;
+  margin-right: 4%;
+}
+
+button {
+  margin-bottom: 20px;
 }
