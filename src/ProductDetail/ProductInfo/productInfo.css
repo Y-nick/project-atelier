@@ -14,7 +14,7 @@
 .price-and-share-style {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 1.3em;
 }
 
 .product-category {
@@ -46,11 +46,11 @@
 .stars {
   display: flex;
   flex-direction: row;
-  height: 28px;
+  height: 1.45em;
 }
 
 .star {
-  height: 18px;
+  height: .9375em;
 }
 
 .read-all {

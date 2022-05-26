@@ -23,17 +23,16 @@ const ImageView = ({
 
     <div className="main-img-container">
       <img className="main-img" src={pic} alt="Product" />
+      <div
+        className="full-size"
+        role="button"
+        tabIndex="0"
+        onClick={() => handleExpand()}
+        onKeyPress={() => handleExpand()}
+      >
+        <img src={fullscreen} alt="Fullscreen" />
+      </div>
 
-    </div>
-
-    <div
-      className="full-size"
-      role="button"
-      tabIndex="0"
-      onClick={() => handleExpand()}
-      onKeyPress={() => handleExpand()}
-    >
-      <img src={fullscreen} alt="Fullscreen" />
     </div>
 
     <div

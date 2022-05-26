@@ -17,7 +17,8 @@
 .description-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 5em;
 }
 
 .feature-points {

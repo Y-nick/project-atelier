@@ -9,7 +9,32 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-left: 100px;
+  padding-left: 5.2em;
+  position: relative;
+}
+
+.left-chevron{
+  height: 2.6em;
+  width: 2.6em;
+  border-radius: 50%;
+  position: absolute;
+  left: 5.3em;
+  z-index: 100;
+
+}
+
+.right-chevron{
+  height: 2.6em;
+  width: 2.6em;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  z-index: 100;
+}
+
+.left-chevron:hover, .right-chevron:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .main-img-container {
@@ -17,8 +42,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 75%;
-  /* position: relative; */
+  max-width: 98%;
+  position: relative;
 }
 
 .main-img {
@@ -30,8 +55,14 @@
 
 .full-size {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: .8em;
+  right: .8em;
+  width: 2.6em;
+  height: 2.6em;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .full-size:hover {
@@ -46,19 +77,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1vh;
+  gap: .8em;
+  z-index: 500;
 }
 
 .thumb-container {
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 5.2em;
+  width: 5.2em;
 }
 
 .thumb-selection-wrapper{
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 5.2em;
+  width: 5.2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,3 +109,6 @@
   object-fit: cover;
 }
 
+.main-img-container:hover .full-size {
+  background-color: rgba(255, 255, 255, 0.3);
+}
