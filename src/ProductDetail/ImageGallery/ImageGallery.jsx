@@ -3,7 +3,6 @@ import ImageView from './ImageView.jsx';
 import Thumbnails from './Thumbnails.jsx';
 
 const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
-  const [sliceStart, setSliceStart] = useState(curPhoto);
   const [style, setStyle] = useState('image-gallery-container');
 
   const selectPic = (value) => {
@@ -30,18 +29,6 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
     }
   };
 
-  const scrollUp = () => {
-    if (sliceStart > 0) {
-      setSliceStart(sliceStart - 1);
-    }
-  };
-
-  const scrollDown = () => {
-    if (sliceStart < pics.length - 2) {
-      setSliceStart(sliceStart + 1);
-    }
-  };
-
   const handleExpand = () => {
     if (style === 'image-gallery-container') {
       setStyle('image-gallery-container-expand');
@@ -56,9 +43,6 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
         pics={pics}
         selectPic={selectPic}
         curPhoto={curPhoto}
-        scrollUp={scrollUp}
-        scrollDown={scrollDown}
-        sliceStart={sliceStart}
       />
       <ImageView
         pic={pics[curPhoto] && pics[curPhoto].url}
