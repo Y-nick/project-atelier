@@ -30,7 +30,7 @@
 }
 
 .answer {
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 #search {
@@ -58,6 +58,20 @@
   margin-right: 4%;
 }
 
-button {
-  margin-bottom: 20px;
+.QAButtonDiv {
+  margin-bottom: 8%;
+}
+
+.butt1 {
+  margin-left: 15px;
+  width: 330px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.butt2 {
+  margin-left: 15px;
+  width: 330px;
+  font-size: large;
+  cursor: pointer;
 }

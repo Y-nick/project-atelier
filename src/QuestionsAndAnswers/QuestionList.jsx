@@ -105,8 +105,10 @@ class QuestionList extends React.Component {
             ))
           }
         </div>
-        <button onClick={this.toggleQ} type="button">{`${moreLess} ANSWERED QUESTIONS`}</button>
-        <button type="button" onClick={this.openModal}>ADD A QUESTION  +</button>
+        <div className="QAButtonDiv">
+          <button className="butt1" onClick={this.toggleQ} type="button">{`${moreLess} ANSWERED QUESTIONS`}</button>
+          <button className="butt2" type="button" onClick={this.openModal}>ADD A QUESTION</button>
+        </div>
         {modalOpen ? <AddQuestion item={item} modal={this.openModal} /> : null}
       </div>
     );
