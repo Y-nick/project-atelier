@@ -5,7 +5,6 @@ class Summary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bars: 0,
     };
   }
 
@@ -21,23 +20,77 @@ class Summary extends React.Component {
     return (totalFive / totalReviews) * 10;
   }
 
+  fours() {
+    const { reviews } = this.props;
+    const totalReviews = reviews.length;
+    let totalFour = 0;
+    for (let x = 0; x < reviews.length; x += 1) {
+      if (reviews[x].rating === 4) {
+        totalFour += 1;
+      }
+    }
+    return (totalFour / totalReviews) * 10;
+  }
+
+  threes() {
+    const { reviews } = this.props;
+    const totalReviews = reviews.length;
+    let totalThree = 0;
+    for (let x = 0; x < reviews.length; x += 1) {
+      if (reviews[x].rating === 3) {
+        totalThree += 1;
+      }
+    }
+    return (totalThree / totalReviews) * 10;
+  }
+
+  twos() {
+    const { reviews } = this.props;
+    const totalReviews = reviews.length;
+    let totalTwos = 0;
+    for (let x = 0; x < reviews.length; x += 1) {
+      if (reviews[x].rating === 2) {
+        totalTwos += 1;
+      }
+    }
+    return (totalTwos / totalReviews) * 10;
+  }
+
+  ones() {
+    const { reviews } = this.props;
+    const totalReviews = reviews.length;
+    let totalOnes = null;
+    for (let x = 0; x < reviews.length; x += 1) {
+      if (reviews[x].rating === 1) {
+        totalOnes += 1;
+      }
+    }
+    return (totalOnes / totalReviews) * 10;
+  }
+
   render() {
+    //  console.log(this.state.fives);
+    const fives = this.fives();
+    const fours = this.fours();
+    const threes = this.threes();
+    const twos = this.twos();
+    const ones = this.ones();
     return (
       <div>
         <div>
-          <BarRating text="5 Stars" bars={4} />
+          <BarRating text="5 Stars" bars={fives} />
         </div>
         <div>
-          <BarRating text="4 Stars" bars={2} />
+          <BarRating text="4 Stars" bars={fours} />
         </div>
         <div>
-          <BarRating text="3 Stars" bars={7} />
+          <BarRating text="3 Stars" bars={threes} />
         </div>
         <div>
-          <BarRating text="2 Stars" bars={5} />
+          <BarRating text="2 Stars" bars={twos} />
         </div>
         <div>
-          <BarRating text="1 Stars" bars={0} />
+          <BarRating text="1 Stars" bars={ones} />
         </div>
         <div>size(------------------------------------)</div>
         <div>comofort(-----------------------------)</div>
@@ -47,35 +100,3 @@ class Summary extends React.Component {
 }
 
 export default Summary;
-
-// const { reviews } = this.props;
-// const totalReviews = reviews.length;
-// let totalFive = 0;
-// let totalFour = 0;
-// let totalThree = 0;
-// let totalTwo = 0;
-// let totalOne = 0;
-
-// for (let x = 0; x < reviews.length; x += 1) {
-//   if (reviews[x].rating === 5) {
-//     totalFive += 1;
-//   }
-//   if (reviews[x].rating === 4) {
-//     totalFour += 1;
-//   }
-//   if (reviews[x].rating === 3) {
-//     totalThree += 1;
-//   }
-//   if (reviews[x].rating === 2) {
-//     totalTwo += 1;
-//   }
-//   if (reviews[x].rating === 1) {
-//     totalOne += 1;
-//   }
-// }
-
-// const fiveStarAv = (totalFive / totalReviews) * 10;
-// const fourStarAv = (totalFour / totalReviews) * 10;
-// const threeStarAv = (totalThree / totalReviews) * 10;
-// const twoStarAv = (totalTwo / totalReviews) * 10;
-// const oneStarAv = (totalOne / totalReviews) * 10;

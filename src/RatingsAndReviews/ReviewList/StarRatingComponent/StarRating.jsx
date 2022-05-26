@@ -13,7 +13,7 @@ class StarRating extends React.Component {
 
   render() {
     const { rating } = this.props;
-    console.log(rating);
+    console.log('star rating input:', rating);
     return (
       <div>
         <div className="offStars" style={Star}>
@@ -24,8 +24,8 @@ class StarRating extends React.Component {
           <img className="offStar" src={star} alt="" />
         </div>
         <div className="onStars" style={Star}>
-          {[...Array(rating)].map(() => (
-            <img className="onStar" src={starFill} alt="" />
+          {rating && [...Array(rating)].map((starI, index) => (
+            <img className="onStar" src={starFill} alt="" key={index} />
           ))}
         </div>
       </div>

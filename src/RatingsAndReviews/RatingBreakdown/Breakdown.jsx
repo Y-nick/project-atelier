@@ -5,27 +5,38 @@ class Breakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      average: 0,
     };
+    this.averageCal = this.averageCal.bind(this);
   }
 
-  average() {
+  averageCal() {
     const { reviews } = this.props;
+    console.log('reviews: ', reviews);
     let sum = 0;
-    let unR = 0;
+    let unRoundedAvr = 0;
+    let avr = 0;
     for (let x = 0; x < reviews.length; x += 1) {
-      sum += reviews[x].rating;
+      if (reviews[x].rating) {
+        sum += reviews[x].rating;
+      } else {
+        sum += 0;
+      }
     }
-    unR = (sum / reviews.length);
-    return (Math.round(unR * 4) / 4).toFixed(2);
+    unRoundedAvr = (sum / reviews.length);
+    avr = (Math.round(unRoundedAvr * 4) / 4).toFixed(2);
+    const intVal = parseInt(avr);
+    return intVal;
   }
 
   render() {
+    const passingAvr = this.averageCal();
     return (
       <div>
         <div>
           <h1>
-            {this.average()}
-            <StarRating rating={this.average()} />
+            {passingAvr}
+            <StarRating rating={passingAvr} />
           </h1>
         </div>
       </div>

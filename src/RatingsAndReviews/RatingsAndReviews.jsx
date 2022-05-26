@@ -39,7 +39,7 @@ class RatingsAndReviews extends React.Component {
       this.setState({
         product: res.data,
         reviews: res.data.results,
-      }, () => console.log('here is our state:', product));
+      });
     }).catch((err) => {
       console.log(err);
     });

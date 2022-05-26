@@ -13,8 +13,6 @@ class BarRating extends React.Component {
 
   render() {
     const { bars, text } = this.props;
-    console.log('bars:', bars, typeof bars);
-    console.log('text:', text);
 
     return (
       <div>
@@ -35,8 +33,8 @@ class BarRating extends React.Component {
         <div className="onBars" style={Bar}>
           {text}
           :
-          {[...Array(bars)].map(() => (
-            <img className="onBar" src={greenBar} alt="" />
+          {bars && [...Array(bars)].map((bar, index) => (
+            <img className="onBar" src={greenBar} alt="" key={index} />
           ))}
         </div>
       </div>
