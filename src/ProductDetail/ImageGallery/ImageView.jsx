@@ -3,7 +3,12 @@ import leftChevy from '../images/chevron-left.svg';
 import rightChevy from '../images/chevron-right.svg';
 import fullscreen from '../images/fullscreen.svg';
 
-const ImageView = ({ pic, handleNextImg, handlePrevImg, handleExpand }) => (
+const ImageView = ({
+  pic,
+  handleNextImg,
+  handlePrevImg,
+  handleExpand,
+}) => (
   <div className="image-view">
 
     <div
