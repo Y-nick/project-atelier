@@ -15,6 +15,7 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
 
   return (
     <div className="quantity-selector">
+
       <div
         className="dropdown-btn-quantity"
         onClick={(() => setOpen(!open))}
@@ -25,7 +26,9 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
         <div>{quantity || 'QTY'}</div>
         <div><img src={downChevy} alt="Down nav" /></div>
       </div>
+
       {open && (
+
       <div className="dropdown-content">
         {curStock.map((num) => (
           <QuantityItem
@@ -34,6 +37,7 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
             setQuantity={setQuantity}
             setOpen={setOpen}
           />
+
         ))}
       </div>
       )}

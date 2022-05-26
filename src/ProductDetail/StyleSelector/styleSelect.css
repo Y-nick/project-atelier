@@ -1,13 +1,10 @@
 .style-selector-container {
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   gap: 1rem;
 }
 
 .style-grid-container {
-  /* margin: 10px 0; */
   width: 100%;
   display: grid;
   gap: 1rem;
@@ -45,4 +42,8 @@
   position: absolute;
   z-index: 200;
   right: -.7rem;
+}
+
+.style-child:hover {
+  cursor: pointer;
 }

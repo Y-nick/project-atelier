@@ -17,12 +17,16 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   const handleNextImg = () => {
     if (pics[curPhoto + 1]) {
       handleCurPhoto(curPhoto + 1);
+    } else {
+      handleCurPhoto(0);
     }
   };
 
   const handlePrevImg = () => {
     if (pics[curPhoto - 1]) {
       handleCurPhoto(curPhoto - 1);
+    } else {
+      handleCurPhoto(pics.length - 1);
     }
   };
 
@@ -39,7 +43,6 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   };
 
   const handleExpand = () => {
-    console.log('clicked so got here');
     if (style === 'image-gallery-container') {
       setStyle('image-gallery-container-expand');
     } else {

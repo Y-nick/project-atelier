@@ -47,7 +47,14 @@ const AddToCart = ({ SKUs }) => {
             <img className="plus-img" src={plus} alt="Plus" />
           </div>
         </div>
-        <div className="star-button" role="button" aria-label="Add to outfit"><img src={star} alt="star" /></div>
+
+        <div
+          className="star-button"
+          role="button"
+          aria-label="Add to outfit"
+        >
+          <img src={star} alt="star" />
+        </div>
 
       </div>
     </div>
