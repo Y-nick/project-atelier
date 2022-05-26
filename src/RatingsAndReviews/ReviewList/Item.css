@@ -3,6 +3,7 @@
   height: auto;
   border: 2px solid #000;
   background-color: rgb(229, 229, 229);
+  border-radius: 12px;
 }
 
 .grid-item-1 {

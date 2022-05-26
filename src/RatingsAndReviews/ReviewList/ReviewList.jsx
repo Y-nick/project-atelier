@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewItem from './ReviewItem.jsx';
-import WriteReviewModal from '../WriteReviewModal.jsx';
+import WriteReviewModal from '../Modal/WriteReviewModal.jsx';
 import List from './List.css';
 
 class ReviewList extends React.Component {
@@ -51,7 +51,7 @@ class ReviewList extends React.Component {
   render() {
     const { more } = this.state;
     const { value, openModal } = this.state;
-    const { reviews } = this.props;
+    const { reviews, meta } = this.props;
     let reviewItem;
     let bChange;
     if (more) {
@@ -88,7 +88,7 @@ class ReviewList extends React.Component {
           />
         ))}
         <button type="button" className="button" onClick={this.handleMoreReviews}>{bChange}</button>
-        {openModal && <WriteReviewModal func={this.handleClose} />}
+        {openModal && <WriteReviewModal func={this.handleClose} meta={meta} />}
         <button type="button" className="openModal" onClick={this.clickHandlerOpen}>Add Review </button>
       </div>
     );

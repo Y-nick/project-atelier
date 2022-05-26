@@ -10,6 +10,7 @@ class RatingsAndReviews extends React.Component {
     this.state = {
       product: [],
       reviews: [],
+      meta: [],
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -23,7 +24,7 @@ class RatingsAndReviews extends React.Component {
   // gets reviews sorted by (selected input) data and sets it to this components state
 
   fetchData(sortType) {
-    const { product } = this.state;
+    // const { product } = this.state;
     axios({
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
       method: 'get',
@@ -43,10 +44,26 @@ class RatingsAndReviews extends React.Component {
     }).catch((err) => {
       console.log(err);
     });
+    axios({
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews/meta',
+      method: 'get',
+      headers: { authorization: process.env.API_KEY },
+      params: {
+        product_id: 66642,
+      },
+    }).then((res) => {
+      console.log(res.data);
+      this.setState({
+        meta: res.data,
+      });
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
-    const { reviews } = this.state;
+    const { reviews, product, meta } = this.state;
+    console.log(product);
     return (
       <div>
         <div style={RandRStyles} className="grid-container ratingsAndReviews">
@@ -56,7 +73,7 @@ class RatingsAndReviews extends React.Component {
           </div>
           <div className="grid-item reviewList">
             <h5/>
-            <ReviewList reviews={reviews} sort={this.fetchData} />
+            <ReviewList reviews={reviews} sort={this.fetchData} meta={meta} />
           </div>
         </div>
       </div>

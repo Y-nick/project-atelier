@@ -7,10 +7,11 @@
 
 .modalContainer {
   width: 500px;
-  height: 310px;
+  height: auto;
   border-radius: 12px;
-  background-color: white;
+  background-color: rgb(229, 229, 229);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 2px solid #000;
   flex-direction: column;
   padding: 30px;
 }
@@ -19,10 +20,9 @@
   text-align: center;
 }
 
-.body {
-  text-align: center;
-}
-
 .xbutton {
   display: fixed;
+}
+
+.button {
 }
