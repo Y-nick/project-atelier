@@ -75,6 +75,8 @@ class ProductDetails extends React.Component {
   //     .catch((error) => console.log(error));
   // };
 
+//test addition
+
   render() {
     const {
       curProduct,
