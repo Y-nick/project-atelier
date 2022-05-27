@@ -168,14 +168,14 @@ class AddAnswer extends React.Component {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="buttonDiv">
               <button className="button1" type="button" onClick={this.closeModal}>CLOSE</button>
               <button className="button2" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
             </div>
           </form>
         </Modal>
         <Modal isOpen={uploadOpen} appElement={document.getElementById('root')}>
-          <form className="formContainer">
+          <form id="formContainer">
             <div className="x" onClick={() => { this.setState({ uploadOpen: false }); }}>x</div>
             <input type="file" onChange={this.handleUpload} />
           </form>

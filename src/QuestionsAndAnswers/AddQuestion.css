@@ -8,9 +8,7 @@
   position: absolute;
 }
 
-.text1Div {
-  display: block;
-}
+
 
 .x {
   position: relative;
@@ -23,15 +21,6 @@
 
 .x:hover {
   color:black
-}
-
-.textArea {
-  width: auto;
-}
-
-.nicknameDiv {
-  display: block;
-  margin-top: 15px;
 }
 
 #nickname {
@@ -50,8 +39,8 @@
 }
 
 .reviewDiv {
-  display: block;
-  margin-top: 15px;
+  position: absolute;
+  margin-top: 88%;
   margin-bottom: 15px;
 }
 
@@ -59,5 +48,28 @@
   color: red;
   font-size: small;
   margin: 0%;
+}
+
+.buttonDiv {
+  position: relative;
+  display: inline;
+
+}
+
+.button3 {
+  display: inline;
+  display: relative;
+  justify-content: right;
+  justify-items: right;
+  width: 49.5%;
+  margin-bottom: 1%;
+  margin-top: 3px;
+  margin-left: 0px;
+}
+
+.button4 {
+  margin-bottom: 7%;
+  width: 49.5%;
+  margin-left: 1%;
 }
 

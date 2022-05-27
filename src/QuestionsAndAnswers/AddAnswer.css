@@ -1,4 +1,11 @@
-
+#formContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top: 5%;
+  position: absolute;
+}
 
 .text1Div {
   display: block;
@@ -28,14 +35,14 @@
 
 .button1 {
   display: inline;
-  position: relative;
+
   width: 48%;
   margin-bottom: 1%;
   margin-left: 0px;
 }
 
 .button2 {
-  position: relative;
+
   margin-bottom: 7%;
   width: 48%;
   margin-left: 8px;

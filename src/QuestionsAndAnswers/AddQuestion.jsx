@@ -145,11 +145,12 @@ class AddQuestion extends React.Component {
               placeholder="Your thoughts..."
               onChange={(e) => { this.setState({ review: e.target.value }); }}
             />
+            <div className="buttonDiv">
+            <button className="button3" type="button" onClick={this.closeModal}>CLOSE</button>
+            <button className="button4" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
           </div>
-          <div>
-            <button className="button1" type="button" onClick={this.closeModal}>CLOSE</button>
-            <button className="button2" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
           </div>
+
         </form>
       </Modal>
     );
