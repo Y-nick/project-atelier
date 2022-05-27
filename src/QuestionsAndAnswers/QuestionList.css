@@ -20,12 +20,46 @@
   display: inline;
 }
 
-.addAnswer {
+.smallQ {
   display: inline;
   position: relative;
-  margin-left: 85%;
   font-size: small;
   color: gray;
+  margin-right: 8%;
+}
+
+#yes {
+  display: inline;
+  font-size: small;
+  color: gray;
+  margin-left: 1%;
+  margin-right: 8%;
+  text-decoration: underline;
+}
+
+.answerSmallDiv {
+  display: flex;
+  position: relative;
+  font-size: small;
+  color: gray;
+  margin-left: 55%;
+}
+
+.smallA {
+  display: block;
+  margin-right: 8%;
+}
+
+.addAnswer {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.moreAnswers {
+  margin-left: 2%;
+  text-decoration: underline;
   cursor: pointer;
 }
 

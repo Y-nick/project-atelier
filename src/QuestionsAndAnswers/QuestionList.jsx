@@ -102,7 +102,12 @@ class QuestionList extends React.Component {
               return null;
             }).map((elem, index) => (
               <div key={elem.question_id} className="QAPair">
-                {index <= questionIndex ? <p className="question">{`Q:  ${elem.question_body}`}</p> : null}
+                {index <= questionIndex
+                  ? (
+                    <div className="question">
+                      {`Q:  ${elem.question_body}`}
+                    </div>
+                  ) : null}
                 {index <= questionIndex
                   ? <Question fetcher={this.fetcherQuestions} className="answer" item={item} details={elem} onClick={this.passClick} />
                   : null}
