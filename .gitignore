@@ -33,3 +33,5 @@ build/
 index.jsx
 src/index.jsx
 src/index.jsx
+webpack.config.js
+eslintrc.json

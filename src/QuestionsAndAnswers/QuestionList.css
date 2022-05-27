@@ -1,0 +1,111 @@
+.QADiv {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  margin-left: 18%;
+  margin-right: 30%;
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
+
+.QAPair {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-left: 3%;
+}
+
+.question {
+  display: inline;
+}
+
+.smallQ {
+  display: inline;
+  position: relative;
+  font-size: small;
+  color: gray;
+  margin-right: 8%;
+}
+
+#yes {
+  display: inline;
+  font-size: small;
+  color: gray;
+  margin-left: 1%;
+  margin-right: 8%;
+  text-decoration: underline;
+}
+
+.answerSmallDiv {
+  display: flex;
+  position: relative;
+  font-size: small;
+  color: gray;
+  margin-left: 55%;
+}
+
+.smallA {
+  display: block;
+  margin-right: 8%;
+}
+
+.addAnswer {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.moreAnswers {
+  margin-left: 2%;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.answer {
+  margin-top: 5px;
+}
+
+#search {
+  outline: none;
+  margin-top: 5px;
+  margin-left: 8px;
+  width: 700px;
+  border: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchDiv {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  height: 50px;
+  outline: auto;
+}
+
+.bi-search {
+  position: relative;
+  margin-top: 2.7%;
+  margin-right: 4%;
+}
+
+.QAButtonDiv {
+  margin-bottom: 8%;
+}
+
+.butt1 {
+  margin-left: 15px;
+  width: 45%;
+  font-size: large;
+  cursor: pointer;
+}
+
+.butt2 {
+  margin-left: 15px;
+  width: 45%;
+  font-size: large;
+  cursor: pointer;
+}
