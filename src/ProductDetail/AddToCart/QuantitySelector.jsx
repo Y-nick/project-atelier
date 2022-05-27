@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import QuantityItem from './QuantityItem.jsx';
 import downChevy from '../images/chevron-down.svg';
 
-const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
+const QuantitySelector = ({
+  size,
+  quantity,
+  stockCount,
+  setQuantity,
+}) => {
   const [open, setOpen] = useState(false);
 
   let curStock = [];
@@ -23,7 +28,7 @@ const QuantitySelector = ({ quantity, stockCount, setQuantity }) => {
         tabIndex="0"
         role="button"
       >
-        <div>{quantity || 'QTY'}</div>
+        <div>{quantity || (size ? <QuantityItem key={1} option={1} setQuantity={setQuantity} setOpen={setOpen} /> : '-')}</div>
         <div><img src={downChevy} alt="Down nav" /></div>
       </div>
 

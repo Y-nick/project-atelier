@@ -28,6 +28,7 @@ const AddToCart = ({ SKUs }) => {
           setSKU={setSKU}
         />
         <QuantitySelector
+          size={size}
           quantity={quantity}
           stockCount={stockCount}
           setQuantity={setQuantity}
