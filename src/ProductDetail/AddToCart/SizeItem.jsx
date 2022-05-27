@@ -8,8 +8,13 @@ const SizeItem = ({
   setOpen,
   setCount,
   setSKU,
+  cartError,
+  setError,
 }) => {
   const sizeSelection = (event) => {
+    if (cartError) {
+      setError(false);
+    }
     setSize(event.target.textContent);
     setCount(count);
     setSKU(curSKU);

@@ -12,13 +12,21 @@ const AddToCart = ({ SKUs }) => {
   const [size, setSize] = useState('');
   const [stockCount, setCount] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  const [sizeOpen, setOpen] = useState(false);
+  const [cartError, setError] = useState(false);
   const handleClick = () => {
-    apiRequests.postCart(curSKU, quantity)
-      .then((success) => console.log(success))
-      .catch((error) => console.log(error));
+    if (size) {
+      apiRequests.postCart(curSKU, quantity)
+        .then((success) => console.log(success))
+        .catch((error) => console.log(error));
+    } else {
+      setError(true);
+      setOpen(true);
+    }
   };
   return (
     <div className="add-to-cart-container">
+      {cartError ? <div className="cart-error">Please Select Size</div> : null}
       <div className="cart-top-row">
         <SizeSelector
           SKUs={SKUs}
@@ -26,6 +34,10 @@ const AddToCart = ({ SKUs }) => {
           setSize={setSize}
           setCount={setCount}
           setSKU={setSKU}
+          open={sizeOpen}
+          setOpen={setOpen}
+          cartError={cartError}
+          setError={setError}
         />
         <QuantitySelector
           size={size}

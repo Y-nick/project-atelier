@@ -8,8 +8,12 @@ const SizeSelector = ({
   setSize,
   setCount,
   setSKU,
+  open,
+  setOpen,
+  cartError,
+  setError,
 }) => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   return (
     <div className="size-selector">
@@ -38,6 +42,8 @@ const SizeSelector = ({
             setOpen={setOpen}
             setCount={setCount}
             setSKU={setSKU}
+            cartError={cartError}
+            setError={setError}
           />
 
         ))}
