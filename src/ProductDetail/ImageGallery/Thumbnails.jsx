@@ -34,15 +34,17 @@ const Thumbnails = ({ pics, selectPic, curPhoto }) => {
   return (
     <div className="thumb-collection">
 
-      <div
-        className="up-chevron"
-        onClick={scrollUp}
-        onKeyPress={scrollUp}
-        role="button"
-        tabIndex="0"
-      >
-        <img src={upChevy} alt="Up Nav" />
-      </div>
+      {thumbsArr.length < 5 ? null : (
+        <div
+          className="up-chevron"
+          onClick={scrollUp}
+          onKeyPress={scrollUp}
+          role="button"
+          tabIndex="0"
+        >
+          <img src={upChevy} alt="Up Nav" />
+        </div>
+      )}
 
       {thumbsArr.map((pic) => (
 
@@ -68,15 +70,17 @@ const Thumbnails = ({ pics, selectPic, curPhoto }) => {
         </div>
       )).filter((thumb, idx) => idx < 4)}
 
-      <div
-        className="down-chevron"
-        onClick={scrollDown}
-        onKeyPress={scrollDown}
-        role="button"
-        tabIndex="0"
-      >
-        <img src={downChevy} alt="Down Nav" />
-      </div>
+      {thumbsArr.length < 5 ? null : (
+        <div
+          className="down-chevron"
+          onClick={scrollDown}
+          onKeyPress={scrollDown}
+          role="button"
+          tabIndex="0"
+        >
+          <img src={downChevy} alt="Down Nav" />
+        </div>
+      )}
 
     </div>
   );

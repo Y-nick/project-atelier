@@ -31,8 +31,7 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
     }
   };
 
-  const handlePicClick = (event) => {
-    console.log('handlePic');
+  const handlePicClick = () => {
     if (mainClass === 'main-img-container-default') {
       setMainClass('main-img-container-expanded');
       setStyle('image-gallery-container-expand');
@@ -44,7 +43,6 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   };
 
   const handleExpand = (event) => {
-    console.log('handleExpand');
     if (style === 'image-gallery-container') {
       setStyle('image-gallery-container-expand');
       setMainClass('main-img-container-expanded');
@@ -72,6 +70,7 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
         handlePrevImg={handlePrevImg}
         handleExpand={handleExpand}
         handlePicClick={handlePicClick}
+        displayNav={pics.length}
       />
     </div>
   );

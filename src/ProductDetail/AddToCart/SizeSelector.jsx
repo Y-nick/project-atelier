@@ -22,7 +22,7 @@ const SizeSelector = ({
       role="button"
       tabIndex="0"
     >
-      <div>{size || (SKUs[0] && SKUs[0][0] === 'null' ? 'OUT OF STOCK' : 'SELECT SIZE')}</div>
+      <div>{size || ((SKUs[0] && SKUs[0][0] === 'null') || (SKUs.length === 0) ? 'OUT OF STOCK' : 'SELECT SIZE')}</div>
       <div><img src={downChevy} alt="Down Nav" /></div>
     </div>
 

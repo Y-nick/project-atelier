@@ -24,7 +24,7 @@ class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    const prodNum = 66642;
+    const prodNum = 66659;
     this.getProduct(prodNum);
     this.getStyle(prodNum);
     // this.getReview(66642);
@@ -54,9 +54,14 @@ class ProductDetails extends React.Component {
         this.setState({
           styles: response.data.results,
         });
+        let foundStyle = false;
         response.data.results.forEach((style) => {
           if (style['default?'] === true) {
+            foundStyle = true;
             this.handleStyle(style);
+          }
+          if (foundStyle === false) {
+            this.handleStyle(response.data.results[0]);
           }
         });
       })

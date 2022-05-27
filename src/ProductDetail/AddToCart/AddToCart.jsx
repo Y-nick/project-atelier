@@ -47,7 +47,7 @@ const AddToCart = ({ SKUs }) => {
         />
       </div>
 
-      {SKUs[0] && SKUs[0][0] === 'null' ? <div />
+      {(SKUs[0] && SKUs[0][0] === 'null') || SKUs.length === 0 ? <div />
         : (
           <div className="cart-bottom-row">
             <div

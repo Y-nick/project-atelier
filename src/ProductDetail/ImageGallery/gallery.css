@@ -31,7 +31,7 @@
 
 .left-chevron:hover, .right-chevron:hover{
   cursor: pointer;
-  background-color: rgba(240, 240, 240, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .main-img-container-default {
@@ -39,7 +39,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 98%;
+  max-width: 91%;
   position: relative;
 }
 
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 98%;
+  max-width: 95%;
   position: relative;
   overflow: hidden;
 }
@@ -60,6 +60,7 @@
 }
 
 .main-img-zoomed {
+  position: relative;
   height: 50em;
   transform: scale(2.5);
   object-fit: fill;
@@ -80,7 +81,7 @@
 
 .full-size:hover {
   cursor: pointer;
-  background-color: rgba(240, 240, 240, 0.3);
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 /* Thumbnail styling */
@@ -143,9 +144,13 @@
 }
 
 .main-img-container-default:hover {
+  cursor: nesw-resize;
+}
+
+.main-img-container-expanded .main-img:hover {
   cursor: zoom-in;
 }
 
-.main-img-container-expanded:hover {
-  cursor: crosshair;
+.main-img-zoomed:hover {
+  cursor: zoom-out;
 }

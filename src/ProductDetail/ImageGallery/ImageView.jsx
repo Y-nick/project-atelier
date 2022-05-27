@@ -11,18 +11,23 @@ const ImageView = ({
   mainClass,
   handlePicClick,
   zoom,
+  displayNav,
 }) => (
   <div className="image-view">
 
-    <div
-      className="left-chevron"
-      onClick={() => handlePrevImg()}
-      onKeyPress={() => handlePrevImg()}
-      role="button"
-      tabIndex="0"
-    >
-      <img src={leftChevy} alt="left nav" />
-    </div>
+    {zoom === 'main-img-zoomed' || displayNav < 2
+      ? null
+      : (
+        <div
+          className="left-chevron"
+          onClick={() => handlePrevImg()}
+          onKeyPress={() => handlePrevImg()}
+          role="button"
+          tabIndex="0"
+        >
+          <img src={leftChevy} alt="left nav" />
+        </div>
+      )}
 
     <div
       className={mainClass}
@@ -46,16 +51,19 @@ const ImageView = ({
 
     </div>
 
-    <div
-      className="right-chevron"
-      onClick={() => handleNextImg()}
-      onKeyPress={() => handleNextImg()}
-      role="button"
-      tabIndex="0"
-    >
-      <img src={rightChevy} alt="right nav" />
-    </div>
-
+    {zoom === 'main-img-zoomed' || displayNav < 2
+      ? null
+      : (
+        <div
+          className="right-chevron"
+          onClick={() => handleNextImg()}
+          onKeyPress={() => handleNextImg()}
+          role="button"
+          tabIndex="0"
+        >
+          <img src={rightChevy} alt="right nav" />
+        </div>
+      )}
   </div>
 );
 
