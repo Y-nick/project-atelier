@@ -3,6 +3,31 @@ import Modal from 'react-modal';
 import './AddQuestion.css';
 import axios from 'axios';
 
+const style = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(189, 28, 28, 0.75)',
+  },
+  content: {
+    position: 'absolute',
+    top: '200px',
+    left: '100px',
+    right: '300px',
+    bottom: '120px',
+    border: '1px solid #ccc',
+    background: '#ffebcd',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '0px',
+  },
+};
+
 const startState = {
   question: '',
   nickname: '',
@@ -101,7 +126,7 @@ class AddQuestion extends React.Component {
     const { item } = this.props;
 
     return (
-      <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
+      <Modal isOpen={modalOpen} style={style} className="addQModal" appElement={document.getElementById('root')}>
         <form id="formContainer">
           <div className="x" onClick={this.closeModal}>EXIT</div>
           <h1>ASK YOUR QUESTION</h1>

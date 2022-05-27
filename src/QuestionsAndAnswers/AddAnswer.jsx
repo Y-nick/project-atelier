@@ -17,6 +17,56 @@ const startState = {
   newlyPosted: [],
 };
 
+const style = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(189, 28, 28, 0.75)',
+  },
+  content: {
+    position: 'absolute',
+    top: '200px',
+    left: '100px',
+    right: '300px',
+    bottom: '120px',
+    border: '1px solid #ccc',
+    background: '#ffebcd',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '0px',
+  },
+};
+
+const uploadStyle = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(189, 28, 28, 0.75)',
+  },
+  content: {
+    position: 'absolute',
+    top: '300px',
+    left: '200px',
+    right: '400px',
+    bottom: '200px',
+    border: '1px solid #ccc',
+    background: 'rgb(133, 214, 233)',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '0px',
+  },
+};
+
 class AddAnswer extends React.Component {
   constructor(props) {
     super(props);
@@ -125,7 +175,7 @@ class AddAnswer extends React.Component {
     const { item, details } = this.props;
     return (
       <>
-        <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
+        <Modal isOpen={modalOpen} style={style} appElement={document.getElementById('root')}>
           <form id="formContainer">
             <div className="x" onClick={this.closeModal}>EXIT</div>
             <h1>SUBMIT YOUR ANSWER</h1>
@@ -174,9 +224,9 @@ class AddAnswer extends React.Component {
             </div>
           </form>
         </Modal>
-        <Modal isOpen={uploadOpen} appElement={document.getElementById('root')}>
+        <Modal isOpen={uploadOpen} style={uploadStyle} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            <div className="x" onClick={() => { this.setState({ uploadOpen: false }); }}>x</div>
+            <div className="x" onClick={() => { this.setState({ uploadOpen: false }); }}>EXIT</div>
             <input type="file" onChange={this.handleUpload} />
           </form>
         </Modal>
