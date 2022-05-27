@@ -34,29 +34,32 @@ const AddToCart = ({ SKUs }) => {
         />
       </div>
 
-      <div className="cart-bottom-row">
-        <div
-          className="cart-button"
-          role="button"
-          onClick={handleClick}
-          onKeyPress={handleClick}
-          tabIndex="0"
-        >
-          <div className="cart-text">ADD TO CART</div>
-          <div className="plus">
-            <img className="plus-img" src={plus} alt="Plus" />
+      {SKUs[0] && SKUs[0][0] === 'null' ? <div />
+        : (
+          <div className="cart-bottom-row">
+            <div
+              className="cart-button"
+              role="button"
+              onClick={handleClick}
+              onKeyPress={handleClick}
+              tabIndex="0"
+            >
+              <div className="cart-text">ADD TO CART</div>
+              <div className="plus">
+                <img className="plus-img" src={plus} alt="Plus" />
+              </div>
+            </div>
+
+            <div
+              className="star-button"
+              role="button"
+              aria-label="Add to outfit"
+            >
+              <img src={star} alt="star" />
+            </div>
+
           </div>
-        </div>
-
-        <div
-          className="star-button"
-          role="button"
-          aria-label="Add to outfit"
-        >
-          <img src={star} alt="star" />
-        </div>
-
-      </div>
+        )}
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Thumbnails = ({ pics, selectPic, curPhoto }) => {
 
   useEffect(() => {
     updateThumbs(pics);
-  }, [selectPic]);
+  }, [pics]);
 
   const scrollUp = () => {
     const newOrder = [];
@@ -56,10 +56,14 @@ const Thumbnails = ({ pics, selectPic, curPhoto }) => {
         >
 
           <div className="thumb-selection-wrapper">
-            <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />
+            {pic.thumbnail_url === null
+              ? null
+              : <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />}
           </div>
 
-          {pics[curPhoto].thumbnail_url === pic.thumbnail_url ? <div className="horizontal-line"><img src={horizontalLine} alt="horizontal line" /></div> : null}
+          {pics[curPhoto].thumbnail_url === pic.thumbnail_url
+            ? <div className="horizontal-line"><img src={horizontalLine} alt="horizontal line" /></div>
+            : null}
 
         </div>
       )).filter((thumb, idx) => idx < 4)}

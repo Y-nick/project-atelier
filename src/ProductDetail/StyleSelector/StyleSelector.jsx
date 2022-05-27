@@ -22,12 +22,20 @@ const StyleSelector = ({ curStyle, styles, handleStyle }) => (
           role="button"
           tabIndex="0"
         >
+          {style.photos[0].thumbnail_url === null ? (
+            <div>
+              <div>{style.name}</div>
+            </div>
+          )
+            : (
+              <div className="thumb-check">
+                <img className="style-thumb" src={style.photos[0].thumbnail_url} alt="style thumbnail" />
+              </div>
+            )}
 
-          <div className="thumb-check">
-            <img className="style-thumb" src={style.photos[0].thumbnail_url} alt="style thumbnail" />
-          </div>
-
-          {style.name === curStyle.name ? <div className="check"><img src={okCheck} alt="selection check" /></div> : null}
+          {style.name === curStyle.name
+            ? <div className="check"><img src={okCheck} alt="selection check" /></div>
+            : null}
 
         </div>
       ))}

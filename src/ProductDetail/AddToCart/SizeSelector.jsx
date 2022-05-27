@@ -10,6 +10,7 @@ const SizeSelector = ({
   setSKU,
 }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <div className="size-selector">
 
@@ -20,7 +21,7 @@ const SizeSelector = ({
         role="button"
         tabIndex="0"
       >
-        <div>{size || 'SELECT SIZE'}</div>
+        <div>{size || (SKUs[0] && SKUs[0][0] === 'null' ? 'OUT OF STOCK' : 'SELECT SIZE')}</div>
         <div><img src={downChevy} alt="Down Nav" /></div>
       </div>
 

@@ -22,7 +22,7 @@ const ImageView = ({
     </div>
 
     <div className="main-img-container">
-      <img className="main-img" src={pic} alt="Product" />
+      {pic === null ? <div>NO IMAGES FOUND</div> : <img className="main-img" src={pic} alt="Product" />}
       <div
         className="full-size"
         role="button"

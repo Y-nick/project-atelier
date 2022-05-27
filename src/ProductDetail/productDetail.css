@@ -73,9 +73,9 @@ select {
 .product-detail-grid {
   z-index: 800;
   display: grid;
-  gap: 1rem;
+  gap: 1em;
   grid-template-columns: repeat(auto-fit, 1fr);
-  grid-template-rows: repeat(3, 13em);
+  grid-template-rows: repeat(3, minmax(13em, auto));
   grid-template-areas: "gallery gallery info"
                        "gallery gallery styleSelect"
                        "gallery gallery cart"
