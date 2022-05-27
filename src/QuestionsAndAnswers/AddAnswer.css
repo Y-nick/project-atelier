@@ -1,11 +1,8 @@
-/* #formContainerAdd {
-  display: flex;
-  flex-direction: column;
-}
 
-.answerDiv {
+
+.text1Div {
   display: block;
-} */
+}
 
 .uploadDiv {
   margin-top: 30px;
@@ -16,12 +13,30 @@
   margin-bottom: 5px;
 }
 
+#email {
+  display: block;
+}
+
 .uploadButton {
   margin-top: 40px;
-  display: block;
 }
 
 .imageDiv {
   font-size: small;
   color: green;
+}
+
+.button1 {
+  display: inline;
+  position: relative;
+  width: 48%;
+  margin-bottom: 1%;
+  margin-left: 0px;
+}
+
+.button2 {
+  position: relative;
+  margin-bottom: 7%;
+  width: 48%;
+  margin-left: 8px;
 }

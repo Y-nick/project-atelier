@@ -103,11 +103,12 @@ class AddQuestion extends React.Component {
     return (
       <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
         <form id="formContainer">
-          <div className="x" onClick={this.closeModal}>x</div>
+          <div className="x" onClick={this.closeModal}>EXIT</div>
           <h1>ASK YOUR QUESTION</h1>
           <h3>{`About the ${item.name}`}</h3>
-          <div className="questionDiv">
+          <div className="text1Div">
             <textarea
+              className="textArea"
               rows="6"
               cols="60"
               placeholder="*Your Question..."
@@ -132,12 +133,13 @@ class AddQuestion extends React.Component {
               placeholder="example@outlook.com"
               onChange={(e) => { this.setState({ email: e.target.value }); }}
             />
+            <p className="privacy">For authentication reasons, you will not be emailed</p>
             {!emailError ? null : <p className="error">{emailError}</p>}
           </div>
           <div className="reviewDiv">
             What did you like or dislike about the product?
             <textarea
-              className="review"
+              className="textArea"
               rows="6"
               cols="60"
               placeholder="Your thoughts..."
@@ -145,8 +147,8 @@ class AddQuestion extends React.Component {
             />
           </div>
           <div>
-            <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
-            <button className="button" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
+            <button className="button1" type="button" onClick={this.closeModal}>CLOSE</button>
+            <button className="button2" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
           </div>
         </form>
       </Modal>

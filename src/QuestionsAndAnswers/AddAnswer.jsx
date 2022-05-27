@@ -126,12 +126,13 @@ class AddAnswer extends React.Component {
     return (
       <>
         <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
-          <form id="formContainerAdd">
-            <div className="x" onClick={this.closeModal}>x</div>
+          <form id="formContainer">
+            <div className="x" onClick={this.closeModal}>EXIT</div>
             <h1>SUBMIT YOUR ANSWER</h1>
             <h3>{`${item.name}: ${details.question_body}`}</h3>
-            <div className="answerDiv">
+            <div className="text1Div">
               <textarea
+                className="textArea"
                 placeholder="*Your Answer"
                 rows="6"
                 cols="60"
@@ -167,8 +168,10 @@ class AddAnswer extends React.Component {
                 ))}
               </div>
             </div>
-            <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
-            <button className="button" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
+            <div>
+              <button className="button1" type="button" onClick={this.closeModal}>CLOSE</button>
+              <button className="button2" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
+            </div>
           </form>
         </Modal>
         <Modal isOpen={uploadOpen} appElement={document.getElementById('root')}>

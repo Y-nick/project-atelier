@@ -39,7 +39,7 @@ export default class MainQAComponent extends React.Component {
   render() {
     const { sample } = this.state;
     return (
-      <div>
+      <div className="PARENT">
         {sample ? <QuestionList item={sample[0]} /> : <div>LOADING...</div>}
       </div>
     );

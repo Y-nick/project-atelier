@@ -46,7 +46,7 @@ class Question extends React.Component {
         {answerModalOpen ? <AddAnswer fetcher={fetcher} item={item} details={details} modalFun={this.answerModal} /> : null}
         {answerObj.map((answer, index) => (
             <div className="answer" key={answer.id} onClick={this.toggleAnswers}>
-              {index <= display ? `A:  ${answer.body}` : null}
+              {index <= display ? `A:  ${answer.body} ` : null}
               <div className="username">
                 {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
               </div>
