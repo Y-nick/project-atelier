@@ -4,6 +4,8 @@ import Thumbnails from './Thumbnails.jsx';
 
 const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
   const [style, setStyle] = useState('image-gallery-container');
+  const [mainClass, setMainClass] = useState('main-img-container-default');
+  const [zoom, setZoom] = useState('main-img');
 
   const selectPic = (value) => {
     pics.forEach((pic, index) => {
@@ -29,11 +31,29 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
     }
   };
 
-  const handleExpand = () => {
+  const handlePicClick = (event) => {
+    console.log('handlePic');
+    if (mainClass === 'main-img-container-default') {
+      setMainClass('main-img-container-expanded');
+      setStyle('image-gallery-container-expand');
+    } else if (zoom === 'main-img') {
+      setZoom('main-img-zoomed');
+    } else {
+      setZoom('main-img');
+    }
+  };
+
+  const handleExpand = (event) => {
+    console.log('handleExpand');
     if (style === 'image-gallery-container') {
       setStyle('image-gallery-container-expand');
+      setMainClass('main-img-container-expanded');
+      event.stopPropagation();
     } else {
       setStyle('image-gallery-container');
+      setMainClass('main-img-container-default');
+      setZoom('main-img');
+      event.stopPropagation();
     }
   };
 
@@ -46,9 +66,12 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
       />
       <ImageView
         pic={pics[curPhoto] && pics[curPhoto].url}
+        mainClass={mainClass}
+        zoom={zoom}
         handleNextImg={handleNextImg}
         handlePrevImg={handlePrevImg}
         handleExpand={handleExpand}
+        handlePicClick={handlePicClick}
       />
     </div>
   );

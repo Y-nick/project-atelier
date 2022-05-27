@@ -8,6 +8,9 @@ const ImageView = ({
   handleNextImg,
   handlePrevImg,
   handleExpand,
+  mainClass,
+  handlePicClick,
+  zoom,
 }) => (
   <div className="image-view">
 
@@ -21,14 +24,22 @@ const ImageView = ({
       <img src={leftChevy} alt="left nav" />
     </div>
 
-    <div className="main-img-container">
-      {pic === null ? <div>NO IMAGES FOUND</div> : <img className="main-img" src={pic} alt="Product" />}
+    <div
+      className={mainClass}
+      role="button"
+      tabIndex="-1"
+      onClick={(event) => handlePicClick(event)}
+      onKeyPress={(event) => handlePicClick(event)}
+    >
+
+      {pic === null ? <div>NO IMAGES FOUND</div> : <img className={zoom} src={pic} alt="Product" />}
+
       <div
         className="full-size"
         role="button"
         tabIndex="0"
-        onClick={() => handleExpand()}
-        onKeyPress={() => handleExpand()}
+        onClick={(event) => handleExpand(event)}
+        onKeyPress={(event) => handleExpand(event)}
       >
         <img src={fullscreen} alt="Fullscreen" />
       </div>
