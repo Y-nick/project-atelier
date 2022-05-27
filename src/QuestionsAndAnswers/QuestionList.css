@@ -1,3 +1,8 @@
+:root {
+  --button-height: 3.12em;
+  --button-border: 1px solid #000;
+}
+
 .QADiv {
   display: flex;
   position: absolute;
@@ -93,19 +98,29 @@
 }
 
 .QAButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: 8%;
+
 }
 
-.butt1 {
+.butt1, .butt2 {
+  /* margin-left: 15px;
+  width: 45%;
+  font-size: large; */
+  background-color: #fff;
+  border: var(--button-border);
+  height: var(--button-height);
+  width: 15em;
+  position: relative;
+  cursor: pointer;
+}
+
+/* .butt2 {
   margin-left: 15px;
   width: 45%;
   font-size: large;
   cursor: pointer;
-}
-
-.butt2 {
-  margin-left: 15px;
-  width: 45%;
-  font-size: large;
-  cursor: pointer;
-}
+} */

@@ -1,4 +1,5 @@
 import React from 'react';
+import MainQAComponent from '../QuestionsAndAnswers/MainQAComponent.jsx';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import ProductDesc from './ProductDesc/ProductDesc.jsx';
 import AddToCart from './AddToCart/AddToCart.jsx';
@@ -24,7 +25,7 @@ class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    const prodNum = 66659;
+    const prodNum = 66642;
     this.getProduct(prodNum);
     this.getStyle(prodNum);
     // this.getReview(66642);
@@ -93,23 +94,26 @@ class ProductDetails extends React.Component {
     } = this.state;
 
     return (
-      <div className="product-detail-container">
-        <div className="announce-message">SITE-WIDE ANNOUNCEMENT MESSAGE! SALE ON CERTAIN ITEMS!</div>
-        <div className="product-detail-grid">
-          <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
-          <ProductInfo
-            product={curProduct}
-            styleSale={curStyle.sale_price}
-            stylePrice={curStyle.original_price}
+      <div>
+        <div className="product-detail-container">
+          <div className="announce-message">SITE-WIDE ANNOUNCEMENT MESSAGE! SALE ON CERTAIN ITEMS!</div>
+          <div className="product-detail-grid">
+            <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
+            <ProductInfo
+              product={curProduct}
+              styleSale={curStyle.sale_price}
+              stylePrice={curStyle.original_price}
+            />
+            <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
+            <AddToCart SKUs={skus} />
+          </div>
+          <ProductDesc
+            slogan={curProduct.slogan}
+            desc={curProduct.description}
+            features={features}
           />
-          <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
-          <AddToCart SKUs={skus} />
         </div>
-        <ProductDesc
-          slogan={curProduct.slogan}
-          desc={curProduct.description}
-          features={features}
-        />
+        <MainQAComponent curProduct={curProduct} />
       </div>
     );
   }

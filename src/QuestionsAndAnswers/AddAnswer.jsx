@@ -24,7 +24,7 @@ const style = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(189, 28, 28, 0.75)',
+    // backgroundColor: 'rgba(189, 28, 28, 0.75)',
   },
   content: {
     position: 'absolute',
@@ -49,7 +49,7 @@ const uploadStyle = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(189, 28, 28, 0.75)',
+    // backgroundColor: 'rgba(189, 28, 28, 0.75)',
   },
   content: {
     position: 'absolute',

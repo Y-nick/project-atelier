@@ -46,7 +46,7 @@ const ImageView = ({
         onClick={(event) => handleExpand(event)}
         onKeyPress={(event) => handleExpand(event)}
       >
-        <img src={fullscreen} alt="Fullscreen" />
+        <img className="full-icon" src={fullscreen} alt="Fullscreen" />
       </div>
 
     </div>

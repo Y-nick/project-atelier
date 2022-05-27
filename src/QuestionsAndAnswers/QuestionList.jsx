@@ -1,36 +1,23 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Question from './Question.jsx';
 import AddQuestion from './AddQuestion.jsx';
-import AddAnswer from './AddAnswer.jsx';
+// import AddAnswer from './AddAnswer.jsx';
 import './QuestionList.css';
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: [],
       questionIndex: 1,
       modalOpen: false,
       search: '',
       moreLess: 'MORE',
     };
 
-    this.fetcherQuestions = this.fetcherQuestions.bind(this);
+    // this.passToList = this.passToList.bind(this);
     this.openModal = this.openModal.bind(this);
     this.toggleQ = this.toggleQ.bind(this);
-    //this.passToList = this.passToList.bind(this);
-  }
-
-  componentDidMount() {
-    this.fetcherQuestions();
-  }
-
-  // REPLACE: once id is received from overview component getDerived state method will be removed...
-  static getDerivedStateFromProps(props) {
-    return {
-      sampleItem: props,
-    };
   }
 
   toggleQ() {
@@ -42,39 +29,15 @@ class QuestionList extends React.Component {
     }
   }
 
-  fetcherQuestions() {
-    const { item } = this.props;
-    const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions';
-    const options = {
-      url: apiURL,
-      method: 'get',
-      headers: { authorization: process.env.API_KEY },
-      params: {
-        product_id: item.id,
-        page: 1,
-        count: 11,
-      },
-    };
-    axios(options).then((data) => {
-      this.setState({ questions: data.data.results });
-    }).catch((err) => {
-      console.log('error fetching data', err);
-    });
-  }
-
   openModal(cb) {
     this.setState({ modalOpen: cb });
   }
 
-  // passToList(cb) {
-  //   this.setState({ questions: cb });
-  // }
-
   render() {
     const {
-      questions, questionIndex, modalOpen, search, moreLess,
+      questionIndex, modalOpen, search, moreLess,
     } = this.state;
-    const { item } = this.props;
+    const { curProduct, questions, fetcher } = this.props;
     return (
       <div className="QADiv">
         <h2>QUESTIONS AND ANSWERS</h2>
@@ -109,7 +72,7 @@ class QuestionList extends React.Component {
                     </div>
                   ) : null}
                 {index <= questionIndex
-                  ? <Question fetcher={this.fetcherQuestions} className="answer" item={item} details={elem} onClick={this.passClick} />
+                  ? <Question fetcher={fetcher} className="answer" item={curProduct} details={elem} onClick={this.passClick} />
                   : null}
               </div>
             ))
@@ -120,7 +83,7 @@ class QuestionList extends React.Component {
           <button className="butt2" type="button" onClick={this.openModal}>ADD A QUESTION</button>
         </div>
         {modalOpen
-          ? <AddQuestion fetcher={this.fetcherQuestions} item={item} modal={this.openModal} /> : null}
+          ? <AddQuestion fetcher={fetcher} item={curProduct} modal={this.openModal} /> : null}
       </div>
     );
   }

@@ -10,21 +10,31 @@ const style = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(189, 28, 28, 0.75)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // background: '#fff',
+    // backgroundColor: 'rgba(189, 28, 28, 0.75)',
   },
   content: {
     position: 'absolute',
-    top: '200px',
-    left: '100px',
-    right: '300px',
-    bottom: '120px',
+    // top: '50vh',
+    // top: '200px',
+    // left: '100px',
+    // right: '300px',
+    // bottom: '120px',
+    width: '50em',
+    height: '50em',
     border: '1px solid #ccc',
-    background: '#ffebcd',
+    background: '#fff',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '4px',
     outline: 'none',
     padding: '0px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 };
 
@@ -128,7 +138,7 @@ class AddQuestion extends React.Component {
     return (
       <Modal isOpen={modalOpen} style={style} className="addQModal" appElement={document.getElementById('root')}>
         <form id="formContainer">
-          <div className="x" onClick={this.closeModal}>EXIT</div>
+          <div className="x" onClick={this.closeModal}>X</div>
           <h1>ASK YOUR QUESTION</h1>
           <h3>{`About the ${item.name}`}</h3>
           <div className="text1Div">

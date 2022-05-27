@@ -77,6 +77,8 @@
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  filter: invert(1);
+  mix-blend-mode: difference;
 }
 
 .full-size:hover {
