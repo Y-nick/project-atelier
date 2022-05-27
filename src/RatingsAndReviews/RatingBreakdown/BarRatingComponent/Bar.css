@@ -4,7 +4,7 @@
 }
 
 .offBar{
-  opacity: 30%;
+  opacity: 10%;
   height: 15px;
 }
 
@@ -15,7 +15,7 @@
 
 .onBar{
   height: 15px;
-  opacity: 90%;
+  opacity: 40%;
   z-index: 1;
   position: relative;
   color: green;

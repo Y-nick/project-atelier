@@ -11,8 +11,8 @@ class Breakdown extends React.Component {
   }
 
   averageCal() {
-    const { reviews } = this.props;
-    console.log('reviews: ', reviews);
+    const { reviews, meta } = this.props;
+    console.log('meta: ', meta);
     let sum = 0;
     let unRoundedAvr = 0;
     let avr = 0;

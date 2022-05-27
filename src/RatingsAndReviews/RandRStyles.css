@@ -7,4 +7,7 @@
   padding-top: 50px;
   padding-bottom: 50px;
   height: auto;
+  grid-gap: 5px;
+  color: rgb(80, 80, 80);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

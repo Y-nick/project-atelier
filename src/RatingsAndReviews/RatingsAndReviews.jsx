@@ -69,10 +69,9 @@ class RatingsAndReviews extends React.Component {
         <div style={RandRStyles} className="grid-container ratingsAndReviews">
           <div className="grid-item ratingBreakdown">
             <h2>Ratings and Reviews</h2>
-            <RatingBreakdown reviews={reviews} />
+            <RatingBreakdown reviews={reviews} meta={meta} />
           </div>
           <div className="grid-item reviewList">
-            <h5/>
             <ReviewList reviews={reviews} sort={this.fetchData} meta={meta} />
           </div>
         </div>

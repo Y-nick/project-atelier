@@ -18,7 +18,18 @@ class Recommendations extends React.Component {
     return (sum / reviews.length) * 100;
   }
 
+  // metaRecoAverage() {
+  //   const { meta } = this.props;
+  //   const totalRecos = meta.true + meta.false;
+  //   const recoAvr = meta.true / totalRecos;
+  //   console.log(recoAvr);
+  //   return recoAvr;
+  // }
+
   render() {
+    // const { meta } = this.props;
+    // console.log('in rec:', meta);
+    //const passingMetaRecoAvr = this.metaRecoAverage();
     return (
       <div>
         <div>

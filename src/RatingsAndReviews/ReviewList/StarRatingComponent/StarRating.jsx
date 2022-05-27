@@ -13,7 +13,7 @@ class StarRating extends React.Component {
 
   render() {
     const { rating } = this.props;
-    console.log('star rating input:', rating);
+    // console.log('star rating input:', rating);
     return (
       <div>
         <div className="offStars" style={Star}>

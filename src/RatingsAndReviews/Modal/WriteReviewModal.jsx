@@ -18,7 +18,8 @@ class WriteReviewModal extends React.Component {
   render() {
     const { meta } = this.props;
     const charArray = Object.keys(meta.characteristics);
-    console.log(charArray);
+    // console.log(charArray);
+    // console.log(meta);
     return (
       <div styles={Modal} className="modalBackground">
         <div className="modalContainer">
@@ -27,16 +28,16 @@ class WriteReviewModal extends React.Component {
             <h1>Write your Review</h1>
             <h3>About the (product name here)</h3>
           </div>
-          <form>
-            <div>
-              Stars
+          <form className="formGrid">
+            <div className="stars">
+              Stars:
               <label>
                 <input
                   type="text"
                 />
               </label>
             </div>
-            <div>
+            <div className="reco">
               Do you recommmend?
               <label>
                 Yes
@@ -49,13 +50,13 @@ class WriteReviewModal extends React.Component {
                 />
               </label>
             </div>
-            <div>
+            <div className="chars">
               Characteristics:
-              {/* {charArray.map((char) => {
-                 return <div>{ char }<div/>;
-              })} */}
+              {charArray.map((char) => {
+                <Chars name={char} />;
+              })}
             </div>
-            <div>
+            <div className="sum">
               Summary:
               <label>
                 <input
@@ -65,7 +66,7 @@ class WriteReviewModal extends React.Component {
                 />
               </label>
             </div>
-            <div>
+            <div className="rbody">
               Review Body:
               <label>
                 <input
@@ -79,7 +80,7 @@ class WriteReviewModal extends React.Component {
                 Minimum charters left[##]
               </div>
             </div>
-            <div>
+            <div className="uphoto">
               Upload Photos:
               <label>
                 <input
@@ -87,7 +88,7 @@ class WriteReviewModal extends React.Component {
                 />
               </label>
             </div>
-            <div>
+            <div className="nname">
               Nick Name:
               <label>
                 <input
@@ -100,7 +101,7 @@ class WriteReviewModal extends React.Component {
                 For privacy reasons, do not use your full name or email address
               </div>
             </div>
-            <div>
+            <div className="email">
               Email:
               <label>
                 <input
@@ -108,7 +109,7 @@ class WriteReviewModal extends React.Component {
                 />
               </label>
             </div>
-            <button type="button">Submit Review</button>
+            <button className="sbutton" type="button">Submit Review</button>
           </form>
         </div>
       </div>

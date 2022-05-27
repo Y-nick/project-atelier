@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import BarRating from './BarRatingComponent/BarRating.jsx';
 

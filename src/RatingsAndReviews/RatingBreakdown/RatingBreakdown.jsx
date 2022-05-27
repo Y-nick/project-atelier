@@ -12,14 +12,14 @@ class RatingsBreakdown extends React.Component {
   }
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, meta } = this.props;
     return (
       <div style={rBreakdown} className="grid-container2 ratingsBreakdown">
         <div className="grid-item1 breakDown">
           <Breakdown reviews={reviews} />
         </div>
         <div className="grid-item2 recommendations">
-          <Recommendations reviews={reviews} />
+          <Recommendations reviews={reviews} meta={meta.recommended} />
         </div>
         <div className="grid-item3 summary">
           <Summary reviews={reviews} />

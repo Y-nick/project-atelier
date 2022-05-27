@@ -9,11 +9,13 @@
   width: 500px;
   height: auto;
   border-radius: 12px;
-  background-color: rgb(229, 229, 229);
+  background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 2px solid #000;
+  /* border: 2px solid #000; */
   flex-direction: column;
   padding: 30px;
+  display: grid;
+  font-size: 18px;
 }
 
 .title {
@@ -21,8 +23,49 @@
 }
 
 .xbutton {
-  display: fixed;
+  width: 25px;
 }
 
-.button {
+.sbutton {
+  width: 70px;
+  height: 40px;
+}
+
+.formGrid {
+  display: grid;
+  padding: 10px;
+}
+
+.stars {
+  text-align: center;
+  padding: 10px;
+}
+
+.reco {
+  text-align: center;
+  padding: 10px;
+}
+
+.chars {
+  padding: 10px;
+}
+
+.sum {
+  padding: 10px;
+}
+
+.rbody {
+  padding: 10px;
+}
+
+.uphoto {
+  padding: 10px;
+}
+
+.nname {
+  padding: 10px;
+}
+
+.email {
+  padding: 10px;
 }

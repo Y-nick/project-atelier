@@ -48,6 +48,7 @@ class ReviewListItem extends React.Component {
     const {
       rating, name, date, summary, body, help,
     } = this.props;
+    const formatD = this.formatDate(date);
     return (
       <div className="grid-container4" style={Item}>
         <h2 className="grid-item-1">
@@ -58,7 +59,7 @@ class ReviewListItem extends React.Component {
             {name}
             ,
             (
-            {this.formatDate(date)}
+            {formatD}
             )
           </h5>
         </div>
