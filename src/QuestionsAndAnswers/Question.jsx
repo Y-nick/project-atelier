@@ -10,20 +10,17 @@ class Question extends React.Component {
       display: 0,
       showAll: false,
       answerModalOpen: false,
-      questionVotes: 0,
-      answerVotes: 0,
     };
     this.toggleAnswers = this.toggleAnswers.bind(this);
     this.addOrSubtract = this.addOrSubtract.bind(this);
     this.answerModal = this.answerModal.bind(this);
     this.handleVote = this.handleVote.bind(this);
     this.handleReport = this.handleReport.bind(this);
+    this.handleAnswerVote = this.handleAnswerVote.bind(this);
   }
 
   handleVote() {
-    const { questionVotes } = this.state;
     const { details, fetcher } = this.props;
-    this.setState({ questionVotes: questionVotes + 1 });
     const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/helpful`;
     const options = {
       url: apiURL,
@@ -39,10 +36,25 @@ class Question extends React.Component {
     });
   }
 
+  handleAnswerVote(e, answer) {
+    const { fetcher } = this.props;
+    const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${answer.id}/helpful`;
+    const options = {
+      url: apiURL,
+      method: 'put',
+      headers: { authorization: process.env.API_KEY },
+    };
+    axios(options).then(() => {
+      console.log('PUT Req successful');
+    }).catch((err) => {
+      console.log('error on PUT req', err);
+    }).then(() => {
+      fetcher();
+    });
+  }
+
   handleReport() {
-    const { questionVotes } = this.state;
     const { details, fetcher } = this.props;
-    this.setState({ questionVotes: questionVotes + 1 });
     const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/report`;
     const options = {
       url: apiURL,
@@ -82,7 +94,7 @@ class Question extends React.Component {
       details, item, fetcher,
     } = this.props;
     const {
-      display, answerModalOpen, answerVotes,
+      display, answerModalOpen,
     } = this.state;
     const answerObj = Object.values(details.answers);
     return (
@@ -93,8 +105,6 @@ class Question extends React.Component {
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleReport} id="yes">Report</div>
         </div>
         <div className="answerSmallDiv">
-          Answer Helpful?
-          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={() => { this.setState({ answerVotes: answerVotes + 1 }); }} className="yes">{`Yes (${answerVotes})`}</div>
           <div role="button" tabIndex={0} className="addAnswer" onClick={this.answerModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>Add Answer</div>
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.toggleAnswers} className="moreAnswers">More Answers</div>
         </div>
@@ -108,15 +118,24 @@ class Question extends React.Component {
             />
           ) : null}
         {answerObj.map((answer, index) => (
-          <div className="answer" key={answer.id}>
-            {index <= display ? `A:  ${answer.body} ` : null}
-            <div className="username">
-              {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
+          <>
+            {index <= display
+              ? (
+                <div className="answerSmallDiv">
+                  Answer Helpful?
+                  <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={(e) => { this.handleAnswerVote(e, answer); }} className="yes">{`Yes (${answer.helpfulness})`}</div>
+                </div>
+              ) : null}
+            <div className="answer" key={answer.id}>
+              {index <= display ? `A:  ${answer.body} ` : null}
+              <div className="username">
+                {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
+              </div>
+              <div className="pictures">
+                {index <= display ? `${answer.photos}` : null}
+              </div>
             </div>
-            <div className="pictures">
-              {index <= display ? `${answer.photos}` : null}
-            </div>
-          </div>
+          </>
         ))}
       </div>
     );

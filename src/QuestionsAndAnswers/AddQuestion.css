@@ -93,30 +93,9 @@
   cursor: pointer;
 }
 
-/* .addQModal {
-  position: 'fixed';
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backgroundColor: red;
-  position: 'absolute';
-  top: '40px';
-  left: '40px';
-  right: '40px';
-  bottom: '40px';
-  border: '1px solid #ccc';
-  background: '#fff';
-  overflow: 'auto';
-  WebkitOverflowScrolling: 'touch';
-  borderRadius: '4px';
-  outline: 'none';
-  padding: '20px';
-} */
-
 .ReactModal__Overlay {
   opacity: 0;
-  transition: opacity 2000ms ease-in-out;
+  transition: opacity 1800ms ease-in-out;
 }
 
 .ReactModal__Overlay--after-open {
