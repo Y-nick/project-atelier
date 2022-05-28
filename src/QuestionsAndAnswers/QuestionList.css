@@ -5,12 +5,12 @@
 
 .QADiv {
   display: flex;
-  position: absolute;
   flex-direction: column;
-  margin-left: 18%;
-  margin-right: 30%;
-  margin-top: 5%;
-  margin-bottom: 8%;
+  flex-basis: 50%;
+  justify-content: center;
+  margin: 8%;
+  margin-left: 10%;
+  margin-right: 8%;
 }
 
 
@@ -84,10 +84,18 @@
   outline: auto;
 }
 
+.searchIconDiv {
+  position: relative;
+  flex-direction: row-reverse;
+  margin-left: 28%;
+  margin-right: 3%;
+
+}
+
 .bi-search {
   position: relative;
-  margin-top: 2.7%;
-  margin-right: 4%;
+  margin-top: 63%;
+  margin-left: 89%;
 }
 
 .QAButtonDiv {

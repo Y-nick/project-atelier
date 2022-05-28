@@ -24,46 +24,31 @@ const style = {
     left: 0,
     right: 0,
     bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // background: '#fff',
     // backgroundColor: 'rgba(189, 28, 28, 0.75)',
   },
   content: {
     position: 'absolute',
-    top: '200px',
-    left: '100px',
-    right: '300px',
-    bottom: '120px',
+    top: '50px',
+    // top: '200px',
+    left: '20%',
+    // right: '300px',
+    bottom: '100px',
+    width: '50em',
+    height: '50em',
     border: '1px solid #ccc',
-    background: '#ffebcd',
-    overflow: 'auto',
+    background: '#fff',
+    overflow: 'hidden',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '4px',
     outline: 'none',
     padding: '0px',
-  },
-};
-
-const uploadStyle = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    // backgroundColor: 'rgba(189, 28, 28, 0.75)',
-  },
-  content: {
-    position: 'absolute',
-    top: '300px',
-    left: '200px',
-    right: '400px',
-    bottom: '200px',
-    border: '1px solid #ccc',
-    background: 'rgb(133, 214, 233)',
-    overflow: 'auto',
-    WebkitOverflowScrolling: 'touch',
-    borderRadius: '4px',
-    outline: 'none',
-    padding: '0px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 };
 
@@ -194,7 +179,7 @@ class AddAnswer extends React.Component {
       <>
         <Modal isOpen={modalOpen} style={style} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            <div role="button" tabIndex={0} className="x" onClick={this.closeModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>EXIT</div>
+            <div role="button" tabIndex={0} className="x" onClick={this.closeModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>X</div>
             <h1>SUBMIT YOUR ANSWER</h1>
             <h3>{`${item.name}: ${details.question_body}`}</h3>
             <div className="text1Div">
@@ -228,7 +213,7 @@ class AddAnswer extends React.Component {
               {!emailError ? null : <p className="error">{emailError}</p>}
             </div>
             <div className="uploadDiv">
-              {imageCount <= 5 ? <button type="button" onClick={() => { this.setState({ uploadOpen: !uploadOpen }); }}>UPLOAD IMAGES</button> : null}
+              {imageCount <= 5 ? <button className="button" type="button" onClick={() => { this.setState({ uploadOpen: !uploadOpen }); }}>UPLOAD IMAGES</button> : null}
               <div className="imageDiv">
                 {images.map((image) => (
                   <div>{image.name}</div>
@@ -236,12 +221,12 @@ class AddAnswer extends React.Component {
               </div>
             </div>
             <div className="buttonDiv">
-              <button className="button1" type="button" onClick={this.closeModal}>CLOSE</button>
-              <button className="button2" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
+              <button className="button" type="button" onClick={this.closeModal}>CLOSE</button>
+              <button className="button" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
             </div>
           </form>
         </Modal>
-        <Modal isOpen={uploadOpen} style={uploadStyle} appElement={document.getElementById('root')}>
+        <Modal isOpen={uploadOpen} style={style} appElement={document.getElementById('root')}>
           <form id="formContainer">
             <div className="x" role="button" tabIndex={0} onKeyPress={(e) => { this.handleKeyPress(e); }} onClick={() => { this.setState({ uploadOpen: false }); }}>EXIT</div>
             <input type="file" onChange={this.handleUpload} />
