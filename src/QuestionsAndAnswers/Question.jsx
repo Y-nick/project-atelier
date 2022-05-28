@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from 'react-modal';
 import AddAnswer from './AddAnswer.jsx';
 import './Question.css';
 
@@ -39,36 +38,46 @@ class Question extends React.Component {
   }
 
   render() {
-    const { details, item, fetcher } = this.props;
-    const { display, answerModalOpen, questionVotes, answerVotes } = this.state;
+    const {
+      details, item, fetcher,
+    } = this.props;
+    const {
+      display, answerModalOpen, questionVotes, answerVotes,
+    } = this.state;
     const answerObj = Object.values(details.answers);
     return (
       <div>
         <div className="smallQ">
           Question Helpful?
-          <div onClick={() => {this.setState({ questionVotes: questionVotes + 1 }); }} id="yes">{`Yes (${questionVotes})`}</div>
+          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={() => { this.setState({ questionVotes: questionVotes + 1 }); }} id="yes">{`Yes (${questionVotes})`}</div>
         </div>
         <div className="answerSmallDiv">
-          {/* <div className="smallA">
+          <div className="smallA">
             Answer Helpful?
-           <div onClick={() => {this.setState({ answerVotes: answerVotes + 1 }); }} id="yes">{`Yes (${answerVotes})`}</div>
-          </div> */}
-          <div className="addAnswer" onClick={this.answerModal}>Add Answer</div>
-          <div onClick={this.toggleAnswers} className="moreAnswers">More Answers</div>
+            <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={() => { this.setState({ answerVotes: answerVotes + 1 }); }} id="yes">{`Yes (${answerVotes})`}</div>
+          </div>
+          <div role="button" tabIndex={0} className="addAnswer" onClick={this.answerModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>Add Answer</div>
+          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.toggleAnswers} className="moreAnswers">More Answers</div>
         </div>
-        {answerModalOpen ? <AddAnswer fetcher={fetcher} item={item} details={details} modalFun={this.answerModal} /> : null}
+        {answerModalOpen
+          ? (
+            <AddAnswer
+              fetcher={fetcher}
+              item={item}
+              details={details}
+              modalFun={this.answerModal}
+            />
+          ) : null}
         {answerObj.map((answer, index) => (
-            <div className="answer" key={answer.id} >
-              {index <= display ? `A:  ${answer.body} ` : null}
-              <div className="username">
-                {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
-              </div>
-              <div className="pictures">
-                {index <= display ? `${answer.photos}` : null}
-              </div>
-              <div>
-              </div>
+          <div className="answer" key={answer.id}>
+            {index <= display ? `A:  ${answer.body} ` : null}
+            <div className="username">
+              {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
             </div>
+            <div className="pictures">
+              {index <= display ? `${answer.photos}` : null}
+            </div>
+          </div>
         ))}
       </div>
     );

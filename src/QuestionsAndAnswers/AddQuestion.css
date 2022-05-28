@@ -11,6 +11,7 @@
   margin-right: 30%;
   margin-left: 30%;
   margin-top: 5%;
+  margin-bottom: 10%;
   position: absolute;
 }
 
@@ -79,10 +80,11 @@
   cursor: pointer;
 }
 
-.button4 {
+#button4 {
   /* margin-bottom: 7%;
   width: 49.5%;
   margin-left: 1%; */
+  margin-bottom: 7%;
   background-color: #fff;
   border: var(--button-border);
   height: var(--button-height);

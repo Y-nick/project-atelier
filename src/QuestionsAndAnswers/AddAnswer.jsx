@@ -77,6 +77,15 @@ class AddAnswer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validate = this.validate.bind(this);
     this.postAnswer = this.postAnswer.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress, false);
   }
 
   handleUpload(e) {
@@ -90,13 +99,21 @@ class AddAnswer extends React.Component {
     e.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      document.getElementById('formContainerAdd').reset();
+      document.getElementById('formContainer').reset();
       this.setState(startState);
       alert('Submission Successful!');
       this.postAnswer();
     } else {
       alert('Please fill out required fields');
-      document.getElementById('formContainerAdd').reset();
+      document.getElementById('formContainer').reset();
+    }
+  }
+
+  handleKeyPress(e) {
+    const { modalFun } = this.props;
+    if (e.keyCode === 27) {
+      this.setState({ modalOpen: false });
+      modalFun(false);
     }
   }
 
@@ -139,7 +156,7 @@ class AddAnswer extends React.Component {
       data: {
         body: answer,
         name: nickname,
-        email: email,
+        email,
       },
       headers: { authorization: process.env.API_KEY },
     };
@@ -177,7 +194,7 @@ class AddAnswer extends React.Component {
       <>
         <Modal isOpen={modalOpen} style={style} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            <div className="x" onClick={this.closeModal}>EXIT</div>
+            <div role="button" tabIndex={0} className="x" onClick={this.closeModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>EXIT</div>
             <h1>SUBMIT YOUR ANSWER</h1>
             <h3>{`${item.name}: ${details.question_body}`}</h3>
             <div className="text1Div">
@@ -226,7 +243,7 @@ class AddAnswer extends React.Component {
         </Modal>
         <Modal isOpen={uploadOpen} style={uploadStyle} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            <div className="x" onClick={() => { this.setState({ uploadOpen: false }); }}>EXIT</div>
+            <div className="x" role="button" tabIndex={0} onKeyPress={(e) => { this.handleKeyPress(e); }} onClick={() => { this.setState({ uploadOpen: false }); }}>EXIT</div>
             <input type="file" onChange={this.handleUpload} />
           </form>
         </Modal>

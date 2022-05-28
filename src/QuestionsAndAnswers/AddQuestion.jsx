@@ -18,11 +18,11 @@ const style = {
   },
   content: {
     position: 'absolute',
-    // top: '50vh',
+    top: '50px',
     // top: '200px',
     // left: '100px',
     // right: '300px',
-    // bottom: '120px',
+    // bottom: '50px',
     width: '50em',
     height: '50em',
     border: '1px solid #ccc',
@@ -59,6 +59,23 @@ class AddQuestion extends React.Component {
     this.validate = this.validate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.postQuestion = this.postQuestion.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress, false);
+  }
+
+  handleKeyPress(e) {
+    const { modal } = this.props;
+    if (e.keyCode === 27) {
+      this.setState({ modalOpen: false });
+      modal(false);
+    }
   }
 
   handleSubmit(e) {
@@ -105,7 +122,9 @@ class AddQuestion extends React.Component {
   }
 
   postQuestion() {
-    const { question, nickname, email } = this.state;
+    const {
+      question, nickname, email, review,
+    } = this.state;
     const { item, fetcher } = this.props;
     const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions';
     const options = {
@@ -114,8 +133,9 @@ class AddQuestion extends React.Component {
       data: {
         body: question,
         name: nickname,
-        email: email,
+        email,
         product_id: item.id,
+        review,
       },
       headers: { authorization: process.env.API_KEY },
     };
@@ -138,7 +158,7 @@ class AddQuestion extends React.Component {
     return (
       <Modal isOpen={modalOpen} style={style} className="addQModal" appElement={document.getElementById('root')}>
         <form id="formContainer">
-          <div className="x" onClick={this.closeModal}>X</div>
+          <div className="x" role="button" tabIndex={0} onKeyPress={(e) => { this.handleKeyPress(e); }} onClick={this.closeModal}>X</div>
           <h1>ASK YOUR QUESTION</h1>
           <h3>{`About the ${item.name}`}</h3>
           <div className="text1Div">
@@ -181,9 +201,9 @@ class AddQuestion extends React.Component {
               onChange={(e) => { this.setState({ review: e.target.value }); }}
             />
             <div className="buttonDiv">
-            <button className="button3" type="button" onClick={this.closeModal}>CLOSE</button>
-            <button className="button4" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
-          </div>
+              <button className="button3" type="button" onClick={this.closeModal}>CLOSE</button>
+              <button id="button4" type="submit" onClick={this.handleSubmit}>SUBMIT</button>
+            </div>
           </div>
 
         </form>
