@@ -20,7 +20,7 @@ class ProductDetails extends React.Component {
       skus: [],
       photos: [],
       curPhoto: 0,
-      // review: {},
+      review: {},
     };
   }
 
@@ -28,7 +28,7 @@ class ProductDetails extends React.Component {
     const prodNum = 66642;
     this.getProduct(prodNum);
     this.getStyle(prodNum);
-    // this.getReview(66642);
+    this.getReview(66642);
   }
 
   handleStyle = (style) => {
@@ -74,13 +74,14 @@ class ProductDetails extends React.Component {
       curPhoto: value,
     });
   };
-  // getReview = (productId) => {
-  //   apiRequest.fetchReview(productId)
-  //     .then((response) => this.setState({
-  //       review: response.data,
-  //     }))
-  //     .catch((error) => console.log(error));
-  // };
+
+  getReview = (productId) => {
+    apiRequest.fetchReview(productId)
+      .then((response) => this.setState({
+        review: response.data,
+      }))
+      .catch((error) => console.log(error));
+  };
 
   render() {
     const {
@@ -91,6 +92,7 @@ class ProductDetails extends React.Component {
       skus,
       photos,
       curPhoto,
+      review,
     } = this.state;
 
     return (
@@ -103,6 +105,7 @@ class ProductDetails extends React.Component {
               product={curProduct}
               styleSale={curStyle.sale_price}
               stylePrice={curStyle.original_price}
+              review={review}
             />
             <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
             <AddToCart SKUs={skus} />

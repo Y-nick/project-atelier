@@ -3,8 +3,6 @@
   --button-border: 1px solid #000;
 }
 
-
-
 #formContainer {
   display: flex;
   flex-direction: column;
