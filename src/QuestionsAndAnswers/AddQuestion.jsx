@@ -145,7 +145,10 @@ class AddQuestion extends React.Component {
       console.log('error posting data', err);
     }).then(() => {
       fetcher();
-    });
+    })
+      .catch((err) => {
+        console.log('error fetching after post req', err);
+      });
   }
 
   render() {

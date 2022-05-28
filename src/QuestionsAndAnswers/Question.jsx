@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import AddAnswer from './AddAnswer.jsx';
 import './Question.css';
 
@@ -15,8 +16,27 @@ class Question extends React.Component {
     this.toggleAnswers = this.toggleAnswers.bind(this);
     this.addOrSubtract = this.addOrSubtract.bind(this);
     this.answerModal = this.answerModal.bind(this);
+    this.handleVote = this.handleVote.bind(this);
   }
-  // () => {this.setState({ display: 20 }); }
+
+  handleVote() {
+    const { questionVotes } = this.state;
+    const { details, fetcher } = this.props;
+    this.setState({ questionVotes: questionVotes + 1 });
+    const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/helpful`;
+    const options = {
+      url: apiURL,
+      method: 'put',
+      headers: { authorization: process.env.API_KEY },
+    };
+    axios(options).then(() => {
+      console.log('PUT Req successful');
+    }).catch((err) => {
+      console.log('error on PUT req', err);
+    }).then(() => {
+      fetcher();
+    });
+  }
 
   toggleAnswers() {
     const { showAll } = this.state;
@@ -42,20 +62,18 @@ class Question extends React.Component {
       details, item, fetcher,
     } = this.props;
     const {
-      display, answerModalOpen, questionVotes, answerVotes,
+      display, answerModalOpen, answerVotes,
     } = this.state;
     const answerObj = Object.values(details.answers);
     return (
       <div>
         <div className="smallQ">
           Question Helpful?
-          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={() => { this.setState({ questionVotes: questionVotes + 1 }); }} id="yes">{`Yes (${questionVotes})`}</div>
+          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleVote} id="yes">{`Yes (${details.question_helpfulness})`}</div>
         </div>
         <div className="answerSmallDiv">
-          <div className="smallA">
-            Answer Helpful?
-            <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={() => { this.setState({ answerVotes: answerVotes + 1 }); }} id="yes">{`Yes (${answerVotes})`}</div>
-          </div>
+          Answer Helpful?
+          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={() => { this.setState({ answerVotes: answerVotes + 1 }); }} className="yes">{`Yes (${answerVotes})`}</div>
           <div role="button" tabIndex={0} className="addAnswer" onClick={this.answerModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>Add Answer</div>
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.toggleAnswers} className="moreAnswers">More Answers</div>
         </div>
