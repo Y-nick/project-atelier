@@ -27,11 +27,11 @@ class QuestionList extends React.Component {
   }
 
   // REPLACE: once id is received from overview component getDerived state method will be removed...
-  static getDerivedStateFromProps(props) {
-    return {
-      sampleItem: props,
-    };
-  }
+  // static getDerivedStateFromProps(props) {
+  //   return {
+  //     sampleItem: props,
+  //   };
+  // }
 
   toggleQ() {
     const { questionIndex } = this.state;
