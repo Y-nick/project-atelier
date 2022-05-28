@@ -18,23 +18,7 @@ class QuestionList extends React.Component {
     // this.passToList = this.passToList.bind(this);
     this.openModal = this.openModal.bind(this);
     this.toggleQ = this.toggleQ.bind(this);
-<<<<<<< HEAD
-    //this.passToList = this.passToList.bind(this);
   }
-
-  componentDidMount() {
-    this.fetcherQuestions();
-  }
-
-  // REPLACE: once id is received from overview component getDerived state method will be removed...
-  // static getDerivedStateFromProps(props) {
-  //   return {
-  //     sampleItem: props,
-  //   };
-  // }
-=======
-  }
->>>>>>> PreProduction
 
   toggleQ() {
     const { questionIndex } = this.state;
