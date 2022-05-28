@@ -28,7 +28,7 @@ class ProductDetails extends React.Component {
     const prodNum = 66642;
     this.getProduct(prodNum);
     this.getStyle(prodNum);
-    this.getReview(66642);
+    this.getReview(prodNum);
   }
 
   handleStyle = (style) => {
