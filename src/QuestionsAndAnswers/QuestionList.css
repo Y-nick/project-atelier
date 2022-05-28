@@ -26,19 +26,13 @@
 }
 
 .smallQ {
-  display: inline;
-  position: relative;
+  display: flex;
+  gap: 2%;
   font-size: small;
   color: gray;
-  margin-right: 8%;
 }
 
 #yes {
-  display: inline;
-  font-size: small;
-  color: gray;
-  margin-left: 1%;
-  margin-right: 8%;
   text-decoration: underline;
 }
 

@@ -17,6 +17,7 @@ class Question extends React.Component {
     this.addOrSubtract = this.addOrSubtract.bind(this);
     this.answerModal = this.answerModal.bind(this);
     this.handleVote = this.handleVote.bind(this);
+    this.handleReport = this.handleReport.bind(this);
   }
 
   handleVote() {
@@ -33,6 +34,25 @@ class Question extends React.Component {
       console.log('PUT Req successful');
     }).catch((err) => {
       console.log('error on PUT req', err);
+    }).then(() => {
+      fetcher();
+    });
+  }
+
+  handleReport() {
+    const { questionVotes } = this.state;
+    const { details, fetcher } = this.props;
+    this.setState({ questionVotes: questionVotes + 1 });
+    const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/report`;
+    const options = {
+      url: apiURL,
+      method: 'put',
+      headers: { authorization: process.env.API_KEY },
+    };
+    axios(options).then(() => {
+      console.log('REPORT PUT Req successful');
+    }).catch((err) => {
+      console.log('error on REPORT PUT req', err);
     }).then(() => {
       fetcher();
     });
@@ -70,6 +90,7 @@ class Question extends React.Component {
         <div className="smallQ">
           Question Helpful?
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleVote} id="yes">{`Yes (${details.question_helpfulness})`}</div>
+          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleReport} id="yes">Report</div>
         </div>
         <div className="answerSmallDiv">
           Answer Helpful?
