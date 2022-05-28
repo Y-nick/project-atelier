@@ -16,7 +16,7 @@ const StarRating = ({ review }) => {
       numerator += (Number(rating[0]) * Number(rating[1]));
       denominator += Number(rating[1]);
     });
-    const score = numerator / denominator;
+    const score = numerator / denominator || 0;
     const roundScore = (Math.round(score * 4) / 4).toFixed(2);
     const fullStars = Math.floor(roundScore);
     const partialStars = roundScore % 1;
