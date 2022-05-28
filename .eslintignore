@@ -1,4 +1,5 @@
 webpack.config.js
 dist/bundle.js
 eslintrc.json
+src/ProductDetail/apiRequests.js
 
