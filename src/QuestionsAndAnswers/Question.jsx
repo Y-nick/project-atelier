@@ -10,6 +10,7 @@ class Question extends React.Component {
       display: 0,
       showAll: false,
       answerModalOpen: false,
+      moreLess: 'More',
     };
     this.toggleAnswers = this.toggleAnswers.bind(this);
     this.addOrSubtract = this.addOrSubtract.bind(this);
@@ -17,6 +18,7 @@ class Question extends React.Component {
     this.handleVote = this.handleVote.bind(this);
     this.handleReport = this.handleReport.bind(this);
     this.handleAnswerVote = this.handleAnswerVote.bind(this);
+    this.handleReportAnswer = this.handleReportAnswer.bind(this);
   }
 
   handleVote() {
@@ -70,8 +72,30 @@ class Question extends React.Component {
     });
   }
 
+  handleReportAnswer(e, answer) {
+    const { fetcher } = this.props;
+    const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${answer.id}/report`;
+    const options = {
+      url: apiURL,
+      method: 'put',
+      headers: { authorization: process.env.API_KEY },
+    };
+    axios(options).then(() => {
+      console.log('REPORT PUT Req successful');
+    }).catch((err) => {
+      console.log('error on REPORT PUT req', err);
+    }).then(() => {
+      fetcher();
+    });
+  }
+
   toggleAnswers() {
-    const { showAll } = this.state;
+    const { showAll, display } = this.state;
+    if (display === 0) {
+      this.setState({ moreLess: 'Fewer' });
+    } else {
+      this.setState({ moreLess: 'More' });
+    }
     this.setState({ showAll: !showAll });
     this.addOrSubtract();
   }
@@ -94,7 +118,7 @@ class Question extends React.Component {
       details, item, fetcher,
     } = this.props;
     const {
-      display, answerModalOpen,
+      display, answerModalOpen, moreLess,
     } = this.state;
     const answerObj = Object.values(details.answers);
     return (
@@ -106,7 +130,7 @@ class Question extends React.Component {
         </div>
         <div className="answerSmallDiv">
           <div role="button" tabIndex={0} className="addAnswer" onClick={this.answerModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>Add Answer</div>
-          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.toggleAnswers} className="moreAnswers">More Answers</div>
+          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.toggleAnswers} className="moreAnswers">{`${moreLess} Answers`}</div>
         </div>
         {answerModalOpen
           ? (
@@ -119,13 +143,6 @@ class Question extends React.Component {
           ) : null}
         {answerObj.map((answer, index) => (
           <>
-            {index <= display
-              ? (
-                <div className="answerSmallDiv">
-                  Answer Helpful?
-                  <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={(e) => { this.handleAnswerVote(e, answer); }} className="yes">{`Yes (${answer.helpfulness})`}</div>
-                </div>
-              ) : null}
             <div className="answer" key={answer.id}>
               {index <= display ? `A:  ${answer.body} ` : null}
               <div className="username">
@@ -135,6 +152,14 @@ class Question extends React.Component {
                 {index <= display ? `${answer.photos}` : null}
               </div>
             </div>
+            {index <= display
+              ? (
+                <div className="answerHelpDiv">
+                  Answer Helpful?
+                  <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={(e) => { this.handleAnswerVote(e, answer); }} className="answerYes">{`Yes (${answer.helpfulness})`}</div>
+                  <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={(e) => { this.handleReportAnswer(e, answer); }} id="yes">Report</div>
+                </div>
+              ) : null}
           </>
         ))}
       </div>

@@ -2,3 +2,18 @@
   color: grey;
   font-size: small;
 }
+
+.answerHelpDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  color: grey;
+  font-size: small;
+}
+
+.answerYes {
+  cursor: pointer;
+  text-decoration: underline;
+}
