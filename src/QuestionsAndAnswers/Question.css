@@ -17,3 +17,9 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+#answerList {
+  height: 170px;
+  overflow: hidden;
+  overflow-y: scroll;
+}

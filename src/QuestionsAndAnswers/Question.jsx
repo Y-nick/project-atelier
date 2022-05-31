@@ -122,7 +122,7 @@ class Question extends React.Component {
     } = this.state;
     const answerObj = Object.values(details.answers);
     return (
-      <div>
+      <div id="answerList">
         <div className="smallQ">
           Question Helpful?
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleVote} id="yes">{`Yes (${details.question_helpfulness})`}</div>
