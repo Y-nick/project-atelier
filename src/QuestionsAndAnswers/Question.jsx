@@ -91,7 +91,7 @@ class Question extends React.Component {
   }
 
   toggleAnswers() {
-    const { showAll, display, } = this.state;
+    const { showAll, display } = this.state;
     if (display === 0) {
       this.setState({ moreLess: 'Fewer', answerListID: 'answerListExpanded' });
     } else {

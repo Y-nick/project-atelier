@@ -42,7 +42,7 @@ const style = {
     border: '1px solid #ccc',
     background: '#fff',
     overflow: 'hidden',
-    WebkitOverflowScrolling: 'touch',
+    WebkitOverflowScrolling: 'scroll',
     borderRadius: '4px',
     outline: 'none',
     padding: '0px',

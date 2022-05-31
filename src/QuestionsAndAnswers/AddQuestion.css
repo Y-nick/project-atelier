@@ -85,16 +85,23 @@
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 1800ms ease-in-out;
+  display: flex;
 }
 
 .ReactModal__Overlay--after-open {
   opacity: 1;
   z-index: 3000;
+  overflow-y: auto;
 }
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+.ReactModal__Body--open {
+  overflow: hidden; /* prevents background page from scrolling when the modal is open */
+}
+
 
 /* WORKING CSS
 
