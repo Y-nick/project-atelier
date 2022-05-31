@@ -60,6 +60,7 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
       setStyle('image-gallery-container-expand');
     } else if (zoom === 'main-img') {
       setZoom('main-img-zoomed');
+      handleZoom(event);
       setTimeout(() => handleZoom(event), 1);
     } else {
       setZoom('main-img');
@@ -72,7 +73,6 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
       setMainClass('main-img-container-expanded');
       event.stopPropagation();
     } else {
-      console.log('uh oh');
       setStyle('image-gallery-container');
       setMainClass('main-img-container-default');
       setZoom('main-img');
