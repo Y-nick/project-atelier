@@ -13,15 +13,17 @@ class QuestionList extends React.Component {
       moreLess: 'MORE',
       questionScroll: null,
       questions: [],
-      page: 2,
+      page: 1,
     };
 
     this.openModal = this.openModal.bind(this);
     this.toggleQ = this.toggleQ.bind(this);
     this.nextPg = this.nextPg.bind(this);
+    this.previousPg = this.previousPg.bind(this);
   }
 
-  // IF THIS CAUSES PROBLEMS CHANGE IT BACK TO MAPPING STATE FROM PROPS, RATHER THAN SETTING PROPS TO STATE FIRST.
+  // IF THIS CAUSES PROBLEMS CHANGE IT BACK TO
+  // MAPPING STATE FROM PROPS, RATHER THAN SETTING PROPS TO STATE FIRST.
   static getDerivedStateFromProps(props) {
     return { questions: props.questions };
   }
@@ -42,13 +44,22 @@ class QuestionList extends React.Component {
   nextPg() {
     const { page } = this.state;
     const { fetcher } = this.props;
-    let newQuestions = fetcher(page, 10);
-    this.setState( {page: page + 1 , questions: newQuestions});
+    fetcher(page + 1, 10);
+    this.setState({ page: page + 1 });
+  }
+
+  previousPg() {
+    const { page } = this.state;
+    const { fetcher } = this.props;
+    if (page > 1) {
+      fetcher(page - 1, 10);
+      this.setState({ page: page - 1 });
+    }
   }
 
   render() {
     const {
-      questionIndex, modalOpen, search, moreLess, questionScroll, questions,w
+      questionIndex, modalOpen, search, moreLess, questionScroll, questions,
     } = this.state;
     const { curProduct, fetcher } = this.props;
     return (
@@ -92,9 +103,14 @@ class QuestionList extends React.Component {
               </div>
             ))
           }
-          {questionIndex > 1
-            ? <div role="button" tabIndex={0} onClick={this.nextPg} onKeyPress={this.handleEnter} className="nextQuestion">Next Page ></div>
-            : null}
+          <div className="prevNext">
+            {questionIndex > 1
+              ? <div role="button" tabIndex={0} onClick={this.previousPg} onKeyPress={this.handleEnter} className="nextQuestion"> &lt; Previous Page</div>
+              : null}
+            {questionIndex > 1
+              ? <div role="button" tabIndex={0} onClick={this.nextPg} onKeyPress={this.handleEnter} className="nextQuestion">Next Page &gt;</div>
+              : null}
+          </div>
         </div>
         <div className="QAButtonDiv">
           <button className="butt1" onClick={this.toggleQ} type="button">{`${moreLess} ANSWERED QUESTIONS`}</button>

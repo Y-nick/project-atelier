@@ -127,7 +127,13 @@
 .nextQuestion {
   text-decoration: underline;
   color: gray;
-  margin: 2%;
-  margin-left: 3%;
   cursor: pointer;
+}
+
+.prevNext{
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  margin-bottom: 2%;
+  margin-left: 3%;
 }
