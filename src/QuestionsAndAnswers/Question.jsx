@@ -11,6 +11,7 @@ class Question extends React.Component {
       showAll: false,
       answerModalOpen: false,
       moreLess: 'More',
+      answerListID: 'answerList',
     };
     this.toggleAnswers = this.toggleAnswers.bind(this);
     this.addOrSubtract = this.addOrSubtract.bind(this);
@@ -90,11 +91,11 @@ class Question extends React.Component {
   }
 
   toggleAnswers() {
-    const { showAll, display } = this.state;
+    const { showAll, display, } = this.state;
     if (display === 0) {
-      this.setState({ moreLess: 'Fewer' });
+      this.setState({ moreLess: 'Fewer', answerListID: 'answerListExpanded' });
     } else {
-      this.setState({ moreLess: 'More' });
+      this.setState({ moreLess: 'More', answerListID: 'answerList' });
     }
     this.setState({ showAll: !showAll });
     this.addOrSubtract();
@@ -118,11 +119,11 @@ class Question extends React.Component {
       details, item, fetcher,
     } = this.props;
     const {
-      display, answerModalOpen, moreLess,
+      display, answerModalOpen, moreLess, answerListID,
     } = this.state;
     const answerObj = Object.values(details.answers);
     return (
-      <div id="answerList">
+      <div id={answerListID}>
         <div className="smallQ">
           Question Helpful?
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleVote} id="yes">{`Yes (${details.question_helpfulness})`}</div>

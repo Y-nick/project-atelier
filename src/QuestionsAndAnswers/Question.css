@@ -18,8 +18,20 @@
   text-decoration: underline;
 }
 
+#answerListExpanded {
+  background-color: red;
+
+}
+
 #answerList {
   height: 170px;
   overflow: hidden;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+}
+
+#answerList::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
