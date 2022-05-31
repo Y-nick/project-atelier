@@ -8,7 +8,7 @@ const axios = require('axios');
 const MainQAComponent = ({ curProduct }) => {
   const [questions, setQuestions] = useState([]);
 
-  const fetchQuestions = () => {
+  const fetchQuestions = (page = 1, count = 11) => {
     const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions';
     const options = {
       url: apiURL,
@@ -16,8 +16,8 @@ const MainQAComponent = ({ curProduct }) => {
       headers: { authorization: process.env.API_KEY },
       params: {
         product_id: curProduct.id,
-        page: 1,
-        count: 11,
+        page,
+        count,
       },
     };
     axios(options).then((data) => {

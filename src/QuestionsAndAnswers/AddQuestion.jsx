@@ -13,7 +13,7 @@ const style = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    // background: '#fff',
+    backgroundColor: '#F8F8F8',
     // backgroundColor: 'rgba(189, 28, 28, 0.75)',
   },
   content: {

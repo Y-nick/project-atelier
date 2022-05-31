@@ -1,8 +1,6 @@
 import React from 'react';
-// import axios from 'axios';
 import Question from './Question.jsx';
 import AddQuestion from './AddQuestion.jsx';
-// import AddAnswer from './AddAnswer.jsx';
 import './QuestionList.css';
 
 class QuestionList extends React.Component {
@@ -13,19 +11,27 @@ class QuestionList extends React.Component {
       modalOpen: false,
       search: '',
       moreLess: 'MORE',
+      questionScroll: null,
+      questions: [],
+      page: 2,
     };
 
-    // this.passToList = this.passToList.bind(this);
     this.openModal = this.openModal.bind(this);
     this.toggleQ = this.toggleQ.bind(this);
+    this.nextPg = this.nextPg.bind(this);
+  }
+
+  // IF THIS CAUSES PROBLEMS CHANGE IT BACK TO MAPPING STATE FROM PROPS, RATHER THAN SETTING PROPS TO STATE FIRST.
+  static getDerivedStateFromProps(props) {
+    return { questions: props.questions };
   }
 
   toggleQ() {
     const { questionIndex } = this.state;
     if (questionIndex === 1) {
-      this.setState({ questionIndex: 20, moreLess: 'FEWER' });
+      this.setState({ questionIndex: 20, moreLess: 'FEWER', questionScroll: 'questionScroll' });
     } else {
-      this.setState({ questionIndex: 1, moreLess: 'MORE' });
+      this.setState({ questionIndex: 1, moreLess: 'MORE', questionScroll: null });
     }
   }
 
@@ -33,11 +39,18 @@ class QuestionList extends React.Component {
     this.setState({ modalOpen: cb });
   }
 
+  nextPg() {
+    const { page } = this.state;
+    const { fetcher } = this.props;
+    let newQuestions = fetcher(page, 10);
+    this.setState( {page: page + 1 , questions: newQuestions});
+  }
+
   render() {
     const {
-      questionIndex, modalOpen, search, moreLess,
+      questionIndex, modalOpen, search, moreLess, questionScroll, questions,w
     } = this.state;
-    const { curProduct, questions, fetcher } = this.props;
+    const { curProduct, fetcher } = this.props;
     return (
       <div className="QADiv">
         <h2>QUESTIONS AND ANSWERS</h2>
@@ -54,7 +67,7 @@ class QuestionList extends React.Component {
             </svg>
           </div>
         </form>
-        <div>
+        <div id={questionScroll}>
           {
             questions.filter((question) => {
               if (search.length < 3) {
@@ -79,6 +92,9 @@ class QuestionList extends React.Component {
               </div>
             ))
           }
+          {questionIndex > 1
+            ? <div role="button" tabIndex={0} onClick={this.nextPg} onKeyPress={this.handleEnter} className="nextQuestion">Next Page ></div>
+            : null}
         </div>
         <div className="QAButtonDiv">
           <button className="butt1" onClick={this.toggleQ} type="button">{`${moreLess} ANSWERED QUESTIONS`}</button>

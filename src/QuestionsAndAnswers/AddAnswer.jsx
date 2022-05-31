@@ -28,7 +28,7 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     // background: '#fff',
-    // backgroundColor: 'rgba(189, 28, 28, 0.75)',
+    backgroundColor: '#F8F8F8',
   },
   content: {
     position: 'absolute',

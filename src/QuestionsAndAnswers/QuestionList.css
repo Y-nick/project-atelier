@@ -37,6 +37,14 @@
   cursor: pointer;
 }
 
+#questionScroll
+ {
+  height: 650px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+ }
+
 .answerSmallDiv {
   display: flex;
   flex-direction: row;
@@ -108,9 +116,6 @@
 }
 
 .butt1, .butt2 {
-  /* margin-left: 15px;
-  width: 45%;
-  font-size: large; */
   background-color: #fff;
   border: var(--button-border);
   height: var(--button-height);
@@ -119,9 +124,10 @@
   cursor: pointer;
 }
 
-/* .butt2 {
-  margin-left: 15px;
-  width: 45%;
-  font-size: large;
+.nextQuestion {
+  text-decoration: underline;
+  color: gray;
+  margin: 2%;
+  margin-left: 3%;
   cursor: pointer;
-} */
+}
