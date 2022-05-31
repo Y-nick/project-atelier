@@ -31,12 +31,36 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
     }
   };
 
-  const handlePicClick = () => {
+  const handleZoom = (event) => {
+    const img = document.getElementsByClassName('main-img-zoomed')[0];
+    const container = document.getElementsByClassName('main-img-container-expanded')[0];
+
+    const initX = `${(150 * (event.clientX - container.getBoundingClientRect().left)) / (container.getBoundingClientRect().width) - 75}%`;
+    const initY = `${(150 * (event.clientY - container.getBoundingClientRect().top)) / (container.getBoundingClientRect().height) - 75}%`;
+
+    Object.assign(img.style, {
+      bottom: initY,
+      right: initX,
+    });
+
+    container.onmousemove = (e) => {
+      const xPos = `${(150 * (e.clientX - container.getBoundingClientRect().left)) / (container.getBoundingClientRect().width) - 75}%`;
+      const yPos = `${(150 * (e.clientY - container.getBoundingClientRect().top)) / (container.getBoundingClientRect().height) - 75}%`;
+
+      Object.assign(img.style, {
+        bottom: yPos,
+        right: xPos,
+      });
+    };
+  };
+
+  const handlePicClick = (event) => {
     if (mainClass === 'main-img-container-default') {
       setMainClass('main-img-container-expanded');
       setStyle('image-gallery-container-expand');
     } else if (zoom === 'main-img') {
       setZoom('main-img-zoomed');
+      setTimeout(() => handleZoom(event), 1);
     } else {
       setZoom('main-img');
     }
@@ -48,6 +72,7 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
       setMainClass('main-img-container-expanded');
       event.stopPropagation();
     } else {
+      console.log('uh oh');
       setStyle('image-gallery-container');
       setMainClass('main-img-container-default');
       setZoom('main-img');
