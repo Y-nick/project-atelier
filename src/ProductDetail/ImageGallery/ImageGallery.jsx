@@ -60,7 +60,6 @@ const ImageGallery = ({ pics, curPhoto, handleCurPhoto }) => {
       setStyle('image-gallery-container-expand');
     } else if (zoom === 'main-img') {
       setZoom('main-img-zoomed');
-      handleZoom(event);
       setTimeout(() => handleZoom(event), 1);
     } else {
       setZoom('main-img');
