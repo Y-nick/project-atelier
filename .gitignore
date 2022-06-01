@@ -8,8 +8,6 @@ node_modules/
 dist/bundle.js
 config.js
 
-index.jsx
-
 pids
 *.pid
 logs
@@ -30,6 +28,7 @@ build/
 
 .env
 *.map
-index.jsx
-src/index.jsx
-src/index.jsx
+
+*.pem
+
+eslintrc.json

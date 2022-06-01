@@ -1,0 +1,104 @@
+:root {
+  --button-height: 3.12em;
+  --button-border: 1px solid #000;
+}
+
+.add-to-cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative;
+}
+
+.cart-top-row, .cart-bottom-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.cart-button {
+  border: var(--button-border);
+  height: var(--button-height);
+  width: 15.1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 .26em;
+  cursor: pointer;
+}
+
+
+.star-button {
+  border: var(--button-border);
+  height: var(--button-height);
+  width: var(--button-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Size Selector*/
+.size-selector {
+  border: var(--button-border);
+  height: var(--button-height);
+  width: 13em;
+  position: relative;
+}
+
+.dropdown-btn-size {
+  height: var(--button-height);
+  width: 13em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 .26em;
+}
+
+/* Quantity Selector */
+.quantity-selector {
+  border: var(--button-border);
+  height: var(--button-height);
+  width: 5.2em;
+  position: relative;
+}
+
+.dropdown-btn-quantity {
+  height: var(--button-height);
+  width: 5.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 .26em;
+}
+
+.dropdown-content {
+  position: absolute;
+  width: 100%;
+  z-index: 200;
+  background: #fff;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  list-style: none;
+  text-align: start;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover, .cart-button:active, .star-button:active {
+  background-color: #dbdbdb;
+}
+
+.cart-error {
+  position:absolute;
+  top: -1.5em;
+  color: red;
+}

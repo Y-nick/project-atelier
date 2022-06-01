@@ -1,0 +1,140 @@
+:root {
+  --button-height: 3.12em;
+  --button-border: 1px solid #000;
+}
+
+.QADiv {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  justify-content: center;
+  margin: 8%;
+  margin-left: 10%;
+  margin-right: 8%;
+}
+
+
+.QAPair {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-left: 3%;
+}
+
+.question {
+  display: inline;
+}
+
+.smallQ {
+  display: flex;
+  gap: 1%;
+  font-size: small;
+  color: gray;
+}
+
+#yes {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#questionScroll
+ {
+  height: 650px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+ }
+
+.answerSmallDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
+  font-size: small;
+  color: gray;
+  margin-left: 70%;
+}
+
+.yes {
+  text-decoration: underline;
+}
+
+.addAnswer {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.moreAnswers {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.answer {
+  margin-top: 5px;
+}
+
+#search {
+  outline: none;
+  margin-top: 5px;
+  margin-left: 8px;
+  width: 700px;
+  border: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchDiv {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  height: 50px;
+  outline: auto;
+}
+
+.searchIconDiv {
+  position: relative;
+  flex-direction: row-reverse;
+  margin-left: 28%;
+  margin-right: 3%;
+
+}
+
+.bi-search {
+  position: relative;
+  margin-top: 63%;
+  margin-left: 89%;
+}
+
+.QAButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 8%;
+
+}
+
+.butt1, .butt2 {
+  background-color: #fff;
+  border: var(--button-border);
+  height: var(--button-height);
+  width: 15em;
+  position: relative;
+  cursor: pointer;
+}
+
+.nextQuestion {
+  text-decoration: underline;
+  color: gray;
+  cursor: pointer;
+}
+
+.prevNext{
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  gap: 2%;
+  margin-bottom: 2%;
+  margin-left: 3%;
+}

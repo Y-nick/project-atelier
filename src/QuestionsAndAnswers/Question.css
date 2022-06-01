@@ -1,0 +1,30 @@
+.username {
+  color: grey;
+  font-size: small;
+}
+
+.answerHelpDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  color: grey;
+  font-size: small;
+}
+
+.answerYes {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#answerListExpanded {
+  height: 270px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: #F8F8F8;
+  margin-right: 6%;
+  margin-left: 1%;
+}
+
