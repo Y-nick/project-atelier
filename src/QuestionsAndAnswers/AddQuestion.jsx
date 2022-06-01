@@ -161,7 +161,6 @@ class AddQuestion extends React.Component {
     return (
       <Modal isOpen={modalOpen} style={style} appElement={document.getElementById('root')}>
         <form id="formContainer">
-          (
           <div
             className="x"
             role="button"
@@ -169,7 +168,6 @@ class AddQuestion extends React.Component {
             onKeyPress={(e) => { this.handleKeyPress(e); }}
             onClick={this.closeModal}
           >
-            )
             X
           </div>
           <h1>ASK YOUR QUESTION</h1>

@@ -204,7 +204,6 @@ class AddAnswer extends React.Component {
       <>
         <Modal isOpen={modalOpen} style={style} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            (
             <div
               role="button"
               tabIndex={0}
@@ -214,7 +213,6 @@ class AddAnswer extends React.Component {
             >
               X
             </div>
-            )
             <h1>SUBMIT YOUR ANSWER</h1>
             <h3>{`${item.name}: ${details.question_body}`}</h3>
             <div className="text1Div">
@@ -273,7 +271,6 @@ class AddAnswer extends React.Component {
         </Modal>
         <Modal isOpen={uploadOpen} style={style2} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            (
             <div
               className="x"
               role="button"
@@ -281,7 +278,6 @@ class AddAnswer extends React.Component {
               onKeyPress={(e) => { this.handleKeyPress(e); }}
               onClick={() => { this.setState({ uploadOpen: false }); }}
             >
-              )
               EXIT
             </div>
             <input type="file" onChange={this.handleUpload} />

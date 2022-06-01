@@ -101,12 +101,10 @@ class Question extends React.Component {
     this.addOrSubtract();
   }
 
-  // sets modal open/close state
   answerModal(cb) {
     this.setState({ answerModalOpen: cb });
   }
 
-  //  sets display state of answers shown
   addOrSubtract() {
     const { display } = this.state;
     if (display === 0) {
@@ -128,12 +126,36 @@ class Question extends React.Component {
       <div id={answerListID}>
         <div className="smallQ">
           Question Helpful?
-          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleVote} id="yes">{`Yes (${details.question_helpfulness})`}</div>
+          <div
+            role="button"
+            tabIndex={0}
+            onKeyPress={this.handleEnter}
+            onClick={this.handleVote}
+            id="yes"
+          >
+            {`Yes (${details.question_helpfulness})`}
+          </div>
           <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.handleReport} id="yes">Report</div>
         </div>
         <div className="answerSmallDiv">
-          <div role="button" tabIndex={0} className="addAnswer" onClick={this.answerModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>Add Answer</div>
-          <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={this.toggleAnswers} className="moreAnswers">{`${moreLess} Answers`}</div>
+          <div
+            role="button"
+            tabIndex={0}
+            className="addAnswer"
+            onClick={this.answerModal}
+            onKeyPress={(e) => { this.handleKeyPress(e); }}
+          >
+            Add Answer
+          </div>
+          <div
+            role="button"
+            tabIndex={0}
+            onKeyPress={this.handleEnter}
+            onClick={this.toggleAnswers}
+            className="moreAnswers"
+          >
+            {`${moreLess} Answers`}
+          </div>
         </div>
         {answerModalOpen
           ? (
