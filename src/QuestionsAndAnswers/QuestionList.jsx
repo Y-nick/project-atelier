@@ -105,10 +105,20 @@ class QuestionList extends React.Component {
           }
           <div className="prevNext">
             {questionIndex > 1
-              ? <div role="button" tabIndex={0} onClick={this.previousPg} onKeyPress={this.handleEnter} className="nextQuestion"> &lt; Previous Page</div>
+              ? (
+                <div role="button" tabIndex={0} onClick={this.previousPg} onKeyPress={this.handleEnter} className="nextQuestion">
+                  {'<'}
+                  Previous Page
+                </div>
+              )
               : null}
             {questionIndex > 1
-              ? <div role="button" tabIndex={0} onClick={this.nextPg} onKeyPress={this.handleEnter} className="nextQuestion">Next Page &gt;</div>
+              ? (
+                <div role="button" tabIndex={0} onClick={this.nextPg} onKeyPress={this.handleEnter} className="nextQuestion">
+                  Next Page
+                  {'>'}
+                </div>
+              )
               : null}
           </div>
         </div>

@@ -101,10 +101,12 @@ class Question extends React.Component {
     this.addOrSubtract();
   }
 
+  // sets modal open/close state
   answerModal(cb) {
     this.setState({ answerModalOpen: cb });
   }
 
+  //  sets display state of answers shown
   addOrSubtract() {
     const { display } = this.state;
     if (display === 0) {

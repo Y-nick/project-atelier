@@ -66,9 +66,10 @@ const style2 = {
   },
   content: {
     position: 'absolute',
-    top: '300px',
+    top: '100px',
     left: '20%',
-    bottom: '100px',
+    right: '100px',
+    bottom: '20%',
     width: '50em',
     height: '50em',
     border: '1px solid #ccc',
@@ -97,6 +98,7 @@ class AddAnswer extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
+  // handles escape key form close;
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress, true);
   }
@@ -105,8 +107,8 @@ class AddAnswer extends React.Component {
     document.removeEventListener('keydown', this.handleKeyPress, false);
   }
 
+  // image upload not yet fully functional (Requires image url)
   handleUpload(e) {
-    // need to add upload button to pass files to higher state
     const { images } = this.state;
     images.push(e.target.files[0]);
     this.setState({ uploadOpen: false });
@@ -127,6 +129,7 @@ class AddAnswer extends React.Component {
     }
   }
 
+  // function to close on escape key press
   handleKeyPress(e) {
     const { modalFun } = this.props;
     if (e.keyCode === 27) {
@@ -135,6 +138,7 @@ class AddAnswer extends React.Component {
     }
   }
 
+  // passes modal close up to Question component
   closeModal() {
     const { modalFun } = this.props;
     this.setState({ modalOpen: false });
@@ -153,7 +157,7 @@ class AddAnswer extends React.Component {
     if (nickname.length < 2) {
       nicknameError = 'Please enter a valid nickname';
     }
-    if (!email.includes('@')) {
+    if (!email.includes('@') || !email.includes('.com')) {
       emailError = 'Please enter valid email';
     }
 
@@ -262,7 +266,7 @@ class AddAnswer extends React.Component {
             </div>
           </form>
         </Modal>
-        <Modal isOpen={uploadOpen} style={style} appElement={document.getElementById('root')}>
+        <Modal isOpen={uploadOpen} style={style2} appElement={document.getElementById('root')}>
           <form id="formContainer">
             <div className="x" role="button" tabIndex={0} onKeyPress={(e) => { this.handleKeyPress(e); }} onClick={() => { this.setState({ uploadOpen: false }); }}>EXIT</div>
             <input type="file" onChange={this.handleUpload} />

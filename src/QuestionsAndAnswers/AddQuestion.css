@@ -70,8 +70,6 @@
   margin-top: 1em;
 }
 
-
-
 .button {
   margin-bottom: 7%;
   background-color: #fff;
@@ -101,99 +99,3 @@
 .ReactModal__Body--open {
   overflow: hidden; /* prevents background page from scrolling when the modal is open */
 }
-
-
-/* WORKING CSS
-
-:root {
-  --button-height: 3.12em;
-  --button-border: 1px solid #000;
-}
-
-
-
-#formContainer {
-  display: flex;
-  flex-direction: column;
-  margin-right: 30%;
-  margin-left: 30%;
-  margin-top: 5%;
-  margin-bottom: 10%;
-  position: absolute;
-}
-
-.x {
-  position: relative;
-  margin-left: 105%;
-  cursor: pointer;
-  color: rgb(241, 236, 236);
-  font-size: large;
-
-}
-
-.x:hover {
-  color:black
-}
-
-#nickname {
-  display: block;
-}
-
-.privacy {
-  font-size: small;
-  color: grey;
-  margin: 0%;
-}
-
-.emailDiv {
-  display: block;
-  margin-top: 15px;
-}
-
-.reviewDiv {
-  position: absolute;
-  margin-top: 88%;
-  margin-bottom: 15px;
-}
-
-.error {
-  color: red;
-  font-size: small;
-  margin: 0%;
-}
-
-.buttonDiv {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 1em;
-}
-
-
-
-.button {
-  margin-bottom: 7%;
-  background-color: #fff;
-  border: var(--button-border);
-  height: var(--button-height);
-  width: 15em;
-  position: relative;
-  cursor: pointer;
-}
-
-.ReactModal__Overlay {
-  opacity: 0;
-  transition: opacity 1800ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-  z-index: 3000;
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-}
-
-*/

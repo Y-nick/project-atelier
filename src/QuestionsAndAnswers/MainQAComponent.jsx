@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import QuestionList from './QuestionList.jsx';
 
 const axios = require('axios');
-// may need to run --env goal=local in dev to get .env local file
-// Update params object to meet your needs
 
 const MainQAComponent = ({ curProduct }) => {
   const [questions, setQuestions] = useState([]);
