@@ -27,7 +27,7 @@
 
 .smallQ {
   display: flex;
-  gap: 2%;
+  gap: 1%;
   font-size: small;
   color: gray;
 }
@@ -133,6 +133,7 @@
 .prevNext{
   display: flex;
   flex-direction: row;
+  font-size: medium;
   gap: 2%;
   margin-bottom: 2%;
   margin-left: 3%;

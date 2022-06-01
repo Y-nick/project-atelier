@@ -52,6 +52,38 @@ const style = {
   },
 };
 
+const style2 = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F8F8F8',
+  },
+  content: {
+    position: 'absolute',
+    top: '300px',
+    left: '20%',
+    bottom: '100px',
+    width: '50em',
+    height: '50em',
+    border: '1px solid #ccc',
+    background: '#fff',
+    overflow: 'hidden',
+    WebkitOverflowScrolling: 'scroll',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '0px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+};
+
 class AddAnswer extends React.Component {
   constructor(props) {
     super(props);
@@ -74,6 +106,7 @@ class AddAnswer extends React.Component {
   }
 
   handleUpload(e) {
+    // need to add upload button to pass files to higher state
     const { images } = this.state;
     images.push(e.target.files[0]);
     this.setState({ uploadOpen: false });
@@ -132,7 +165,9 @@ class AddAnswer extends React.Component {
   }
 
   postAnswer() {
-    const { answer, nickname, email } = this.state;
+    const {
+      answer, nickname, email, images,
+    } = this.state;
     const { fetcher, details } = this.props;
     const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/answers`;
     const options = {
@@ -142,6 +177,7 @@ class AddAnswer extends React.Component {
         body: answer,
         name: nickname,
         email,
+        photos: images,
       },
       headers: { authorization: process.env.API_KEY },
     };
