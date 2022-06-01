@@ -185,27 +185,12 @@ class AddAnswer extends React.Component {
       },
       headers: { authorization: process.env.API_KEY },
     };
-    const apiURL2 = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/answers`;
-    const options2 = {
-      url: apiURL2,
-      method: 'get',
-      headers: { authorization: process.env.API_KEY },
-      params: {
-        page: 1,
-        count: 11,
-      },
-    };
+
     axios(options).then(() => {
-      console.log('ANSWER post successful');
     }).catch((err) => {
       console.log('error posting data', err);
     }).then(() => {
       fetcher();
-      axios(options2).then((data) => {
-        console.log(data.data.results);
-      }).catch((err) => {
-        console.log('error fetching data', err, options2.params.question_id);
-      });
     });
   }
 
@@ -219,7 +204,17 @@ class AddAnswer extends React.Component {
       <>
         <Modal isOpen={modalOpen} style={style} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            <div role="button" tabIndex={0} className="x" onClick={this.closeModal} onKeyPress={(e) => { this.handleKeyPress(e); }}>X</div>
+            (
+            <div
+              role="button"
+              tabIndex={0}
+              className="x"
+              onClick={this.closeModal}
+              onKeyPress={(e) => { this.handleKeyPress(e); }}
+            >
+              X
+            </div>
+            )
             <h1>SUBMIT YOUR ANSWER</h1>
             <h3>{`${item.name}: ${details.question_body}`}</h3>
             <div className="text1Div">
@@ -253,7 +248,17 @@ class AddAnswer extends React.Component {
               {!emailError ? null : <p className="error">{emailError}</p>}
             </div>
             <div className="uploadDiv">
-              {imageCount <= 5 ? <button className="button" type="button" onClick={() => { this.setState({ uploadOpen: !uploadOpen }); }}>UPLOAD IMAGES</button> : null}
+              {imageCount <= 5
+                ? (
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() => { this.setState({ uploadOpen: !uploadOpen }); }}
+                  >
+                    UPLOAD IMAGES
+                  </button>
+                )
+                : null}
               <div className="imageDiv">
                 {images.map((image) => (
                   <div>{image.name}</div>
@@ -268,7 +273,17 @@ class AddAnswer extends React.Component {
         </Modal>
         <Modal isOpen={uploadOpen} style={style2} appElement={document.getElementById('root')}>
           <form id="formContainer">
-            <div className="x" role="button" tabIndex={0} onKeyPress={(e) => { this.handleKeyPress(e); }} onClick={() => { this.setState({ uploadOpen: false }); }}>EXIT</div>
+            (
+            <div
+              className="x"
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => { this.handleKeyPress(e); }}
+              onClick={() => { this.setState({ uploadOpen: false }); }}
+            >
+              )
+              EXIT
+            </div>
             <input type="file" onChange={this.handleUpload} />
           </form>
         </Modal>
