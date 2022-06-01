@@ -46,9 +46,21 @@ const postCart = (sku_id, count) => {
   return axios(options);
 };
 
+const postInteractions = (element, widget, time) => {
+  const options = {
+    url: '/interactions',
+    baseURL: apiURL,
+    method: 'post',
+    data: {element: element, widget: widget, time: time.toString()},
+    headers: { authorization: process.env.API_KEY },
+  };
+  return axios(options);
+}
+
 module.exports = {
   fetchCurrentProduct,
   fetchStyles,
   fetchReview,
   postCart,
+  postInteractions,
 };

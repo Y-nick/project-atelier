@@ -64,6 +64,7 @@
   height: 50em;
   transform: scale(2.5);
   object-fit: fill;
+  /* display:none; */
 }
 
 .full-size {

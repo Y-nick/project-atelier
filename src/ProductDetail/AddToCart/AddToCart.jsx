@@ -24,6 +24,7 @@ const AddToCart = ({ SKUs }) => {
       setOpen(true);
     }
   };
+
   return (
     <div className="add-to-cart-container">
       {cartError ? <div className="cart-error">Please Select Size</div> : null}

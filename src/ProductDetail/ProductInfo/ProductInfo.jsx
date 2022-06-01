@@ -3,11 +3,16 @@ import StarRating from './StarRating.jsx';
 import Share from './Share.jsx';
 import './productInfo.css';
 
-const ProductInfo = ({ product, styleSale, stylePrice }) => (
+const ProductInfo = ({
+  product,
+  styleSale,
+  stylePrice,
+  review,
+}) => (
   <div className="product-info-container">
 
     <div className="ratings-and-share-container">
-      <StarRating />
+      <StarRating review={review} />
     </div>
 
     <div className="product-category">{product.category}</div>

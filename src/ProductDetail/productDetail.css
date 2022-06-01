@@ -70,7 +70,7 @@ select {
 }
 
 
-.product-detail-container {
+.productDetail {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 19.2px;
@@ -92,7 +92,7 @@ select {
 
 
 @media screen and (max-width: 1145px){
-  .product-detail-container {
+  .productDetail {
     font-size: 16px;
   }
 }

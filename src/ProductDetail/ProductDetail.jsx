@@ -5,6 +5,7 @@ import ProductDesc from './ProductDesc/ProductDesc.jsx';
 import AddToCart from './AddToCart/AddToCart.jsx';
 import StyleSelector from './StyleSelector/StyleSelector.jsx';
 import ImageGallery from './ImageGallery/ImageGallery.jsx';
+import Tracker from './Tracker.jsx';
 import './productDetail.css';
 
 const apiRequest = require('./apiRequests');
@@ -20,15 +21,15 @@ class ProductDetails extends React.Component {
       skus: [],
       photos: [],
       curPhoto: 0,
-      // review: {},
+      review: {},
     };
   }
 
   componentDidMount() {
-    const prodNum = 66642;
+    const prodNum = 66644;
     this.getProduct(prodNum);
     this.getStyle(prodNum);
-    // this.getReview(66642);
+    this.getReview(prodNum);
   }
 
   handleStyle = (style) => {
@@ -74,13 +75,14 @@ class ProductDetails extends React.Component {
       curPhoto: value,
     });
   };
-  // getReview = (productId) => {
-  //   apiRequest.fetchReview(productId)
-  //     .then((response) => this.setState({
-  //       review: response.data,
-  //     }))
-  //     .catch((error) => console.log(error));
-  // };
+
+  getReview = (productId) => {
+    apiRequest.fetchReview(productId)
+      .then((response) => this.setState({
+        review: response.data,
+      }))
+      .catch((error) => console.log(error));
+  };
 
   render() {
     const {
@@ -91,28 +93,36 @@ class ProductDetails extends React.Component {
       skus,
       photos,
       curPhoto,
+      review,
     } = this.state;
 
     return (
       <div>
-        <div className="product-detail-container">
-          <div className="announce-message">SITE-WIDE ANNOUNCEMENT MESSAGE! SALE ON CERTAIN ITEMS!</div>
-          <div className="product-detail-grid">
-            <ImageGallery pics={photos} curPhoto={curPhoto} handleCurPhoto={this.handleCurPhoto} />
-            <ProductInfo
-              product={curProduct}
-              styleSale={curStyle.sale_price}
-              stylePrice={curStyle.original_price}
+        <Tracker>
+          <div className="productDetail">
+            <div className="announce-message">SITE-WIDE ANNOUNCEMENT MESSAGE! SALE ON CERTAIN ITEMS!</div>
+            <div className="product-detail-grid">
+              <ImageGallery
+                pics={photos}
+                curPhoto={curPhoto}
+                handleCurPhoto={this.handleCurPhoto}
+              />
+              <ProductInfo
+                product={curProduct}
+                styleSale={curStyle.sale_price}
+                stylePrice={curStyle.original_price}
+                review={review}
+              />
+              <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
+              <AddToCart SKUs={skus} />
+            </div>
+            <ProductDesc
+              slogan={curProduct.slogan}
+              desc={curProduct.description}
+              features={features}
             />
-            <StyleSelector curStyle={curStyle} styles={styles} handleStyle={this.handleStyle} />
-            <AddToCart SKUs={skus} />
           </div>
-          <ProductDesc
-            slogan={curProduct.slogan}
-            desc={curProduct.description}
-            features={features}
-          />
-        </div>
+        </Tracker>
         <MainQAComponent curProduct={curProduct} />
       </div>
     );
