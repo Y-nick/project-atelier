@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import QuestionList from './QuestionList.jsx';
 
 const axios = require('axios');
-// may need to run --env goal=local in dev to get .env local file
-// Update params object to meet your needs
 
 const MainQAComponent = ({ curProduct }) => {
   const [questions, setQuestions] = useState([]);
 
-  const fetchQuestions = () => {
+  const fetchQuestions = (page = 1, count = 11) => {
     const apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions';
     const options = {
       url: apiURL,
@@ -16,8 +14,8 @@ const MainQAComponent = ({ curProduct }) => {
       headers: { authorization: process.env.API_KEY },
       params: {
         product_id: curProduct.id,
-        page: 1,
-        count: 11,
+        page,
+        count,
       },
     };
     axios(options).then((data) => {

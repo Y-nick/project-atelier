@@ -5,12 +5,12 @@
 
 .QADiv {
   display: flex;
-  position: absolute;
   flex-direction: column;
-  margin-left: 18%;
-  margin-right: 30%;
-  margin-top: 5%;
-  margin-bottom: 8%;
+  flex-basis: 50%;
+  justify-content: center;
+  margin: 8%;
+  margin-left: 10%;
+  margin-right: 8%;
 }
 
 
@@ -26,44 +26,45 @@
 }
 
 .smallQ {
-  display: inline;
-  position: relative;
+  display: flex;
+  gap: 1%;
   font-size: small;
   color: gray;
-  margin-right: 8%;
 }
 
 #yes {
-  display: inline;
-  font-size: small;
-  color: gray;
-  margin-left: 1%;
-  margin-right: 8%;
   text-decoration: underline;
+  cursor: pointer;
 }
+
+#questionScroll
+ {
+  height: 650px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+ }
 
 .answerSmallDiv {
   display: flex;
-  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
   font-size: small;
   color: gray;
-  margin-left: 55%;
+  margin-left: 70%;
 }
 
-.smallA {
-  display: block;
-  margin-right: 8%;
+.yes {
+  text-decoration: underline;
 }
 
 .addAnswer {
   cursor: pointer;
   text-decoration: underline;
-  margin-right: 2%;
-  margin-left: 2%;
 }
 
 .moreAnswers {
-  margin-left: 2%;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -91,10 +92,18 @@
   outline: auto;
 }
 
+.searchIconDiv {
+  position: relative;
+  flex-direction: row-reverse;
+  margin-left: 28%;
+  margin-right: 3%;
+
+}
+
 .bi-search {
   position: relative;
-  margin-top: 2.7%;
-  margin-right: 4%;
+  margin-top: 63%;
+  margin-left: 89%;
 }
 
 .QAButtonDiv {
@@ -107,9 +116,6 @@
 }
 
 .butt1, .butt2 {
-  /* margin-left: 15px;
-  width: 45%;
-  font-size: large; */
   background-color: #fff;
   border: var(--button-border);
   height: var(--button-height);
@@ -118,9 +124,17 @@
   cursor: pointer;
 }
 
-/* .butt2 {
-  margin-left: 15px;
-  width: 45%;
-  font-size: large;
+.nextQuestion {
+  text-decoration: underline;
+  color: gray;
   cursor: pointer;
-} */
+}
+
+.prevNext{
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  gap: 2%;
+  margin-bottom: 2%;
+  margin-left: 3%;
+}
