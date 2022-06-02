@@ -12,6 +12,8 @@ class Question extends React.Component {
       answerModalOpen: false,
       moreLess: 'More',
       answerListID: 'answerList',
+      clickedQ: false,
+      clickedA: false,
     };
     this.toggleAnswers = this.toggleAnswers.bind(this);
     this.addOrSubtract = this.addOrSubtract.bind(this);
@@ -24,36 +26,44 @@ class Question extends React.Component {
 
   handleVote() {
     const { details, fetcher } = this.props;
+    const { clickedQ } = this.state;
     const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${details.question_id}/helpful`;
     const options = {
       url: apiURL,
       method: 'put',
       headers: { authorization: process.env.API_KEY },
     };
-    axios(options).then(() => {
-      console.log('PUT Req successful');
-    }).catch((err) => {
-      console.log('error on PUT req', err);
-    }).then(() => {
-      fetcher();
-    });
+    if (clickedQ === false) {
+      axios(options).then(() => {
+        console.log('PUT Req successful');
+      }).catch((err) => {
+        console.log('error on PUT req', err);
+      }).then(() => {
+        fetcher();
+      });
+    }
+    this.setState({ clickedQ: true });
   }
 
   handleAnswerVote(e, answer) {
     const { fetcher } = this.props;
+    const { clickedA } = this.state;
     const apiURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${answer.id}/helpful`;
     const options = {
       url: apiURL,
       method: 'put',
       headers: { authorization: process.env.API_KEY },
     };
-    axios(options).then(() => {
-      console.log('PUT Req successful');
-    }).catch((err) => {
-      console.log('error on PUT req', err);
-    }).then(() => {
-      fetcher();
-    });
+    if (clickedA === false) {
+      axios(options).then(() => {
+        console.log('PUT Req successful');
+      }).catch((err) => {
+        console.log('error on PUT req', err);
+      }).then(() => {
+        fetcher();
+      });
+    }
+    this.setState({ clickedA: true });
   }
 
   handleReport() {
