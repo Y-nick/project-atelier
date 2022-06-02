@@ -53,6 +53,6 @@ module.exports = {
     },
     compress: true,
     // [port] what port on our local machine to run the dev server
-    port: process.env.PORT,
+    port: 8080,
   },
 };

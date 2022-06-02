@@ -28,7 +28,7 @@ const QuantitySelector = ({
         tabIndex="0"
         role="button"
       >
-        <div>{quantity || (size ? <QuantityItem key={1} option={1} setQuantity={setQuantity} setOpen={setOpen} /> : '-')}</div>
+        <div>{quantity || (size ? <QuantityItem key={1} option={1} setQuantity={setQuantity} setOpen={setOpen} /> : '—')}</div>
         <div><img src={downChevy} alt="Down nav" /></div>
       </div>
 
