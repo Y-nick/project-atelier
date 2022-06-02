@@ -167,8 +167,8 @@ class Question extends React.Component {
             />
           ) : null}
         {answerObj.map((answer, index) => (
-          <>
-            <div className="answer" key={answer.id}>
+          <div key={answer.id}>
+            <div className="answer">
               {index <= display ? `A:  ${answer.body} ` : null}
               <div className="username">
                 {index <= display ? `by User: ${answer.answerer_name}, ${answer.date}` : null}
@@ -185,7 +185,7 @@ class Question extends React.Component {
                   <div role="button" tabIndex={0} onKeyPress={this.handleEnter} onClick={(e) => { this.handleReportAnswer(e, answer); }} id="yes">Report</div>
                 </div>
               ) : null}
-          </>
+          </div>
         ))}
       </div>
     );

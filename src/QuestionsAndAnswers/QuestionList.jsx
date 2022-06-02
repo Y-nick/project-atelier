@@ -60,7 +60,8 @@ class QuestionList extends React.Component {
 
   render() {
     const {
-      questionIndex, modalOpen, search, moreLess, questionScroll, questions,
+      questionIndex, modalOpen, search, moreLess, questionScroll,
+      questions, page,
     } = this.state;
     const { curProduct, fetcher } = this.props;
     return (
@@ -105,7 +106,7 @@ class QuestionList extends React.Component {
             ))
           }
           <div className="prevNext">
-            {questionIndex > 1
+            {questionIndex > 1 && page > 1
               ? (
                 <div role="button" tabIndex={0} onClick={this.previousPg} onKeyPress={this.handleEnter} className="nextQuestion">
                   {'<'}
