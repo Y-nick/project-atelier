@@ -64,9 +64,17 @@
   text-decoration: underline;
 }
 
+.addAnswer:hover {
+  color: black;
+}
+
 .moreAnswers {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.moreAnswers:hover {
+  color: black;
 }
 
 .answer {
