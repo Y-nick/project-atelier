@@ -65,23 +65,27 @@ const style2 = {
     backgroundColor: '#F8F8F8',
   },
   content: {
-    position: 'absolute',
-    top: '100px',
+    // position: 'absolute',
+    // top: '300px',
     left: '20%',
-    right: '100px',
-    bottom: '20%',
-    width: '50em',
-    height: '50em',
+    right: '20%',
+    // bottom: '400px',
+    // width: '50em',
+    // height: '50em',
     border: '1px solid #ccc',
     background: '#fff',
-    overflow: 'hidden',
-    WebkitOverflowScrolling: 'scroll',
+    // overflow: 'hidden',
+    // WebkitOverflowScrolling: 'scroll',
     borderRadius: '4px',
+    'margin-top': '120px',
+    'margin-bottom': '120px',
+    color: 'red',
     outline: 'none',
     padding: '0px',
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    // flexDirection: 'column',
+    // alignItems: 'center',
+    // alignContent: 'center',
   },
 };
 
@@ -107,7 +111,6 @@ class AddAnswer extends React.Component {
     document.removeEventListener('keydown', this.handleKeyPress, false);
   }
 
-  // image upload not yet fully functional (Requires image url)
   handleUpload(e) {
     const { images } = this.state;
     images.push(e.target.files[0]);
@@ -129,7 +132,6 @@ class AddAnswer extends React.Component {
     }
   }
 
-  // function to close on escape key press
   handleKeyPress(e) {
     const { modalFun } = this.props;
     if (e.keyCode === 27) {
@@ -138,7 +140,6 @@ class AddAnswer extends React.Component {
     }
   }
 
-  // passes modal close up to Question component
   closeModal() {
     const { modalFun } = this.props;
     this.setState({ modalOpen: false });
