@@ -82,7 +82,7 @@
 
 .ReactModal__Overlay {
   opacity: 0;
-  transition: opacity 1800ms ease-in-out;
+  /* transition: opacity 1800ms ease-in-out; */
   display: flex;
 }
 

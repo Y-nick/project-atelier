@@ -21,6 +21,7 @@ class QuestionList extends React.Component {
     this.toggleQ = this.toggleQ.bind(this);
     this.nextPg = this.nextPg.bind(this);
     this.previousPg = this.previousPg.bind(this);
+    this.questionFilter = this.questionFilter.bind(this);
   }
 
   // IF THIS CAUSES PROBLEMS CHANGE IT BACK TO
@@ -58,6 +59,20 @@ class QuestionList extends React.Component {
     }
   }
 
+  // decided to factor out this code from the render function;
+  questionFilter(questionsData, search) {
+    return questionsData.filter((question) => {
+      if (search.length < 3) {
+        return question;
+      }
+      if (search.length >= 3
+      && question.question_body.toLowerCase().includes(search.toLowerCase())) {
+        return question;
+      }
+      return null;
+    });
+  }
+
   render() {
     const {
       questionIndex, modalOpen, search, moreLess, questionScroll,
@@ -82,16 +97,7 @@ class QuestionList extends React.Component {
         </form>
         <div id={questionScroll}>
           {
-            questions.filter((question) => {
-              if (search.length < 3) {
-                return question;
-              }
-              if (search.length >= 3
-              && question.question_body.toLowerCase().includes(search.toLowerCase())) {
-                return question;
-              }
-              return null;
-            }).map((elem, index) => (
+            this.questionFilter(questions, search).map((elem, index) => (
               <div key={elem.question_id} className="QAPair">
                 {index <= questionIndex
                   ? (
