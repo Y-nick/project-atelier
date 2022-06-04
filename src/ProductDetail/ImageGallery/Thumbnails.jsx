@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import './gallery.css';
 import upChevy from '../images/chevron-up.svg';
 import downChevy from '../images/chevron-down.svg';
@@ -7,7 +7,7 @@ import horizontalLine from '../images/horizontal-line.svg';
 const Thumbnails = ({ pics, selectPic, curPhoto }) => {
   const [thumbsArr, updateThumbs] = useState(pics);
 
-  useEffect(() => {
+  useMemo(() => {
     updateThumbs(pics);
   }, [pics]);
 
@@ -58,19 +58,16 @@ const Thumbnails = ({ pics, selectPic, curPhoto }) => {
         >
 
           <div className="thumb-selection-wrapper">
-            {pic.thumbnail_url === null
-              ? null
-              : <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />}
+            {pic.thumbnail_url && <img className="thumb-img" src={pic.thumbnail_url} alt="Thumbnail" />}
           </div>
 
           {pics[curPhoto].thumbnail_url === pic.thumbnail_url
-            ? <div className="horizontal-line"><img src={horizontalLine} alt="horizontal line" /></div>
-            : null}
+            && <div className="horizontal-line"><img src={horizontalLine} alt="horizontal line" /></div>}
 
         </div>
       )).filter((thumb, idx) => idx < 4)}
 
-      {thumbsArr.length < 5 ? null : (
+      {thumbsArr.length > 5 && (
         <div
           className="down-chevron"
           onClick={scrollDown}

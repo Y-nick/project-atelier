@@ -15,9 +15,8 @@ const ImageView = ({
 }) => (
   <div className="image-view">
 
-    {zoom === 'main-img-zoomed' || displayNav < 2
-      ? null
-      : (
+    {!(zoom === 'main-img-zoomed' || displayNav < 2)
+      && (
         <div
           className="left-chevron"
           onClick={() => handlePrevImg()}
@@ -51,9 +50,8 @@ const ImageView = ({
 
     </div>
 
-    {zoom === 'main-img-zoomed' || displayNav < 2
-      ? null
-      : (
+    {!(zoom === 'main-img-zoomed' || displayNav < 2)
+      && (
         <div
           className="right-chevron"
           onClick={() => handleNextImg()}
