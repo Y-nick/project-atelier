@@ -2,4 +2,7 @@ webpack.config.js
 dist/bundle.js
 eslintrc.json
 src/ProductDetail/apiRequests.js
-
+babel.config.js
+webpack.dev.config.js
+webpack.prod.config.js
+server/index.js

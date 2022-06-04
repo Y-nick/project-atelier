@@ -8,7 +8,11 @@ import ImageGallery from './ImageGallery/ImageGallery.jsx';
 import Tracker from './Tracker.jsx';
 import './productDetail.css';
 
-const apiRequest = require('./apiRequests');
+import {
+  useCurrentProduct,
+  useStyles,
+  useReview,
+} from './apiHooks';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -42,7 +46,7 @@ class ProductDetails extends React.Component {
   };
 
   getProduct = (productId) => {
-    apiRequest.fetchCurrentProduct(productId)
+    useCurrentProduct(productId)
       .then((response) => this.setState({
         curProduct: response.data,
         features: response.data.features,
@@ -51,7 +55,7 @@ class ProductDetails extends React.Component {
   };
 
   getStyle = (productId) => {
-    apiRequest.fetchStyles(productId)
+    useStyles(productId)
       .then((response) => {
         this.setState({
           styles: response.data.results,
@@ -77,7 +81,7 @@ class ProductDetails extends React.Component {
   };
 
   getReview = (productId) => {
-    apiRequest.fetchReview(productId)
+    useReview(productId)
       .then((response) => this.setState({
         review: response.data,
       }))
@@ -100,7 +104,7 @@ class ProductDetails extends React.Component {
       <div>
         <Tracker>
           <div className="productDetail">
-            <div className="announce-message">SITE-WIDE ANNOUNCEMENT MESSAGE! SALE ON CERTAIN ITEMS!</div>
+            <div className="announce-message">SITEWIDE ANNOUNCEMENT HERE! BIG SALE ON CERTAIN ITEMS</div>
             <div className="product-detail-grid">
               <ImageGallery
                 pics={photos}

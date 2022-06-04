@@ -5,7 +5,7 @@ import plus from '../images/plus.svg';
 import star from '../images/star.svg';
 import './cart.css';
 
-const apiRequests = require('../apiRequests');
+import { useCart } from '../apiHooks';
 
 const AddToCart = ({ SKUs }) => {
   const [curSKU, setSKU] = useState(0);
@@ -16,7 +16,7 @@ const AddToCart = ({ SKUs }) => {
   const [cartError, setError] = useState(false);
   const handleClick = () => {
     if (size) {
-      apiRequests.postCart(curSKU, quantity)
+      useCart(curSKU, quantity)
         .then((success) => console.log(success))
         .catch((error) => console.log(error));
     } else {

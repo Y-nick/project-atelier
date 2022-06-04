@@ -7,9 +7,9 @@ module.exports = {
   // [mode] will determine how our code will be bundled.
   // "development" will be human readable
   // "production" will be minified
-  mode: "development",
+  mode: 'development',
   // [entry] this is the file where the bundling starts from.
-  entry: "./src/index.jsx",
+  entry: path.join(__dirname, 'src/index.jsx'),
   // [output] is a configuration object to determine how and where to bundle our code
   output: {
     // [path] is where to output
@@ -20,7 +20,6 @@ module.exports = {
   plugins: [
     new Dotenv()
   ],
-
   // [module] will allow us to set any external modules we have added to webpack
   module: {
     // [rules] will determine the rules around those external modules
@@ -40,11 +39,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
-    ]
+    ],
   },
-  // [devtool] this is an additional source map that will let the browser know what files are running our code.
-  // Helps with error tracing. Without it we will not know where our errors are coming from because it will state that everything inside the bundle file.
-  devtool: "eval-cheap-module-source-map",
+
+  devtool: 'eval-cheap-module-source-map',
   // [devServer] configuration for the live server including port
   devServer: {
     // [static] config for how what to serve
@@ -53,6 +51,6 @@ module.exports = {
     },
     compress: true,
     // [port] what port on our local machine to run the dev server
-    port: 8080,
+    port: process.env.PORT,
   },
 };
